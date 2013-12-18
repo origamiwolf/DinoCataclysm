@@ -691,7 +691,7 @@ bool game::do_turn()
         }
     }
 
-    if (turn % 50 == 0) { // Hunger, thirst, & fatigue up every 5 minutes
+    if (turn % 100 == 0) { // Hunger & thirst up every 5 minutes
         if ((!u.has_trait("LIGHTEATER") || !one_in(3)) &&
             (!u.has_bionic("bio_recycler") || turn % 300 == 0)) {
             u.hunger++;
@@ -722,6 +722,9 @@ bool game::do_turn()
                 u.thirst += 2;
             }
         }
+    }
+
+    if (turn % 50 == 0) { // fatigue up every 5 minutes
         // Don't increase fatigue if sleeping or trying to sleep or if we're at the cap.
         if (u.fatigue < 1050 && !(u.has_disease("sleep") || u.has_disease("lying_down"))) {
             u.fatigue++;
@@ -843,7 +846,8 @@ bool game::do_turn()
         refresh();
     }
 
-    u.update_bodytemp();
+    if (OPTIONS["BODYTEMP"])
+        u.update_bodytemp();
 
     rustCheck();
     if (turn % 10 == 0) {

@@ -462,6 +462,11 @@ void initOptions() {
                                              "vanilla,capped,int,intcap,off", "vanilla"
                                             );
 
+    OPTIONS["BODYTEMP"] =               cOpt("debug", _("Temperature effects"),
+                                             _("If true, player will be affected by ambient temperature."),
+                                             false
+                                            );
+
     optionNames["no"] = _("No");
     optionNames["yes"] = _("Yes");
     optionNames["query"] = _("Query");
