@@ -181,8 +181,6 @@ public:
   int torch_lit        (player *, item *, bool);
   int handflare        (player *, item *, bool);
   int handflare_lit    (player *, item *, bool);
-  int battletorch      (player *, item *, bool);
-  int battletorch_lit  (player *, item *, bool);
   int candle           (player *, item *, bool);
   int candle_lit       (player *, item *, bool);
   int bullet_puller    (player *, item *, bool);
