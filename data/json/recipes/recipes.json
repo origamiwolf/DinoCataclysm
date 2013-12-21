@@ -2765,14 +2765,14 @@
     ]
   },{
         "type" : "recipe",
-  "result" : "shaft_wood",
+  "result" : "arrow_wood",
   "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
+  "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
   "difficulty" : 0,
-  "time" : 1000,
+  "time" : 2000,
   "reversible" : false,
-  "autolearn" : true,
+  "autolearn" : false,
   "qualities":[
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -2783,106 +2783,7 @@
       [ "mop", 1 ],
       [ "2x4", 1 ],
       [ "bee_sting", 1 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "shaft_wood_heavy",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 3,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 2 ] , [ "pocket_survival", 2] , [ "manual_archery", 1]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "stick", 2 ],
-      [ "broom", 2 ],
-      [ "mop", 2 ],
-      [ "2x4", 1 ],
-      [ "bee_sting", 2 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "shaft_metal",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 3,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 1 ]],
-  "tools" : [
-    [
-      [ "hacksaw", -1 ],
-      [ "toolset", -1 ]
     ],
-    [
-      [ "rock", -1 ],
-      [ "primitive_hammer", -1 ],
-      [ "hammer", -1 ],
-      [ "hatchet", -1 ],
-      [ "toolset", -1 ]
-    ]
-  ],
-  "components" : [
-    [
-      [ "scrap", 6 ],
-      [ "steel_chunk", 2 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrowhead",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 3,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 1 ] , [ "manual_archery", 2] , [ "book_archery", 3]],
-  "tools" : [
-    [
-      [ "rock", -1 ],
-      [ "primitive_hammer", -1 ],
-      [ "hammer", -1 ],
-      [ "hatchet", -1 ],
-      [ "toolset", -1 ]
-    ]
-  ],
-  "components" : [
-    [
-      [ "steel_chunk", 1 ],
-      [ "scrap", 3 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "fletching",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 3,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 1 ] , [ "manual_archery", 2 ] , [ "book_archery", 3]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
     [
       [ "feather", 10 ],
       [ "duct_tape", 40 ],
@@ -2894,39 +2795,16 @@
   ]
 },{
         "type" : "recipe",
-  "result" : "arrow_fire_hardened",
+  "result" : "arrow_wood_broadhead",
   "category" : "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 0,
-  "time" : 5000,
+  "skills_required": [ "archery", 3 ],
+  "difficulty" : 5,
+  "time" : 3000,
   "reversible" : false,
-  "autolearn" : true,
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "tools" : [
-    [
-      [ "fire", -1 ]
-    ]
-  ],
-  "components" : [
-    [
-      [ "shaft_wood", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_field_point",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 1,
-  "time" : 2000,
-  "reversible" : false,
-  "autolearn" : true,
+  "autolearn" : false,
+  "book_learn" : [[ "recipe_arrows", 3 ]],
   "qualities":[
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -2941,129 +2819,16 @@
   ],
   "components" : [
     [
-      [ "shaft_wood", 10 ]
+      [ "arrow_wood", 10 ]
     ],
     [
-      [ "bone", 5 ],
-      [ "rock", 1 ],
-      [ "scrap", 2 ],
-      [ "nail", 10 ]
+      [ "steel_chunk", 1 ],
+      [ "scrap", 3 ]
     ]
   ]
 },{
         "type" : "recipe",
-  "result" : "arrow_small_game",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty" : 2,
-  "time" : 2000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 1 ] , [ "pocket_survival", 1]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "shaft_wood", 10 ]
-    ],
-    [
-      [ "bone", 3 ],
-      [ "rock", 1 ],
-      [ "scrap", 2 ],
-      [ "nail", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_fire_hardened_fletched",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 3,
-  "time" : 3000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 2 ] , [ "book_archery", 3]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "arrow_fire_hardened", 10 ]
-    ],
-    [
-      [ "fletching", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_field_point_fletched",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 3,
-  "time" : 3000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 1 ] , [ "book_archery", 3]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "arrow_field_point", 10 ]
-    ],
-    [
-      [ "fletching", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "flamable_arrow",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 3,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : false,
-  "book_learn" : [[ "recipe_arrows", 5 ]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "arrow_field_point_fletched", 5 ],
-      [ "arrow_fire_hardened_fletched", 5 ],
-      [ "arrow_wood", 5 ],
-      [ "arrow_heavy_fire_hardened_fletched", 5 ],
-      [ "arrow_heavy_field_point_fletched", 5 ],
-      [ "arrow_wood_heavy", 5 ],
-      [ "arrow_metal", 5 ]
-    ],
-    [
-      [ "rag", 1 ]
-    ],
-    [
-      [ "whiskey", 5 ],
-      [ "single_malt_whiskey", 5 ],
-      [ "vodka", 5 ],
-      [ "rum", 5 ],
-      [ "tequila", 5 ],
-      [ "gin", 5 ],
-      [ "triple_sec", 5 ],
-      [ "gasoline", 200 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_wood",
+  "result" : "arrow_wood_target",
   "category" : "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
@@ -3076,127 +2841,22 @@
   "qualities":[
     {"id":"CUT","level":1,"amount":1}
   ],
-  "components" : [
-    [
-      [ "arrowhead", 10 ]
-    ],
-    [
-      [ "shaft_wood", 10 ]
-    ],
-    [
-      [ "fletching", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_metal_sharpened",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 5,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 3 ]],
   "tools" : [
-    [
-      [ "hacksaw", -1 ],
-      [ "toolset", -1 ]
-    ],
     [
       [ "rock", -1 ],
       [ "primitive_hammer", -1 ],
       [ "hammer", -1 ],
       [ "hatchet", -1 ],
       [ "toolset", -1 ]
-        ]
-  ],
-  "components" : [
-    [
-      [ "shaft_metal", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_heavy_fire_hardened_fletched",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 5,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : true,
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "tools" : [
-    [
-      [ "fire", -1 ]
     ]
   ],
   "components" : [
     [
-      [ "shaft_wood_heavy", 10 ]
+      [ "arrow_wood", 10 ]
     ],
     [
-      [ "fletching", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_heavy_field_point_fletched",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 5,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : false,
-  "book_learn" : [[ "recipe_arrows", 2 ] , [ "pocket_survival", 2]],
-  "qualities" : [
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "shaft_wood_heavy", 10 ]
-    ],
-    [
-      [ "fletching", 10 ]
-    ],
-    [
-      [ "bone", 5 ],
-      [ "rock", 1 ],
-      [ "scrap", 2 ],
-      [ "nail", 10 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_wood_heavy",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_ARROWS",
-  "skill_used" : "fabrication",
-  "skills_required": [ "archery", 5 ],
-  "difficulty" : 5,
-  "time" : 3000,
-  "reversible" : false,
-  "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 3 ]],
-  "qualities" : [
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components" : [
-    [
-      [ "arrowhead", 10 ]
-    ],
-    [
-      [ "shaft_wood_heavy", 10 ]
-    ],
-    [
-      [ "fletching", 10 ]
+      [ "steel_chunk", 1 ],
+      [ "scrap", 3 ]
     ]
   ]
 },{
@@ -3205,15 +2865,51 @@
   "category" : "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
+  "skills_required": [ "archery", 3 ],
+  "difficulty" : 5,
+  "time" : 5000,
+  "reversible" : false,
+  "autolearn" : true,
+  "book_learn" : [[ "recipe_arrows", 3 ]],
+  "tools" : [
+    [
+      [ "hacksaw", -1 ],
+      [ "toolset", -1 ]
+    ],
+    [
+      [ "rock", -1 ],
+      [ "primitive_hammer", -1 ],
+      [ "hammer", -1 ],
+      [ "hatchet", -1 ],
+      [ "toolset", -1 ]
+        ]
+  ],
+  "components" : [
+    [
+      [ "scrap", 6 ],
+      [ "steel_chunk", 2 ]
+    ],
+    [
+      [ "feather", 10 ],
+      [ "duct_tape", 40 ],
+      [ "bag_plastic", 1 ],
+      [ "bottle_plastic", 1 ],
+      [ "box_small", 1 ],
+      [ "plastic_chunk", 1 ]
+    ]
+  ]
+},{
+        "type" : "recipe",
+  "result" : "arrow_metal_broadhead",
+  "category" : "CC_AMMO",
+  "subcategory": "CSC_AMMO_ARROWS",
+  "skill_used" : "fabrication",
   "skills_required": [ "archery", 5 ],
   "difficulty" : 5,
   "time" : 5000,
   "reversible" : false,
   "autolearn" : true,
-  "book_learn" : [[ "recipe_arrows", 4 ]],
-  "qualities" : [
-    {"id":"CUT","level":1,"amount":1}
-  ],
+  "book_learn" : [[ "recipe_arrows", 3 ]],
   "tools" : [
     [
       [ "hacksaw", -1 ],
@@ -3229,67 +2925,29 @@
   ],
   "components" : [
     [
-      [ "shaft_metal", 10 ]
+      [ "arrow_metal", 10 ]
     ],
     [
-      [ "arrowhead", 10 ]
-    ],
-    [
-      [ "fletching", 10 ]
+      [ "steel_chunk", 1 ],
+      [ "scrap", 3 ]
     ]
   ]
 },{
         "type" : "recipe",
-  "result" : "arrow_exploding",
+  "result" : "arrow_metal_target",
   "category" : "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
-  "skills_required": [[ "archery", 5 ], [ "mechanics", 3 ]],
-  "difficulty" : 7,
-  "time" : 7000,
+  "skills_required": [ "archery", 5 ],
+  "difficulty" : 5,
+  "time" : 5000,
   "reversible" : false,
-  "autolearn" : false,
-  "book_learn" : [[ "recipe_arrows", 6 ], [ "textbook_anarch", 4 ] , ["recipe_bullets" , 7]],
+  "autolearn" : true,
+  "book_learn" : [[ "recipe_arrows", 3 ]],
   "tools" : [
-    [
-      [ "screwdriver", -1 ],
-      [ "toolset", -1 ]
-    ],
     [
       [ "hacksaw", -1 ],
       [ "toolset", -1 ]
-        ]
-  ],
-  "components" : [
-    [
-      [ "exploding_arrow_warhead", 5 ]
-    ],
-    [
-      [ "arrow_field_point_fletched", 5 ],
-      [ "arrow_fire_hardened_fletched", 5 ],
-      [ "arrow_wood", 5 ],
-      [ "arrow_heavy_fire_hardened_fletched", 5 ],
-      [ "arrow_heavy_field_point_fletched", 5 ],
-      [ "arrow_wood_heavy", 5 ],
-      [ "arrow_metal", 5 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "exploding_arrow_warhead",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required": [[ "archery", 5 ], [ "mechanics", 3 ]],
-  "difficulty" : 7,
-  "time" : 5000,
-  "reversible" : false,
-  "autolearn" : false,
-  "book_learn": [[ "textbook_anarch", 4 ] , ["recipe_bullets" , 7]],
-  "tools" : [
-    [
-      [ "soldering_iron", 10 ],
-      [ "toolset", 1 ]
     ],
     [
       [ "rock", -1 ],
@@ -3297,31 +2955,15 @@
       [ "hammer", -1 ],
       [ "hatchet", -1 ],
       [ "toolset", -1 ]
-    ],
-    [
-      [ "screwdriver", -1 ],
-      [ "toolset", -1 ]
         ]
   ],
   "components" : [
     [
-      [ "scrap", 2 ]
+      [ "arrow_metal", 10 ]
     ],
     [
-      [ "superglue", 1 ],
-      [ "string_36", 1 ]
-    ],
-    [
-      [ "can_food", 1 ],
-      [ "can_drink", 1 ],
-      [ "canister_empty", 1 ]
-    ],
-    [
-      [ "nail", 20 ],
-      [ "bb", 40 ]
-    ],
-    [
-      [ "gunpowder", 60 ]
+      [ "steel_chunk", 1 ],
+      [ "scrap", 3 ]
     ]
   ]
 },{
@@ -19333,71 +18975,6 @@
     [
       ["plastic_chunk", 3]
     ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "shaft_plastic",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required" : ["archery", 1],
-  "difficulty" : 2,
-  "time" : 1000,
-  "reversible" : false,
-  "autolearn" : true,
-  "tools" : [ [ ["mold_plastic", -1] ],
-    [
-      ["hotplate", 5],
-      ["toolset", 1],
-      ["fire", -1]
-    ]
-  ],
-  "components" : [
-    [
-      [ "plastic_chunk", 2 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result" : "arrowhead_plastic",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required" : ["archery", 3],
-  "difficulty" : 4,
-  "time" : 20000,
-  "reversible" : false,
-  "autolearn" : true,
-  "tools" : [ [ ["mold_plastic", -1] ],
-    [
-      ["hotplate", 5],
-      ["toolset", 1],
-      ["fire", -1]
-    ]
-  ],
-  "components" : [ [ ["plastic_chunk", 1] ] ]
-},{
-        "type" : "recipe",
-  "result" : "arrow_plastic",
-  "category" : "CC_AMMO",
-  "subcategory": "CSC_AMMO_COMPONENTS",
-  "skill_used" : "fabrication",
-  "skills_required" : ["archery", 3],
-  "difficulty" : 5,
-  "time" : 30000,
-  "reversible" : false,
-  "autolearn" : true,
-  "tools" : [ [ ["mold_plastic", -1] ],
-    [
-      ["hotplate", 5],
-      ["toolset", 1],
-      ["fire", -1]
-    ]
-  ],
-  "components" : [
-    [ ["arrowhead_plastic", 10] ],
-    [ ["shaft_plastic", 10] ],
-    [ ["fletching", 10] ]
   ]
 },{
         "type" : "recipe",
