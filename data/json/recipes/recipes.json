@@ -2772,7 +2772,7 @@
   "difficulty" : 0,
   "time" : 2000,
   "reversible" : false,
-  "autolearn" : false,
+  "autolearn" : true,
   "qualities":[
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -2869,7 +2869,7 @@
   "difficulty" : 5,
   "time" : 5000,
   "reversible" : false,
-  "autolearn" : true,
+  "autolearn" : false,
   "book_learn" : [[ "recipe_arrows", 3 ]],
   "tools" : [
     [
@@ -2908,7 +2908,7 @@
   "difficulty" : 5,
   "time" : 5000,
   "reversible" : false,
-  "autolearn" : true,
+  "autolearn" : false,
   "book_learn" : [[ "recipe_arrows", 3 ]],
   "tools" : [
     [
@@ -2942,7 +2942,7 @@
   "difficulty" : 5,
   "time" : 5000,
   "reversible" : false,
-  "autolearn" : true,
+  "autolearn" : false,
   "book_learn" : [[ "recipe_arrows", 3 ]],
   "tools" : [
     [
