@@ -413,11 +413,6 @@ void mapgen_field(map *m, oter_id, mapgendata, int turn, float)
                     m->ter_set(i, j, t_shrub);
                 }
             }
-            else {
-                if (one_in(1000)) {
-                    m->furn_set(i,j, f_mutpoppy);
-                }
-            }
         }
     }
     m->place_items("field", 60, 0, 0, SEEX * 2 - 1, SEEY * 2 - 1, true, turn);
@@ -810,7 +805,7 @@ void mapgen_fungal_bloom(map *m, oter_id, mapgendata, int, float)
                 } else {
                     m->ter_set(i, j, t_tree_fungal_young);
                 }
-            
+
             } else if (one_in(5)) {
                 m->ter_set(i, j, t_shrub_fungal);
             } else if (one_in(10)) {

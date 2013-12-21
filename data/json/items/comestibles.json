@@ -7283,7 +7283,7 @@
         "color" : "yellow",
         "addiction_type" : "none",
         "spoils_in" : 0,
-        "use_action" : "HONEYCOMB",
+        "use_action" : "NONE",
         "stim" : 0,
         "container" : "null",
         "to_hit" : 0,

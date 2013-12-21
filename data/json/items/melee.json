@@ -1034,15 +1034,15 @@
     "id": "torch_done",
     "symbol": "/",
     "color": "brown",
-    "name": "burnt out torch",
-    "description": "A torch that has consumed all its fuel; it can be recrafted into another torch",
+    "name": "used tiki torch",
+    "description": "A tiki torch that has consumed all its fuel.  It can't be refilled.'",
     "price": 0,
     "material": "wood",
-    "weight": 751,
-    "volume": 3,
-    "bashing": 8,
+    "weight": 1350,
+    "volume": 15,
+    "bashing": 12,
     "cutting": 0,
-    "to_hit": 3
+    "to_hit": 1
   },
 
   {
@@ -2381,21 +2381,6 @@
     "weight": 300,
     "volume": 4,
     "bashing": 14,
-    "cutting": 0,
-    "to_hit": 1
-  },
-  {
-    "type":"GENERIC",
-    "id": "rock_sock",
-    "symbol": ";",
-    "color": "white",
-    "name": "rock in a sock",
-    "description": "A sock with a rock tied into the end of it. A true weapon of desperation.",
-    "price": 10,
-    "material" : ["cotton", "stone"],
-    "weight": 1007,
-    "volume": 2,
-    "bashing": 12,
     "cutting": 0,
     "to_hit": 1
   },

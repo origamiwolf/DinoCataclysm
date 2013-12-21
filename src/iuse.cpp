@@ -128,12 +128,6 @@ int iuse::sewage(player *p, item *it, bool)
   return it->type->charges_to_use();
 }
 
-int iuse::honeycomb(player *p, item *it, bool)
-{
-  g->m.spawn_item(p->posx, p->posy, "wax", 2);
-  return it->type->charges_to_use();
-}
-
 int iuse::royal_jelly(player *p, item *it, bool)
 {
 // TODO: Add other diseases here; royal jelly is a cure-all!

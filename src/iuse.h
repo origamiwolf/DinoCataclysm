@@ -12,7 +12,6 @@ public:
 
 // FOOD AND DRUGS (ADMINISTRATION)
     int sewage              (player*, item*, bool);
-    int honeycomb           (player*, item*, bool);
     int royal_jelly         (player*, item*, bool);
     int bandage             (player*, item*, bool);
     int firstaid            (player*, item*, bool);

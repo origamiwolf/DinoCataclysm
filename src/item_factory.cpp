@@ -45,8 +45,6 @@ void Item_factory::init(){
     //Populate the iuse functions
     iuse_function_list["NONE"] = &iuse::none;
     iuse_function_list["SEWAGE"] = &iuse::sewage;
-
-    iuse_function_list["HONEYCOMB"] = &iuse::honeycomb;
     iuse_function_list["ROYAL_JELLY"] = &iuse::royal_jelly;
     iuse_function_list["BANDAGE"] = &iuse::bandage;
     iuse_function_list["FIRSTAID"] = &iuse::firstaid;
