@@ -1247,63 +1247,6 @@
   ]
 },{
         "type" : "recipe",
-  "result": "shortbow",
-  "category": "CC_WEAPON",
-  "subcategory": "CSC_WEAPON_RANGED",
-  "skill_used": "fabrication",
-  "skills_required": [ "archery", 1 ],
-  "difficulty": 2,
-  "time": 15000,
-  "reversible": true,
-  "autolearn": true,
-  "book_learn": [[ "recipe_bows", 1 ] , [ "manual_archery", 2 ] , [ "book_archery", 2 ]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components": [
-    [
-      [ "stick", 1 ],
-      [ "2x4", 1 ]
-    ],
-    [
-      [ "string_36", 2 ],
-      [ "thread", 200 ],
-      [ "sinew", 200 ],
-      [ "plant_fibre", 200 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result": "reflexrecurvebow",
-  "category": "CC_WEAPON",
-  "subcategory": "CSC_WEAPON_RANGED",
-  "skill_used": "fabrication",
-  "skills_required": [[ "archery", 7 ]],
-  "difficulty": 5,
-  "time": 25000,
-  "reversible": true,
-  "autolearn": false,
-  "book_learn" : [[ "recipe_bows", 6 ] , [ "manual_archery", 7]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "components": [
-    [
-      [ "stick", 3 ],
-      [ "2x4", 2 ]
-    ],
-    [
-      [ "bone", 3 ]
-    ],
-    [
-      [ "string_36", 2 ],
-      [ "thread", 200 ],
-      [ "sinew", 200 ],
-      [ "plant_fibre", 200 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
   "result": "nailboard",
   "category": "CC_WEAPON",
   "subcategory": "CSC_WEAPON_PIERCING",
@@ -2791,6 +2734,11 @@
       [ "bottle_plastic", 1 ],
       [ "box_small", 1 ],
       [ "plastic_chunk", 1 ]
+    ],
+     [
+      [ "duct_tape", 40 ],
+      [ "string_6", 1 ],
+      [ "superglue", 1 ]
     ]
   ]
 },{
@@ -2824,6 +2772,11 @@
     [
       [ "steel_chunk", 1 ],
       [ "scrap", 3 ]
+    ],
+     [
+      [ "duct_tape", 40 ],
+      [ "string_6", 1 ],
+      [ "superglue", 1 ]
     ]
   ]
 },{
@@ -2857,6 +2810,11 @@
     [
       [ "steel_chunk", 1 ],
       [ "scrap", 3 ]
+    ],
+     [
+      [ "duct_tape", 40 ],
+      [ "string_6", 1 ],
+      [ "superglue", 1 ]
     ]
   ]
 },{
@@ -2869,8 +2827,7 @@
   "difficulty" : 5,
   "time" : 5000,
   "reversible" : false,
-  "autolearn" : false,
-  "book_learn" : [[ "recipe_arrows", 3 ]],
+  "autolearn" : true,
   "tools" : [
     [
       [ "hacksaw", -1 ],
@@ -2882,7 +2839,7 @@
       [ "hammer", -1 ],
       [ "hatchet", -1 ],
       [ "toolset", -1 ]
-        ]
+    ]
   ],
   "components" : [
     [
@@ -2896,6 +2853,11 @@
       [ "bottle_plastic", 1 ],
       [ "box_small", 1 ],
       [ "plastic_chunk", 1 ]
+    ],
+     [
+      [ "duct_tape", 40 ],
+      [ "string_6", 1 ],
+      [ "superglue", 1 ]
     ]
   ]
 },{
@@ -2921,7 +2883,7 @@
       [ "hammer", -1 ],
       [ "hatchet", -1 ],
       [ "toolset", -1 ]
-        ]
+    ]
   ],
   "components" : [
     [
@@ -2930,6 +2892,11 @@
     [
       [ "steel_chunk", 1 ],
       [ "scrap", 3 ]
+    ],
+     [
+      [ "duct_tape", 40 ],
+      [ "string_6", 1 ],
+      [ "superglue", 1 ]
     ]
   ]
 },{
@@ -2955,7 +2922,7 @@
       [ "hammer", -1 ],
       [ "hatchet", -1 ],
       [ "toolset", -1 ]
-        ]
+    ]
   ],
   "components" : [
     [
@@ -2964,6 +2931,52 @@
     [
       [ "steel_chunk", 1 ],
       [ "scrap", 3 ]
+    ],
+     [
+      [ "duct_tape", 40 ],
+      [ "string_6", 1 ],
+      [ "superglue", 1 ]
+    ]
+  ]
+},{
+        "type" : "recipe",
+  "result" : "arrow_flaming",
+  "category" : "CC_AMMO",
+  "subcategory": "CSC_AMMO_ARROWS",
+  "skill_used" : "fabrication",
+  "skills_required": [ "archery", 4 ],
+  "difficulty" : 4,
+  "time" : 5000,
+  "reversible" : false,
+  "autolearn" : false,
+  "book_learn" : [[ "recipe_arrows", 5 ]],
+  "qualities":[
+    {"id":"CUT","level":1,"amount":1}
+  ],
+  "components" : [
+    [
+      [ "arrow_wood", 5 ],
+      [ "arrow_wood_broadhead", 5 ],
+      [ "arrow_wood_target", 5 ],
+      [ "arrow_metal", 5 ],
+      [ "arrow_metal_broadhead", 5 ],
+      [ "arrow_metal_target", 5 ]
+    ],
+    [
+      [ "rag", 1 ]
+    ],
+    [
+      [ "matchbook", 5 ]
+    ],
+    [
+      [ "whiskey", 5 ],
+      [ "single_malt_whiskey", 5 ],
+      [ "vodka", 5 ],
+      [ "rum", 5 ],
+      [ "tequila", 5 ],
+      [ "gin", 5 ],
+      [ "triple_sec", 5 ],
+      [ "gasoline", 200 ]
     ]
   ]
 },{
