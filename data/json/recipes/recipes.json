@@ -1203,7 +1203,7 @@
   "time": 15000,
   "reversible": true,
   "autolearn": true,
-  "book_learn": [[ "manual_archery", 2 ] , [ "recipe_bows", 1 ] , [ "book_archery", 3]],
+  "book_learn": [[ "manual_archery", 2 ] ,  [ "book_archery", 3]],
   "qualities":[
     {"id":"CUT","level":1,"amount":1}
   ],
