@@ -2712,6 +2712,7 @@
   "category" : "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
+  "skills_required": [ "survival", 1 ],
   "difficulty" : 0,
   "time" : 2000,
   "reversible" : false,
@@ -2733,7 +2734,7 @@
       [ "bag_plastic", 1 ],
       [ "bottle_plastic", 1 ],
       [ "box_small", 1 ],
-      [ "plastic_chunk", 1 ]
+      [ "plastic_chunk", 2 ]
     ],
      [
       [ "duct_tape", 40 ],
@@ -2823,8 +2824,8 @@
   "category" : "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
-  "skills_required": [ "archery", 3 ],
-  "difficulty" : 5,
+  "skills_required": [ "archery", 2 ],
+  "difficulty" : 4,
   "time" : 5000,
   "reversible" : false,
   "autolearn" : true,
@@ -2852,7 +2853,7 @@
       [ "bag_plastic", 1 ],
       [ "bottle_plastic", 1 ],
       [ "box_small", 1 ],
-      [ "plastic_chunk", 1 ]
+      [ "plastic_chunk", 2 ]
     ],
      [
       [ "duct_tape", 40 ],
