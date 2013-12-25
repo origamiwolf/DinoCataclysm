@@ -2832,7 +2832,7 @@
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used" : "fabrication",
   "skills_required": [ "archery", 2 ],
-  "difficulty" : 4,
+  "difficulty" : 3,
   "time" : 5000,
   "reversible" : true,
   "decomp_learn": 4,
