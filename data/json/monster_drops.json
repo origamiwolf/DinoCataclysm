@@ -4,8 +4,8 @@
         "id": [
             "mon_zombie", "mon_zombie_shrieker", "mon_zombie_spitter", "mon_zombie_electric", "mon_zombie_brute",
             "mon_zombie_hulk", "mon_zombie_fungus", "mon_boomer", "mon_boomer_fungus", "mon_zombie_necro",
-            "mon_zombie_grabber", "mon_zombie_master", "mon_zombie_hunter", "mon_zombie_fat", "mon_zombie_tough", "mon_dementia", 
-			"mon_zombie_rot", "mon_zombie_crawler"
+            "mon_zombie_grabber", "mon_zombie_master", "mon_zombie_hunter", "mon_zombie_fat", "mon_zombie_tough", "mon_dementia",
+			"mon_zombie_rot", "mon_zombie_crawler", "mon_zombie_child"
         ],
         "item_groups": [
             [ "livingroom", 5 ],
@@ -20,13 +20,6 @@
             [ "shotguns", 1 ],
             [ "smg", 1 ],
             [ "postman_gear", 5]
-        ]
-    },
-    {
-        "type": "monitems",
-        "id": "mon_zombie_child",
-        "item_groups": [
-            [ "child_items", 65 ]
         ]
     },
     {

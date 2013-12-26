@@ -597,7 +597,7 @@ void player::apply_persistent_morale()
     {
         add_morale(MORALE_PERM_OPTIMIST, 4, 4, 5, 5, true);
     }
-    
+
     // And Bad Temper works just the same way.  But in reverse.  ):
     if (has_trait("BADTEMPER"))
     {
@@ -2943,22 +2943,24 @@ void player::disp_status(WINDOW *w, WINDOW *w2)
  else if (delta <  -2) temp_message = _(" (Falling!!)");
  // Print the hottest/coldest bodypart, and if it is rising or falling in temperature
 
-    wmove(w, sideStyle ? 6 : 1, sideStyle ? 0 : 9);
-    if      (temp_cur[print] >  BODYTEMP_SCORCHING)
-        wprintz(w, c_red,   _("Scorching!%s"), temp_message);
-    else if (temp_cur[print] >  BODYTEMP_VERY_HOT)
-        wprintz(w, c_ltred, _("Very hot!%s"), temp_message);
-    else if (temp_cur[print] >  BODYTEMP_HOT)
-        wprintz(w, c_yellow,_("Warm%s"), temp_message);
-    else if (temp_cur[print] >  BODYTEMP_COLD) // If you're warmer than cold, you are comfortable
-        wprintz(w, c_green, _("Comfortable%s"), temp_message);
-    else if (temp_cur[print] >  BODYTEMP_VERY_COLD)
-        wprintz(w, c_ltblue,_("Chilly%s"), temp_message);
-    else if (temp_cur[print] >  BODYTEMP_FREEZING)
-        wprintz(w, c_cyan,  _("Very cold!%s"), temp_message);
-    else if (temp_cur[print] <= BODYTEMP_FREEZING)
-        wprintz(w, c_blue,  _("Freezing!%s"), temp_message);
-
+// Do not print if body temperature option is false
+    if (OPTIONS["BODYTEMP"]) {
+        wmove(w, sideStyle ? 6 : 1, sideStyle ? 0 : 9);
+        if      (temp_cur[print] >  BODYTEMP_SCORCHING)
+            wprintz(w, c_red,   _("Scorching!%s"), temp_message);
+        else if (temp_cur[print] >  BODYTEMP_VERY_HOT)
+            wprintz(w, c_ltred, _("Very hot!%s"), temp_message);
+        else if (temp_cur[print] >  BODYTEMP_HOT)
+            wprintz(w, c_yellow,_("Warm%s"), temp_message);
+        else if (temp_cur[print] >  BODYTEMP_COLD) // If you're warmer than cold, you are comfortable
+            wprintz(w, c_green, _("Comfortable%s"), temp_message);
+        else if (temp_cur[print] >  BODYTEMP_VERY_COLD)
+            wprintz(w, c_ltblue,_("Chilly%s"), temp_message);
+        else if (temp_cur[print] >  BODYTEMP_FREEZING)
+            wprintz(w, c_cyan,  _("Very cold!%s"), temp_message);
+        else if (temp_cur[print] <= BODYTEMP_FREEZING)
+            wprintz(w, c_blue,  _("Freezing!%s"), temp_message);
+    }
     int x = sideStyle ? 37 : 32;
     int y = sideStyle ?  0 :  1;
     if(has_disease("deaf")) {
@@ -3502,7 +3504,7 @@ int player::overmap_sight_range(int light_level)
         -1 != weapon.has_gunmod("rifle_scope") ) && has_trait("EAGLEEYED"))  {
         return 30;
     }
-    
+
     return 10;
 }
 
@@ -3708,7 +3710,7 @@ int player::rust_rate(bool real_life)
     if (has_trait("FORGETFUL")) {
         ret *= 1.33;
     }
-    
+
     if (has_trait("GOODMEMORY")) {
         ret *= .66;
     }
@@ -6819,7 +6821,7 @@ bool player::eat(item *eaten, it_comest *comest)
     }
     bool overeating = (!has_trait("GOURMAND") && hunger < 0 &&
                        comest->nutr >= 5);
-    bool hiberfood = (has_trait("HIBERNATE") && (hunger > -60 && thirst > -60 ));    
+    bool hiberfood = (has_trait("HIBERNATE") && (hunger > -60 && thirst > -60 ));
     bool spoiled = eaten->rotten();
 
     last_item = itype_id(eaten->type->id);
@@ -6933,9 +6935,9 @@ bool player::eat(item *eaten, it_comest *comest)
         mealtime /= 2;
     } if (has_trait("GOURMAND")) {
         mealtime -= 100;
-    } 
+    }
         moves -= (mealtime);
-    
+
     // If it's poisonous... poison us.  TODO: More several poison effects
     if (eaten->poison >= rng(2, 4)) {
         add_effect("poison", eaten->poison * 100);
