@@ -2925,10 +2925,13 @@ void vehicle::handle_trap (int x, int y, int part)
         snd = _("Clank!");
         wreckit = true;
         g->m.remove_trap(x, y);
-        g->m.spawn_item(x, y, "crossbow");
+        if (one_in(4))
+            g->m.spawn_item(x, y, "crossbow_compound");
+        else
+            g->m.spawn_item(x, y, "crossbow_recurve");
         g->m.spawn_item(x, y, "string_6");
         if (!one_in(10)) {
-            g->m.spawn_item(x, y, "bolt_steel");
+            g->m.spawn_item(x, y, "bolt_metal");
         }
     } else if ( t == tr_shotgun_2 ||
                 t == tr_shotgun_1 ) {

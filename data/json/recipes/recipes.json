@@ -1532,12 +1532,12 @@
   ]
 },{
         "type" : "recipe",
-  "result": "hand_crossbow",
+  "result": "crossbow_pistol",
   "category": "CC_WEAPON",
   "subcategory": "CSC_WEAPON_RANGED",
   "skill_used": "mechanics",
-  "skills_required": [ "archery", 3 ],
-  "difficulty": 3,
+  "skills_required": [ "archery", 1 ],
+  "difficulty": 2,
   "time": 30000,
   "reversible": true,
   "decomp_learn": 3,
@@ -1583,12 +1583,12 @@
   ]
 },{
         "type" : "recipe",
-  "result": "crossbow",
+  "result": "crossbow_recurve",
   "category": "CC_WEAPON",
   "subcategory": "CSC_WEAPON_RANGED",
   "skill_used": "mechanics",
   "skills_required": [ "archery", 3 ],
-  "difficulty": 3,
+  "difficulty": 4,
   "time": 15000,
   "reversible": true,
   "decomp_learn": 2,
@@ -1600,48 +1600,6 @@
       [ "toolset", -1 ]
     ],
     [
-      [ "screwdriver", -1 ],
-      [ "toolset", -1 ]
-    ]
-  ],
-  "components": [
-    [
-      [ "2x4", 2 ],
-      [ "stick", 4 ]
-    ],
-    [
-      [ "hose", 1 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result": "huge_crossbow",
-  "category": "CC_WEAPON",
-  "subcategory": "CSC_WEAPON_RANGED",
-  "skill_used": "mechanics",
-  "skills_required": [ "archery", 3 ],
-  "difficulty": 6,
-  "time": 60000,
-  "reversible": true,
-  "decomp_learn": 5,
-  "autolearn": false,
-  "book_learn" : [[ "textbook_weapwest", 6]],
-  "qualities" : [
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "tools": [
-    [
-      [ "wrench", -1 ],
-      [ "toolset", -1 ]
-    ],
-    [
-      [ "saw", -1 ]
-    ],
-    [
-      [ "hacksaw", -1 ],
-      [ "toolset", -1 ]
-    ],
-    [
       [ "rock", -1 ],
       [ "primitive_hammer", -1 ],
       [ "hammer", -1 ],
@@ -1650,70 +1608,19 @@
     ],
     [
       [ "screwdriver", -1 ],
-      [ "toolset", -1 ]
-    ]
-  ],
-  "components": [
-    [
-      [ "2x4", 8 ],
-      [ "stick", 16 ]
-    ],
-    [
-      [ "rope_6", 2 ]
-    ],
-    [
-      [ "foot_crank", 1 ]
-    ],
-    [
-      [ "spring", 4 ]
-    ],
-    [
-      [ "steel_chunk", 4 ],
-      [ "scrap", 12 ]
-    ],
-    [
-      [ "nail", 60 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result": "rep_crossbow",
-  "category": "CC_WEAPON",
-  "subcategory": "CSC_WEAPON_RANGED",
-  "skill_used": "mechanics",
-  "skills_required": [ "archery", 3 ],
-  "difficulty": 3,
-  "time": 45000,
-  "reversible": true,
-  "decomp_learn": 4,
-  "autolearn":false,
-  "book_learn" : [[ "textbook_weapeast", 6]],
-  "qualities":[
-    {"id":"CUT","level":1,"amount":1}
-  ],
-  "tools": [
-    [
-      [ "screwdriver", -1 ],
-      [ "toolset", -1 ]
-    ],
-    [
-      [ "rock", -1 ],
-      [ "primitive_hammer", -1 ],
-      [ "hammer", -1 ],
-      [ "hatchet", -1 ],
       [ "toolset", -1 ]
     ]
   ],
   "components": [
     [
       [ "2x4", 4 ],
-      [ "stick", 8 ]
+      [ "stick", 6 ]
     ],
     [
-      [ "spring", 1 ]
+      [ "string_6", 2 ]
     ],
     [
-      [ "string_36", 1 ]
+      [ "scrap", 4 ]
     ],
     [
       [ "nail", 20 ]
@@ -2989,6 +2896,37 @@
     ]
   ]
 },{
+         "type" : "recipe",
+  "result": "arrow_exploding",
+  "category": "CC_AMMO",
+  "subcategory": "CSC_AMMO_ARROWS",
+  "skill_used": "fabrication",
+  "skills_required": ["archery", 5],
+  "difficulty": 7,
+  "time": 10000,
+  "reversible": false,
+  "autolearn": false,
+  "book_learn" : [[ "recipe_arrows", 7 ], [ "textbook_anarch", 4 ] , ["recipe_bullets" , 7]],
+  "tools": [
+    [
+        ["hacksaw", -1],
+        ["toolset", -1]
+    ]
+  ],
+  "components": [
+    [
+        ["arrow_metal", 5 ]
+    ],
+    [
+        [ "superglue", 1 ]
+    ],
+    [
+      [ "shot_bird", 12 ],
+      [ "shot_00", 7 ],
+      [ "shot_slug", 5 ]
+    ]
+  ]
+},{
         "type" : "recipe",
   "result": "quiver",
   "category": "CC_ARMOR",
@@ -3197,13 +3135,50 @@
       ]
   ]
 },{
+        "type" : "recipe",
+  "result" : "bolt_flaming",
+  "category" : "CC_AMMO",
+  "subcategory": "CSC_AMMO_ARROWS",
+  "skill_used" : "fabrication",
+  "skills_required": [ "archery", 4 ],
+  "difficulty" : 4,
+  "time" : 5000,
+  "reversible" : false,
+  "autolearn" : false,
+  "book_learn" : [[ "recipe_arrows", 5 ]],
+  "qualities":[
+    {"id":"CUT","level":1,"amount":1}
+  ],
+  "components" : [
+    [
+      [ "bolt_wood", 5 ],
+      [ "bolt_metal", 5 ]
+    ],
+    [
+      [ "rag", 1 ]
+    ],
+    [
+      [ "matchbook", 5 ]
+    ],
+    [
+      [ "whiskey", 5 ],
+      [ "single_malt_whiskey", 5 ],
+      [ "vodka", 5 ],
+      [ "rum", 5 ],
+      [ "tequila", 5 ],
+      [ "gin", 5 ],
+      [ "triple_sec", 5 ],
+      [ "gasoline", 200 ]
+    ]
+  ]
+},{
          "type" : "recipe",
-  "result": "bolt_explosive",
+  "result": "bolt_exploding",
   "category": "CC_AMMO",
   "subcategory": "CSC_AMMO_ARROWS",
   "skill_used": "fabrication",
-  "skills_required": ["archery", 3],
-  "difficulty": 4,
+  "skills_required": ["archery", 5],
+  "difficulty": 7,
   "time": 10000,
   "reversible": false,
   "autolearn": false,
@@ -3216,21 +3191,15 @@
   ],
   "components": [
     [
-        ["bolt_metal", 1],
-        ["bolt_steel", 1]
+        ["bolt_metal", 5 ]
     ],
     [
-      [ "superglue", 1 ]
+        [ "superglue", 1 ]
     ],
     [
-        ["smpistol_primer", 1 ],
-        ["lgpistol_primer", 1],
-        ["smrifle_primer", 1],
-        ["lgrifle_primer", 1],
-        ["shotgun_primer", 1]
-    ],
-    [
-      [ "gunpowder", 20 ]
+      [ "shot_bird", 12 ],
+      [ "shot_00", 7 ],
+      [ "shot_slug", 5 ]
     ]
   ]
 },{
@@ -11392,7 +11361,7 @@
       [ "steel_chunk", 1 ],
       [ "knife_butter", 1 ],
       [ "knife_steak", 1 ],
-      [ "bolt_steel", 1 ],
+      [ "bolt_metal", 1 ],
       [ "scrap", 1 ]
     ],
     [
@@ -17530,10 +17499,11 @@
   "autolearn": true,
   "components": [
     [
-      [ "crossbow", 1 ]
+      [ "crossbow_recurve", 1 ],
+      [ "crossbow_compound", 1 ]
     ],
     [
-      [ "bolt_steel", 1 ],
+      [ "bolt_metal", 1 ],
       [ "bolt_wood", 4 ]
     ],
     [

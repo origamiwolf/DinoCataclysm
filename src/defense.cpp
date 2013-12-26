@@ -1142,7 +1142,7 @@ std::vector<itype_id> caravan_items(caravan_category cat)
 
  case CARAVAN_GUNS:
   setvector(&ret,
-"crossbow", "bolt_steel", "compbow", "arrow_cf", "marlin_9a",
+"crossbow_recurve", "bolt_metal", "compbow", "arrow_cf", "marlin_9a",
 "22_lr", "hk_mp5", "9mm", "taurus_38", "38_special", "deagle_44",
 "44magnum", "m1911", "hk_ump45", "45_acp", "fn_p90", "57mm",
 "remington_870", "shot_00", "shot_slug", "browning_blr", "3006",

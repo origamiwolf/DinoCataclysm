@@ -214,7 +214,7 @@
         "difficulty" : 5,
         "player_action" : "crossbow",
         "monster_action" : "crossbow",
-        "drops" : ["string_36", "crossbow", "bolt_steel"]
+        "drops" : ["string_36", "crossbow_recurve", "bolt_metal"]
     },
     {
         "type" : "trap",

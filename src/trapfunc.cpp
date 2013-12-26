@@ -178,10 +178,13 @@ void trapfunc::crossbow(int x, int y)
  } else
   g->add_msg(_("You dodge the shot!"));
  g->m.remove_trap(x, y);
- g->m.spawn_item(x, y, "crossbow");
+    if (one_in(4))
+        g->m.spawn_item(x, y, "crossbow_compound");
+    else
+        g->m.spawn_item(x, y, "crossbow_recurve");
  g->m.spawn_item(x, y, "string_6");
  if (add_bolt)
-  g->m.spawn_item(x, y, "bolt_steel", 1, 1);
+  g->m.spawn_item(x, y, "bolt_metal", 1, 1);
 }
 
 void trapfuncm::crossbow(monster *z, int x, int y)
@@ -210,10 +213,13 @@ void trapfuncm::crossbow(monster *z, int x, int y)
     else if (seen)
         g->add_msg(_("A bolt shoots out, but misses the %s."), z->name().c_str());
     g->m.remove_trap(x, y);
-    g->m.spawn_item(x, y, "crossbow");
+    if (one_in(4))
+        g->m.spawn_item(x, y, "crossbow_compound");
+    else
+        g->m.spawn_item(x, y, "crossbow_recurve");
     g->m.spawn_item(x, y, "string_6");
     if (add_bolt)
-    g->m.spawn_item(x, y, "bolt_steel", 1, 1);
+    g->m.spawn_item(x, y, "bolt_metal", 1, 1);
 }
 
 void trapfunc::shotgun(int x, int y)
