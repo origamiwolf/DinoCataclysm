@@ -326,7 +326,8 @@
       "durability" : 6,
       "burst" : 0,
       "clip_size" : 1,
-      "reload" : 70
+      "reload" : 70,
+      "valid_mod_locations": [["underbarrel", 1]]
    },
    {
       "id" : "compbow",
@@ -352,7 +353,8 @@
       "durability" : 6,
       "burst" : 0,
       "clip_size" : 1,
-      "reload" : 100
+      "reload" : 100,
+      "valid_mod_locations": [["underbarrel", 1]]
    },
    {
       "id" : "recurbow",
@@ -380,6 +382,7 @@
       "burst" : 0,
       "clip_size" : 1,
       "reload" : 80
+      "valid_mod_locations": [["underbarrel", 1]]
    },
    {
       "id" : "longbow",
@@ -405,7 +408,8 @@
       "durability" : 6,
       "burst" : 0,
       "clip_size" : 1,
-      "reload" : 80
+      "reload" : 80,
+      "valid_mod_locations": [["underbarrel", 1]]
    },
    {
       "id" : "crossbow_pistol",
@@ -431,7 +435,8 @@
       "durability" : 6,
       "burst" : 0,
       "clip_size" : 1,
-      "reload" : 120
+      "reload" : 120,
+      "valid_mod_locations": [[ "accessories", 2 ],[ "grip", 1 ],[ "mechanism", 4 ],[ "rail", 1 ],[ "sights", 1 ],[ "stock", 1 ],[ "underbarrel", 1 ]]
    },
    {
       "id" : "crossbow_recurve",
@@ -457,7 +462,8 @@
       "durability" : 6,
       "burst" : 0,
       "clip_size" : 1,
-      "reload" : 400
+      "reload" : 400,
+      "valid_mod_locations": [[ "accessories", 4 ],[ "grip", 1 ],[ "mechanism", 4 ],[ "rail", 1 ],[ "sights", 1 ],[ "stock", 1 ],[ "underbarrel", 1 ]]
    },{
       "id" : "crossbow_compound",
       "type" : "GUN",
@@ -482,8 +488,10 @@
       "durability" : 6,
       "burst" : 0,
       "clip_size" : 1,
-      "reload" : 800
-   },{   "type" : "AMMO",
+      "reload" : 800,
+      "valid_mod_locations": [[ "accessories", 4 ],[ "grip", 1 ],[ "mechanism", 4 ],[ "rail", 1 ],[ "sights", 1 ],[ "stock", 1 ],[ "underbarrel", 1 ]]
+   },
+   {   "type" : "AMMO",
         "id" : "throwing_knife",
         "price" : 100,
         "name" : "throwing knife",
