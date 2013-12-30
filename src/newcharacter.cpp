@@ -490,13 +490,13 @@ bool player::create(character_type type, std::string tempname)
 void draw_tabs(WINDOW *w, std::string sTab)
 {
     for (int i = 1; i < FULL_SCREEN_WIDTH - 1; i++) {
-        mvwputch(w, 2, i, c_ltgray, LINE_OXOX);
-        mvwputch(w, 4, i, c_ltgray, LINE_OXOX);
-        mvwputch(w, FULL_SCREEN_HEIGHT - 1, i, c_ltgray, LINE_OXOX);
+        mvwputch(w, 2, i, BORDER_COLOR, LINE_OXOX);
+        mvwputch(w, 4, i, BORDER_COLOR, LINE_OXOX);
+        mvwputch(w, FULL_SCREEN_HEIGHT - 1, i, BORDER_COLOR, LINE_OXOX);
 
         if (i > 2 && i < FULL_SCREEN_HEIGHT - 1) {
-            mvwputch(w, i, 0, c_ltgray, LINE_XOXO);
-            mvwputch(w, i, FULL_SCREEN_WIDTH - 1, c_ltgray, LINE_XOXO);
+            mvwputch(w, i, 0, BORDER_COLOR, LINE_XOXO);
+            mvwputch(w, i, FULL_SCREEN_WIDTH - 1, BORDER_COLOR, LINE_XOXO);
         }
     }
     std::vector<std::string> tab_captions;
@@ -515,14 +515,14 @@ void draw_tabs(WINDOW *w, std::string sTab)
         draw_tab(w, tab_pos[i] + space * i, tab_captions[i].c_str(), (sTab == tab_captions[i]));
     }
 
-    mvwputch(w, 2,  0, c_ltgray, LINE_OXXO); // |^
-    mvwputch(w, 2, FULL_SCREEN_WIDTH - 1, c_ltgray, LINE_OOXX); // ^|
+    mvwputch(w, 2,  0, BORDER_COLOR, LINE_OXXO); // |^
+    mvwputch(w, 2, FULL_SCREEN_WIDTH - 1, BORDER_COLOR, LINE_OOXX); // ^|
 
     mvwputch(w, 4, 0, c_ltgray, LINE_XXXO); // |-
-    mvwputch(w, 4, FULL_SCREEN_WIDTH - 1, c_ltgray, LINE_XOXX); // -|
+    mvwputch(w, 4, FULL_SCREEN_WIDTH - 1, BORDER_COLOR, LINE_XOXX); // -|
 
-    mvwputch(w, FULL_SCREEN_HEIGHT - 1, 0, c_ltgray, LINE_XXOO); // |_
-    mvwputch(w, FULL_SCREEN_HEIGHT - 1, FULL_SCREEN_WIDTH - 1, c_ltgray, LINE_XOOX); // _|
+    mvwputch(w, FULL_SCREEN_HEIGHT - 1, 0, BORDER_COLOR, LINE_XXOO); // |_
+    mvwputch(w, FULL_SCREEN_HEIGHT - 1, FULL_SCREEN_WIDTH - 1, BORDER_COLOR, LINE_XOOX); // _|
 }
 
 int set_stats(WINDOW *w, player *u, int &points)
@@ -922,13 +922,13 @@ int set_traits(WINDOW *w, player *u, int &points, int max_trait_points)
                 break;
             }
             case '<':
+                delwin(w_description);
                 return -1;
             case '>':
+                delwin(w_description);
                 return 1;
         }
     } while (true);
-
-    return 1;
 }
 
 inline bool profession_display_sort(const profession *a, const profession *b)
@@ -988,16 +988,17 @@ int set_profession(WINDOW *w, player *u, int &points)
         mvwprintz(w,  3, 40, c_ltgray, "                                      ");
         if (can_pick == "YES") {
             mvwprintz(w,  3, 20, c_green, _("Profession %1$s costs %2$d points (net: %3$d)"),
-                      sorted_profs[cur_id]->gender_appropriate_name(u->male).c_str(),
+                      _(sorted_profs[cur_id]->gender_appropriate_name(u->male).c_str()),
                       sorted_profs[cur_id]->point_cost(),
                       netPointCost);
         } else if(can_pick == "INSUFFICIENT_POINTS") {
             mvwprintz(w,  3, 20, c_ltred, _("Profession %1$s costs %2$d points (net: %3$d)"),
-                      sorted_profs[cur_id]->gender_appropriate_name(u->male).c_str(), sorted_profs[cur_id]->point_cost(),
+                      _(sorted_profs[cur_id]->gender_appropriate_name(u->male).c_str()),
+                      sorted_profs[cur_id]->point_cost(),
                       netPointCost);
         }
         fold_and_print(w_description, 0, 0, FULL_SCREEN_WIDTH - 2, c_green,
-                       sorted_profs[cur_id]->description().c_str());
+                       _(sorted_profs[cur_id]->description().c_str()));
 
         calcStartPos(iStartPos, cur_id, iContentHeight, profession::count());
 
@@ -1009,12 +1010,12 @@ int set_profession(WINDOW *w, player *u, int &points)
                                              "); // Clear the line
             if (u->prof != sorted_profs[i]) {
                 mvwprintz(w, 5 + i - iStartPos, 2, (sorted_profs[i] == sorted_profs[cur_id] ? h_ltgray : c_ltgray),
-                          sorted_profs[i]->gender_appropriate_name(u->male).c_str());
+                          _(sorted_profs[i]->gender_appropriate_name(u->male).c_str()));
             } else {
                 mvwprintz(w, 5 + i - iStartPos, 2,
                           (sorted_profs[i] == sorted_profs[cur_id] ?
                            hilite(COL_SKILL_USED) : COL_SKILL_USED),
-                          sorted_profs[i]->gender_appropriate_name(u->male).c_str());
+                          _(sorted_profs[i]->gender_appropriate_name(u->male).c_str()));
             }
         }
 
@@ -1075,7 +1076,8 @@ int set_profession(WINDOW *w, player *u, int &points)
         else
         {
             mvwprintz(w_genderswap, 0, 0, c_magenta, _("Press TAB to switch to %1$s %2$s"),
-                      u->male ? "female" : "male", sorted_profs[cur_id]->gender_appropriate_name(!u->male).c_str());
+                      u->male ? "female" : "male",
+                      _(sorted_profs[cur_id]->gender_appropriate_name(!u->male).c_str()));
         }
 
         //Draw Scrollbar
@@ -1122,6 +1124,10 @@ int set_profession(WINDOW *w, player *u, int &points)
         }
     } while (retval == 0);
 
+    delwin(w_description);
+    delwin(w_items);
+    delwin(w_skills);
+    delwin(w_addictions);
     return retval;
 }
 
@@ -1258,8 +1264,10 @@ int set_skills(WINDOW *w, player *u, int &points)
             	break;
             }
             case '<':
+                delwin(w_description);
                 return -1;
             case '>':
+                delwin(w_description);
                 return 1;
         }
     } while (true);
@@ -1408,7 +1416,9 @@ int set_description(WINDOW *w, player *u, character_type type, int &points)
         mvwprintz(w_gender, 1, 0, c_ltgray, _("Press TAB to switch gender"));
         wrefresh(w_gender);
 
-        mvwprintz(w_profession, 0, 0, c_ltgray, _("Profession: %1$s"), u->prof->gender_appropriate_name(u->male).c_str());
+        werase(w_profession);
+        mvwprintz(w_profession, 0, 0, c_ltgray, _("Profession: %1$s"),
+                  _(u->prof->gender_appropriate_name(u->male).c_str()));
         wrefresh(w_profession);
 
         ch = input();
@@ -1430,9 +1440,23 @@ int set_description(WINDOW *w, player *u, character_type type, int &points)
                     continue;
                 } else {
                     u->pick_name();
+                    delwin(w_name);
+                    delwin(w_gender);
+                    delwin(w_stats);
+                    delwin(w_traits);
+                    delwin(w_profession);
+                    delwin(w_skills);
+                    delwin(w_guide);
                     return 1;
                 }
             } else if (query_yn(_("Are you SURE you're finished?"))) {
+                delwin(w_name);
+                delwin(w_gender);
+                delwin(w_stats);
+                delwin(w_traits);
+                delwin(w_profession);
+                delwin(w_skills);
+                delwin(w_guide);
                 return 1;
             } else {
                 continue;

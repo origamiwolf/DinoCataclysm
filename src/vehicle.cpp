@@ -162,6 +162,7 @@ void vehicle::init_state(int init_veh_fuel, int init_veh_status)
     bool destroyEngine = false;
     bool destroyTires = false;
     bool blood_covered = false;
+    bool blood_inside = false;
 
     std::map<std::string, int> consistent_bignesses;
 
@@ -199,6 +200,13 @@ void vehicle::init_state(int init_veh_fuel, int init_veh_status)
     //Provide some variety to non-mint vehicles
     if(veh_status != 0) {
 
+        //Leave engine running in some vehicles
+        if(veh_fuel_mult > 0 
+                && all_parts_with_feature("ENGINE", true).size() > 0
+                && one_in(8)) {
+            engine_on = true;
+        }
+
         //Turn on lights on some vehicles
         if(one_in(20)) {
             lights_on = true;
@@ -211,6 +219,10 @@ void vehicle::init_state(int init_veh_fuel, int init_veh_status)
 
         if(one_in(10)) {
             blood_covered = true;
+        }
+
+        if(one_in(8)) {
+            blood_inside = true;
         }
 
         //Fridge should always start out activated if present
@@ -229,6 +241,9 @@ void vehicle::init_state(int init_veh_fuel, int init_veh_status)
         }
     }
 
+    bool blood_inside_set = false;
+    int blood_inside_x = 0;
+    int blood_inside_y = 0;
     for (int p = 0; p < parts.size(); p++)
     {
         if (part_flag(p, "VARIABLE_SIZE")){ // generate its bigness attribute.?
@@ -297,7 +312,25 @@ void vehicle::init_state(int init_veh_fuel, int init_veh_status)
            }
          }
 
+         if(blood_inside) {
+        // blood is splattered around (blood_inside_x, blood_inside_y),
+        // coords relative to mount point; the center is always a seat
+            if (blood_inside_set) {
+                int distSq = pow((blood_inside_x - parts[p].mount_dx), 2) + \
+                             pow((blood_inside_y - parts[p].mount_dy), 2);
+                if (distSq <= 1) {
+                    parts[p].blood = rng(200, 400) - distSq*100; 
+                }
+            } else if (part_flag(p, "SEAT")) {
+                // Set the center of the bloody mess inside
+                blood_inside_x = parts[p].mount_dx; 
+                blood_inside_y = parts[p].mount_dy;
+                blood_inside_set = true;
+            }
+         }
+
         }
+
     }
 }
 /**
@@ -2191,7 +2224,7 @@ void vehicle::power_parts ()//TODO: more categories of powered part!
         for(int p = 0; p < alternators.size(); p++) {
             if(parts[alternators[p]].hp > 0) {
                 alternators_epower += part_info(alternators[p]).epower;
-                alternators_power += part_info(alternators[p]).power;
+                alternators_power += part_power(alternators[p]);
             }
         }
         if(alternators_epower > 0) {
@@ -2342,7 +2375,7 @@ void vehicle::idle() {
         for (int p = 0; p < parts.size(); p++) {
             if (part_flag(p, VPFLAG_ENGINE)) {
                 if (fuel_left(part_info(p).fuel_type) && parts[p].hp > 0) {
-                    engines_power += part_info(p).power;
+                    engines_power += part_power(p);
                     if (one_in(6) && rng(1, 100) < strn) {
                         int dmg = rng(strn * 2, strn * 4);
                         damage_direct(p, dmg, 0);

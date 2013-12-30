@@ -5110,6 +5110,20 @@ void player::suffer()
  if (has_artifact_with(AEP_FORCE_TELEPORT) && one_in(600))
   g->teleport(this);
 
+// checking for damaged atomic equipment
+ if (damage_leak_level("LEAK_RAD") > 0 && damage_leak_level("LEAK_RAD") < 10) {
+  if (g->m.radiation(posx, posy) < 10 && one_in(50))
+   g->m.radiation(posx, posy)++;
+ }
+ if (damage_leak_level("LEAK_RAD") > 10 && damage_leak_level("LEAK_RAD") < 20) {
+  if (g->m.radiation(posx, posy) < 20 && one_in(25))
+   g->m.radiation(posx, posy)++;
+ }
+ if (damage_leak_level("LEAK_RAD") > 20) {
+  if (g->m.radiation(posx, posy) < 30 && one_in(10))
+   g->m.radiation(posx, posy)++;
+ }
+
  int localRadiation = g->m.radiation(posx, posy);
 
  if (localRadiation) {
@@ -6490,6 +6504,13 @@ int player::charges_of(itype_id it)
  }
  quantity += inv.charges_of(it);
  return quantity;
+}
+
+int  player::damage_leak_level( std::string flag ) const
+{
+    int leak_level = 0;
+    leak_level = inv.damage_leak_level(flag);
+    return leak_level;
 }
 
 bool player::has_watertight_container()
@@ -8449,6 +8470,7 @@ activate your weapon."), gun->tname().c_str(), mod->location.c_str());
 
 void player::remove_gunmod(item *weapon, int id) {
     item *gunmod = &weapon->contents[id];
+    it_gun *guntype = dynamic_cast<it_gun*>(weapon->type);
     item newgunmod;
     item ammo;
     if (gunmod != NULL && gunmod->charges > 0) {
@@ -8463,6 +8485,7 @@ void player::remove_gunmod(item *weapon, int id) {
     newgunmod = item(itypes[gunmod->type->id], g->turn);
     i_add_or_drop(newgunmod);
     weapon->contents.erase(weapon->contents.begin()+id);
+    guntype->available_mod_locations[static_cast<it_gunmod*>(gunmod->type)->location] += 1;
     return;
 }
 

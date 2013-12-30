@@ -387,7 +387,7 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
       material_string += ", " + get_material(2);
     dump->push_back(iteminfo("BASE", _("Material: ") + material_string));
   }
-  
+
   if ( debug == true ) {
     if( g != NULL ) {
       dump->push_back(iteminfo("BASE", _("age: "), "",  (int(g->turn) - bday) / (10 * 60), true, "", true, true));
@@ -558,13 +558,13 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
   dump->push_back(iteminfo("GUN", temp1.str()));
   temp1.str("\n");
   dump->push_back(iteminfo("GUN", temp1.str()));
-  }  
-  
+  }
+
   temp1.str("");
   temp1 << "Mods: ";
   for (int i = 0; i < contents.size(); i++) {
     it_gunmod* mod = dynamic_cast<it_gunmod*>(contents[i].type);
-     
+
      if (i == 0) {
         if (!(i % 1) && i > 0) {
           temp1 << "\n";
@@ -624,7 +624,7 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
   temp2.str("");
   temp2 << _("Location: ");
   temp2 << mod->location;
-   
+
   dump->push_back(iteminfo("GUNMOD", temp1.str()));
   dump->push_back(iteminfo("GUNMOD", temp2.str()));
 
@@ -702,6 +702,8 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
     dump->push_back(iteminfo("TOOL", "", ((tool->ammo == "NULL")?_("Maximum <num> charges (rechargeable)."):string_format(_("Maximum <num> charges (rechargeable) of %s."), ammo_name(tool->ammo).c_str())), tool->max_charges));
    } else if (has_flag("DOUBLE_AMMO") && has_flag("RECHARGE")) {
     dump->push_back(iteminfo("TOOL", "", ((tool->ammo == "NULL")?_("Maximum <num> charges (rechargeable) (doubled)."):string_format(_("Maximum <num> charges (rechargeable) (doubled) of %s."), ammo_name(tool->ammo).c_str())), tool->max_charges*2));
+   } else if (has_flag("ATOMIC_AMMO")) {
+    dump->push_back(iteminfo("TOOL", "", ((tool->ammo == "NULL")?_("Maximum <num> charges."):string_format(_("Maximum <num> charges of %s."), ammo_name("plutonium").c_str())), tool->max_charges*100));
    } else {
     dump->push_back(iteminfo("TOOL", "", ((tool->ammo == "NULL")?_("Maximum <num> charges."):string_format(_("Maximum <num> charges of %s."), ammo_name(tool->ammo).c_str())), tool->max_charges));
    }
@@ -784,6 +786,16 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
     {
         dump->push_back(iteminfo("DESCRIPTION", "\n\n"));
         dump->push_back(iteminfo("DESCRIPTION", _("This tool has double the normal maximum charges.")));
+    }
+    if (has_flag("LEAK_RAD"))
+    {
+        dump->push_back(iteminfo("DESCRIPTION", "\n\n"));
+        dump->push_back(iteminfo("DESCRIPTION", _("This item can leak radiation if damaged.")));
+    }
+    if (is_tool() && has_flag("ATOMIC_AMMO"))
+    {
+        dump->push_back(iteminfo("DESCRIPTION", "\n\n"));
+        dump->push_back(iteminfo("DESCRIPTION", _("This tool has been modified to run off plutonium cells instead of batteries.")));
     }
     if (is_tool() && has_flag("RECHARGE"))
     {
@@ -900,17 +912,17 @@ nc_color item::color(player *u) const
                 (u->skillLevel(tmp->type) >= (int)tmp->req) &&
                 (u->skillLevel(tmp->type) < (int)tmp->level))
             ret = c_ltblue;
+        else if (!u->studied_all_recipes(tmp) && !u->has_trait("ILLITERATE"))
+          ret = c_yellow;
     }
     return ret;
 }
 
 nc_color item::color_in_inventory()
 {
-    // Items in our inventory get colorized specially
-    if (active && !is_food() && !is_food_container()) {
-        return c_yellow;
-    }
-    return c_white;
+    // This should be relevant only for the player,
+    // npcs don't care about the color
+    return color(&g->u);
 }
 
 /* @param with_prefix determines whether to return for more of its object, such as
@@ -993,6 +1005,7 @@ std::string item::tname( bool with_prefix )
     item* food = NULL;
     it_comest* food_type = NULL;
     std::string tagtext = "";
+    std::string toolmodtext = "";
     ret.str("");
     if (is_food())
     {
@@ -1019,6 +1032,10 @@ std::string item::tname( bool with_prefix )
         ret << _(" (rechargeable)");
     }
 
+    if (has_flag("ATOMIC_AMMO")) {
+        toolmodtext = _("atomic ");
+    }
+
     if (owned > 0)
         ret << _(" (owned)");
 
@@ -1026,9 +1043,10 @@ std::string item::tname( bool with_prefix )
 
     ret.str("");
 
-    ret << damtext << vehtext << burntext << maintext << tagtext;
+    ret << damtext << vehtext << burntext << toolmodtext << maintext << tagtext;
 
-    if (!item_vars.empty()) {
+    static const std::string const_str_item_note("item_note");
+    if( item_vars.find(const_str_item_note) != item_vars.end() ) {
         return "*" + ret.str() + "*";
     } else {
         return ret.str();
@@ -1118,6 +1136,12 @@ int item::weight() const
             }
         }
     }
+
+// tool mods also add about a pound of weight
+    if (has_flag("ATOMIC_AMMO")) {
+        ret += 250;
+    }
+
     return ret;
 }
 
@@ -1194,6 +1218,12 @@ int item::volume(bool unit_value, bool precise_value ) const
             ret += contents[i].volume( false, precise_value );
         }
     }
+
+// tool mods also add volume
+    if (has_flag("ATOMIC_AMMO")) {
+        ret += 1;
+    }
+
     return ret;
 }
 
@@ -1306,7 +1336,7 @@ bool item::rotten()
               rot += get_rot_since( since, until );
               if (g->debugmon) g->add_msg("r: %s %d,%d %d->%d", type->id.c_str(), since, until, old, rot );
           }
-          last_rot_check = int(g->turn);          
+          last_rot_check = int(g->turn);
 
           if (fridge > 0) {
             // Flat 20%
@@ -2289,7 +2319,11 @@ int item::pick_reload_ammo(player &u, bool interactive)
       am.push_back(tmpammo[j]);
    }
  } else { //non-gun.
-  am = u.has_ammo(ammo_type());
+        // this is probably a tool.  Check if it uses atomic power instead of batteries
+        if (has_flag("ATOMIC_AMMO")) {
+            am = u.has_ammo("plutonium");
+        } else
+            am = u.has_ammo(ammo_type());
  }
 
  // Check if the player is wielding ammo
@@ -2424,6 +2458,10 @@ bool item::reload(player &u, int pos)
   max_load *= 2;
  }
 
+ if (has_flag("ATOMIC_AMMO")) {
+  max_load *= 100;
+ }
+
  if (pos != INT_MIN) {
   // If the gun is currently loaded with a different type of ammo, reloading fails
   if ((reload_target->is_gun() || reload_target->is_gunmod()) &&
@@ -2442,7 +2480,7 @@ bool item::reload(player &u, int pos)
    reload_target->charges++;
    ammo_to_use->charges--;
   }
-  else if (reload_target->typeId() == "adv_UPS_off" || reload_target->typeId() == "adv_UPS_on") {
+  else if (reload_target->typeId() == "adv_UPS_off" || reload_target->typeId() == "adv_UPS_on" || reload_target->has_flag("ATOMIC_AMMO")) {
       int charges_per_plut = 500;
       int max_plut = floor( static_cast<float>((max_load - reload_target->charges) / charges_per_plut) );
       int charges_used = std::min(ammo_to_use->charges, max_plut);
