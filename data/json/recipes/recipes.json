@@ -7920,7 +7920,8 @@
       [ "irradiated_rhubarb", 2 ],
       [ "irradiated_papaya", 2 ],
       [ "irradiated_apricot", 2 ],
-      [ "irradiated_kiwi", 2 ]
+      [ "irradiated_kiwi", 2 ],
+      [ "dry_fruit", 2 ]
     ],
     [
       [ "sugar", 2 ]
@@ -19113,7 +19114,7 @@
   "difficulty": 2,
   "time": 20000,
   "reversible": false,
-  "autolearn": false,
+  "autolearn": true,
   "tools": [
     [
       ["hotplate", 5],
