@@ -13197,6 +13197,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 1] , ["trappers_companion", 3] , ["survival_book", 2] , ["pocket_survival", 2]],
   "tools": [
     [
       [ "needle_bone", 5 ],
@@ -13240,6 +13241,7 @@
   "time": 40000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 1] , ["trappers_companion", 3] , ["survival_book", 2]],
   "tools": [
     [
       [ "needle_bone", 13 ],
@@ -13288,6 +13290,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "manual_tailor", 2 ] , ["textbook_tailor", 2]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -13315,7 +13318,8 @@
   "difficulty": 2,
   "time": 30000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , [ "tailor_portfolio", 4 ] , ["textbook_survival", 3] , ["trappers_companion", 3] , ["survival_book", 3] , ["textbook_armwest", 5]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -13340,7 +13344,8 @@
   "difficulty": 5,
   "time": 35000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 4 ] , [ "tailor_portfolio", 5 ]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -13411,6 +13416,7 @@
   "time": 25000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "mag_tailor", 1 ] , ["manual_tailor", 1]],
   "tools": [
     [
       [ "needle_bone", 10 ],
@@ -13432,6 +13438,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "manual_tailor", 1 ]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -13452,7 +13459,8 @@
   "difficulty": 2,
   "time": 45000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , [ "tailor_portfolio", 5 ] , ["manual_tailor", 3] , ["survival_book", 3]],
   "tools": [
     [
       [ "needle_bone", 10 ],
@@ -13494,7 +13502,8 @@
   "difficulty": 2,
   "time": 35000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "mag_tailor", 1 ] , ["manual_tailor", 1]],
   "tools": [
     [
       [ "needle_bone", 15 ],
@@ -13561,6 +13570,7 @@
   "time": 35000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "mag_tailor", 1 ] , ["manual_tailor", 1]],
   "tools": [
     [
       [ "needle_bone", 15 ],
@@ -13582,6 +13592,7 @@
   "time": 35000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "mag_tailor", 1 ] , ["manual_tailor", 1]],
   "tools": [
     [
       [ "needle_bone", 15 ],
@@ -13601,8 +13612,11 @@
   "skill_used": "tailor",
   "difficulty": 0,
   "time": 3000,
-  "reversible": false,
-  "autolearn": true,
+  "reversible": true,
+  "decomp_learn": 0,
+  "note": "OK, I sewed the shirt and pants together, now how am I going to put this on? not perfectly trivial IMO.",
+  "autolearn": false,
+  "book_learn": [[ "mag_tailor", 0 ] , ["manual_tailor", 0] , ["textbook_tailor", 0]],
   "tools": [
     [
       [ "needle_bone", 10 ],
@@ -13627,7 +13641,7 @@
   "time": 4000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_tailor", 4 ] , [ "manual_tailor", 5 ]],
+  "book_learn": [[ "textbook_tailor", 4 ] , [ "manual_tailor", 5 ] , ["tailor_portfolio", 4]],
   "tools": [
     [
       [ "needle_bone", 20 ],
@@ -13658,7 +13672,7 @@
   "time": 4000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_tailor", 4 ] , [ "manual_tailor", 5 ]],
+  "book_learn": [[ "textbook_tailor", 4 ] , [ "manual_tailor", 5 ] , ["tailor_portfolio", 4]],
   "tools": [
     [
       [ "needle_bone", 20 ],
@@ -13788,8 +13802,10 @@
   "skill_used": "tailor",
   "difficulty": 3,
   "time": 48000,
-  "reversible": false,
-  "autolearn": true,
+  "reversible": true,
+  "decomp_learn": 2,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 2 ] , ["manual_tailor", 2]],
   "tools": [
     [
       [ "needle_bone", 16 ],
@@ -13954,48 +13970,6 @@
   ]
 },{
         "type" : "recipe",
-  "result": "hot_pants_leather",
-  "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_LEGS",
-  "skill_used": "tailor",
-  "difficulty": 2,
-  "time": 38000,
-  "reversible": false,
-  "autolearn": false,
-  "tools": [
-    [
-      [ "needle_bone", 15 ],
-      [ "sewing_kit", 15 ]
-    ]
-  ],
-  "components": [
-    [
-      [ "leather", 4 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
-  "result": "hot_pants_fur",
-  "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_LEGS",
-  "skill_used": "tailor",
-  "difficulty": 2,
-  "time": 38000,
-  "reversible": false,
-  "autolearn": false,
-  "tools": [
-    [
-      [ "needle_bone", 15 ],
-      [ "sewing_kit", 15 ]
-    ]
-  ],
-  "components": [
-    [
-      [ "fur", 4 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
   "result": "hoodie",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_TORSO",
@@ -14046,6 +14020,7 @@
   "time": 38000,
   "reversible": false,
   "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , ["manual_tailor", 3]],
   "tools": [
     [
       [ "needle_bone", 15 ],
@@ -14066,7 +14041,8 @@
   "difficulty": 0,
   "time": 3000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , ["manual_tailor", 3]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -14087,7 +14063,14 @@
   "difficulty": 0,
   "time": 1000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , ["manual_tailor", 3]],
+  "tools": [
+    [
+      [ "needle_bone", 12 ],
+      [ "sewing_kit", 12 ]
+    ]
+  ],
   "components": [
     [
       [ "fur", 1 ]
@@ -14102,7 +14085,8 @@
   "difficulty": 0,
   "time": 3000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , ["manual_tailor", 3]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -14211,6 +14195,7 @@
   "time": 200000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_tailor", 4] , ["tailor_portfolio", 4]],
   "tools": [
     [
       [ "needle_bone", 45 ],
@@ -14233,6 +14218,7 @@
   "time": 100000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 1] , ["trappers_companion", 3] , ["survival_book", 2]],
   "tools": [
     [
       [ "needle_bone", 20 ],
@@ -14254,6 +14240,7 @@
   "time": 150000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_tailor", 4] , ["manual_tailor", 3]],
   "tools": [
     [
       [ "needle_bone", 30 ],
@@ -14284,6 +14271,29 @@
     ]
   ]
 },{
+  "type" : "recipe",
+  "result": "vest_leather",
+  "id_suffix": "from_patches",
+  "category": "CC_ARMOR",
+  "subcategory": "CSC_ARMOR_TORSO",
+  "skill_used": "tailor",
+  "difficulty": 4,
+  "time": 80000,
+  "reversible": false,
+  "autolearn": true,
+  "book_learn": [["textbook_tailor", 3] , ["manual_tailor", 3]],
+  "tools": [
+    [
+      [ "needle_bone", 20 ],
+      [ "sewing_kit", 20 ]
+    ]
+  ],
+  "components": [
+    [
+      [ "leather", 10 ]
+    ]
+  ]
+},{
         "type" : "recipe",
   "result": "shorts_denim",
   "category": "CC_ARMOR",
@@ -14308,6 +14318,29 @@
     ]
   ]
 },{
+  "type" : "recipe",
+  "result": "shorts_denim",
+  "id_suffix": "from fabric",
+  "category": "CC_ARMOR",
+  "subcategory": "CSC_ARMOR_LEGS",
+  "skill_used": "tailor",
+  "difficulty": 2,
+  "time": 20000,
+  "reversible": false,
+  "autolearn": false,
+  "book_learn": [["textbook_tailor", 3] , ["manual_tailor", 3]],
+  "tools":[
+    [
+      [ "needle_bone", 10 ],
+      [ "sewing_kit", 10 ]
+    ]
+    ],
+  "components": [
+    [
+      [ "rags", 4 ]
+    ]
+  ]
+},{
         "type" : "recipe",
   "result": "gloves_liner",
   "category": "CC_ARMOR",
@@ -14316,7 +14349,8 @@
   "difficulty": 1,
   "time": 10000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "manual_tailor", 1 ] , [ "mag_tailor", 0 ] , ["textbook_survival", 2] , ["pocket_survival", 2]],
   "tools": [
     [
       [ "needle_bone", 2 ],
@@ -14359,7 +14393,7 @@
   "time": 24000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_fireman", 6 ]],
+  "book_learn": [[ "textbook_fireman", 6 ] , ["tailor_portfolio", 7]],
   "tools": [
     [
       [ "needle_bone", 40 ],
@@ -14381,7 +14415,7 @@
   "time": 24000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_fireman", 6 ]],
+  "book_learn": [[ "textbook_fireman", 6 ] , ["textbook_tailor", 5] , ["tailor_portfolio", 5]],
   "tools": [
     [
       [ "needle_bone", 8 ],
@@ -14403,7 +14437,7 @@
   "time": 24000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_fireman", 6 ]],
+  "book_learn": [[ "textbook_fireman", 6 ] , ["textbook_tailor", 5] , ["tailor_portfolio", 5]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -14425,7 +14459,7 @@
   "time": 24000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_fireman", 6 ]],
+  "book_learn": [[ "textbook_fireman", 6 ] , ["textbook_tailor", 5] , ["tailor_portfolio", 5]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -14448,7 +14482,7 @@
   "time": 160000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_fireman", 8 ]],
+  "book_learn": [[ "textbook_fireman", 8 ] , ["tailor_portfolio", 8]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -14503,6 +14537,29 @@
     ]
   ]
 },{
+  "type" : "recipe",
+  "result": "gloves_fingerless",
+  "id_suffix": "from patches",
+  "category": "CC_ARMOR",
+  "subcategory": "CSC_ARMOR_HANDS",
+  "skill_used": "tailor",
+  "difficulty": 3,
+  "time": 16000,
+  "reversible": false,
+  "autolearn": true,
+  "book_learn": [[ "manual_tailor", 2 ] , [ "textbook_tailor", 2 ]],
+  "tools": [
+    [
+      [ "needle_bone", 5 ],
+      [ "sewing_kit", 5 ]
+    ]
+  ],
+  "components": [
+    [
+      [ "leather", 2 ]
+    ]
+  ]
+},{
         "type" : "recipe",
   "result": "gloves_fingerless_mod",
   "category": "CC_ARMOR",
@@ -14544,6 +14601,7 @@
   "time": 16000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "manual_tailor", 1 ] , [ "mag_tailor", 0 ] , ["textbook_survival", 1] , ["pocket_survival", 1]],
   "tools": [
     [
       [ "needle_bone", 6 ],
@@ -14566,6 +14624,7 @@
   "time": 16000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "manual_tailor", 1 ] , [ "trappers_companion", 2 ] , ["textbook_survival", 1] , ["pocket_survival", 1]],
   "tools": [
     [
       [ "needle_bone", 6 ],
@@ -14606,6 +14665,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["recipe_melee", 3]],
   "tools": [
     [
       [ "rock", -1 ],
@@ -14635,6 +14695,7 @@
   "time": 45000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_armwest", 5] , ["recipe_melee", 4]],
   "tools": [
     [
       [ "rock", -1 ],
@@ -14683,6 +14744,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "manual_tailor", 2 ] , ["textbook_tailor", 2]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -14713,7 +14775,8 @@
   "difficulty": 2,
   "time": 30000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 3 ] , [ "tailor_portfolio", 4 ] , ["textbook_survival", 3] , ["trappers_companion", 3] , ["survival_book", 3] , ["textbook_armwest", 5]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -14761,6 +14824,7 @@
   "time": 5000,
   "reversible": true,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 2] , ["trappers_companion", 3] , ["survival_book", 2]],
   "tools": [
     [
       [ "needle_bone", 3 ],
@@ -14773,15 +14837,67 @@
     ]
   ]
 },{
+    "type" : "recipe",
+  "result": "scarf_fur_long",
+  "category": "CC_ARMOR",
+  "subcategory": "CSC_ARMOR_HEAD",
+  "skill_used": "tailor",
+  "skills_required": [ "survival", 1 ],
+  "difficulty": 2,
+  "note": "You try keeping 12 feet of fur sorted out!",
+  "time": 9000,
+  "reversible": true,
+  "autolearn": true,
+  "book_learn": [["textbook_survival", 2] , ["trappers_companion", 3] , ["survival_book", 2]],
+  "tools": [
+    [
+      [ "needle_bone", 9 ],
+      [ "sewing_kit", 9 ]
+    ]
+  ],
+  "components": [
+    [
+      [ "fur", 12 ]
+    ]
+  ]
+},{
+    "type" : "recipe",
+  "result": "scarf_fur_long",
+  "id_suffix": "merge_scarves",
+  "category": "CC_ARMOR",
+  "subcategory": "CSC_ARMOR_HEAD",
+  "skill_used": "tailor",
+  "skills_required": [ "survival", 1 ],
+  "difficulty": 2,
+  "time": 5000,
+  "reversible": true,
+  "autolearn": true,
+  "book_learn": [["textbook_survival", 2] , ["trappers_companion", 3] , ["survival_book", 2]],
+  "tools": [
+    [
+      [ "needle_bone", 3 ],
+      [ "sewing_kit", 3 ]
+    ]
+  ],
+  "components": [
+    [
+      [ "scarf_fur", 3 ]
+    ]
+  ]
+},{
         "type" : "recipe",
   "result": "mask_filter",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
   "skill_used": "tailor",
-  "difficulty": 1,
+  "skills_required": ["fabrication", 1],
+  "difficulty": 2,
+  "note": "Airtight takes some skills.",
   "time": 5000,
   "reversible": true,
-  "autolearn": true,
+  "decomp_learn": 3,
+  "autolearn": false,
+  "book_learn": [["textbook_fireman", 3] , ["atomic_survival", 3] , ["adv_chemistry", 4] , ["textbook_chemistry", 4] , ["emergency_book", 3] , ["textbook_gaswarfare", 3]],
   "components": [
     [
       [ "bag_plastic", 2 ],
@@ -14792,6 +14908,9 @@
       [ "muffler", 1 ],
       [ "bandana", 2 ],
       [ "wrapper", 4 ]
+    ],
+    [
+      [ "charcoal", 2]
     ]
   ]
 },{
@@ -14822,11 +14941,13 @@
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
   "skill_used": "tailor",
+  "skills_required": ["fabrication", 1],
   "difficulty": 3,
   "time": 20000,
   "reversible": true,
-  "autolearn": true,
-  "book_learn": [[ "textbook_gaswarfare", 2 ]],
+  "decomp_learn": 3,
+  "autolearn": false,
+  "book_learn": [["textbook_fireman", 3] , ["atomic_survival", 3] , ["adv_chemistry", 4] , ["textbook_chemistry", 4] , ["emergency_book", 3] , ["textbook_gaswarfare", 3]],
   "tools": [
     [
       [ "wrench", -1 ],
@@ -14844,6 +14965,9 @@
     ],
     [
       [ "hose", 1 ]
+    ],
+    [
+      ["charcoal", 4]
     ]
   ]
 },{
@@ -14852,11 +14976,12 @@
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
   "skill_used": "tailor",
+  "skills_required": ["fabrication", 1],
   "difficulty": 4,
   "time": 20000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_gaswarfare", 4 ]],
+  "book_learn": [["textbook_fireman", 3] , ["atomic_survival", 3] , ["adv_chemistry", 4] , ["textbook_chemistry", 4] , ["emergency_book", 3] , ["textbook_gaswarfare", 3]],
   "tools": [
     [
       [ "wrench", -1 ],
@@ -14882,6 +15007,9 @@
     ],
     [
       ["plastic_chunk", 4]
+    ],
+    [
+      ["charcoal", 4]
     ]
   ]
 },{
@@ -14891,11 +15019,12 @@
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
   "skill_used": "tailor",
+  "skills_required" : ["fabrication", 1],
   "difficulty": 4,
   "time": 20000,
   "reversible": false,
   "autolearn": false,
-  "book_learn": [[ "textbook_gaswarfare", 4 ]],
+  "book_learn": [["textbook_fireman", 3] , ["atomic_survival", 3] , ["adv_chemistry", 4] , ["textbook_chemistry", 4] , ["emergency_book", 3] , ["textbook_gaswarfare", 3]],
   "tools": [
     [
       [ "wrench", -1 ],
@@ -14923,8 +15052,8 @@
   "result": "mask_survivor",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
-  "skill_used": "tailor",
-  "skills_required" : ["fabrication", 5],
+  "skill_used": "fabrication",
+  "skills_required" : ["tailor", 5],
   "difficulty": 5,
   "time": 20000,
   "reversible": false,
@@ -14963,8 +15092,8 @@
   "result": "mask_survivorxl",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
-  "skill_used": "tailor",
-  "skills_required" : ["fabrication", 5],
+  "skill_used": "fabrication",
+  "skills_required" : ["tailor", 5],
   "difficulty": 5,
   "time": 20000,
   "reversible": false,
@@ -15097,12 +15226,13 @@
   "result": "mask_fsurvivor",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
-  "skill_used": "tailor",
-  "skills_required" : ["fabrication", 6],
-  "difficulty": 8,
+  "skill_used": "fabrication",
+  "skills_required" : ["tailor", 8],
+  "difficulty": 6,
   "time": 20000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_fireman", 7] , ["atomic_survival", 8] , ["textbook_gaswarfare", 9]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -15138,12 +15268,13 @@
   "result": "mask_fsurvivorxl",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
-  "skill_used": "tailor",
-  "skills_required" : ["fabrication", 6],
-  "difficulty": 8,
+  "skill_used": "fabrication",
+  "skills_required" : ["tailor", 8],
+  "difficulty": 6,
   "time": 20000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["textbook_fireman", 7] , ["atomic_survival", 8] , ["textbook_gaswarfare", 9]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -15179,9 +15310,9 @@
   "result": "mask_h20survivor",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
-  "skill_used": "tailor",
-  "skills_required" : ["fabrication", 6],
-  "difficulty": 7,
+  "skill_used": "fabrication",
+  "skills_required" : ["tailor", 7],
+  "difficulty": 6,
   "time": 20000,
   "reversible": false,
   "autolearn": true,
@@ -15223,9 +15354,9 @@
   "result": "mask_h20survivorxl",
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_HEAD",
-  "skill_used": "tailor",
-  "skills_required" : ["fabrication", 6],
-  "difficulty": 7,
+  "skill_used": "fabrication",
+  "skills_required" : ["tailor", 7],
+  "difficulty": 6,
   "time": 20000,
   "reversible": false,
   "autolearn": true,
@@ -15274,6 +15405,7 @@
   "reversible": true,
   "decomp_learn": 4,
   "autolearn": true,
+  "book_learn": [["textbook_fireman", 7] , ["advanced_electronics", 4] , ["textbook_electronics", 4]],
   "tools": [
     [
       [ "screwdriver", -1 ],
@@ -15524,6 +15656,7 @@
   "time": 90000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["mag_tailor", 1] , ["manual_tailor", 1] , ["mag_beauty", 1]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -15564,6 +15697,7 @@
   "time": 60000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "textbook_tailor", 5 ] , [ "tailor_portfolio", 5 ]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -15582,6 +15716,7 @@
   "time": 100000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "textbook_tailor", 5 ] , [ "tailor_portfolio", 5 ]],
   "components": [
     [
       [ "string_36", 2 ],
@@ -15601,6 +15736,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "textbook_tailor", 5 ] , [ "tailor_portfolio", 6 ]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -15625,7 +15761,8 @@
   "category": "CC_ARMOR",
   "subcategory": "CSC_ARMOR_TORSO",
   "skill_used": "tailor",
-  "difficulty": 3,
+  "difficulty": 4,
+  "note": "Whilst the trenchcoat needs 6 skill this'll need at least 4.",
   "time": 28000,
   "reversible": false,
   "autolearn": true,
@@ -15678,7 +15815,8 @@
   "skills_required": [ "tailor", 3 ],
   "time": 60000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 4 ] , [ "tailor_portfolio", 5 ] , ["textbook_survival", 3] , ["trappers_companion", 3] , ["survival_book", 3] , ["textbook_armwest", 6]],
   "tools": [
     [
       [ "pot", -1 ],
@@ -15716,7 +15854,8 @@
   "skills_required": [ "tailor", 3 ],
   "time": 28000,
   "reversible": false,
-  "autolearn": true,
+  "autolearn": false,
+  "book_learn": [[ "textbook_tailor", 5 ] , [ "tailor_portfolio", 5 ] , ["textbook_armwest", 4]],
   "tools": [
     [
       [ "needle_bone", 22 ],
@@ -15833,7 +15972,9 @@
   "difficulty": 1,
   "time": 50000,
   "reversible": true,
+  "decomp_learn": 0,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 1] , ["trappers_companion", 3] , ["survival_book", 2] , ["pocket_survival", 1]],
   "tools": [
     [
       [ "needle_bone", 12 ],
@@ -15901,6 +16042,7 @@
   "time": 25000,
   "reversible": true,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 1] , ["trappers_companion", 3] , ["survival_book", 1]],
   "tools": [
     [
       [ "needle_bone", 18 ],
@@ -15965,7 +16107,9 @@
   "difficulty": 5,
   "time": 75000,
   "reversible": true,
+  "decomp_learn": 4,
   "autolearn": true,
+  "book_learn": [["textbook_survival", 1] , ["trappers_companion", 3] , ["survival_book", 2] , ["pocket_survival", 1]],
   "tools": [
     [
       [ "needle_bone", 30 ],
@@ -22287,7 +22431,7 @@
         "type" : "recipe",
   "result": "armor_lightplate",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "fabrication",
   "difficulty": 8,
   "time": 560000,
@@ -23786,6 +23930,7 @@
   "time": 320000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "tailor_portfolio", 7 ] , ["textbook_fireman", 7]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -24145,6 +24290,7 @@
   "time": 45000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "textbook_fireman", 7 ]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -24762,6 +24908,7 @@
   "time": 180000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["tailor_portfolio", 7] , ["textbook_tailor", 8]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -24796,6 +24943,7 @@
   "time": 220000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [["tailor_portfolio", 8] , ["textbook_fireman", 7]],
   "qualities" : [
     {"id":"CUT","level":1,"amount":1}
   ],
@@ -25098,6 +25246,7 @@
   "time": 30000,
   "reversible": false,
   "autolearn": true,
+  "book_learn": [[ "textbook_fabrication", 5 ] , [ "welding_book", 4 ]],
   "tools": [
     [
       [ "wrench", -1 ],
