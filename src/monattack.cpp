@@ -1854,3 +1854,155 @@ void mattack::parrot(monster *z)
         g->sound(z->posx(), z->posy(), speech.volume, speech.text);
     }
 }
+
+void mattack::trample(monster *z)
+{
+    int j;
+    if (rl_dist(z->posx(), z->posy(), g->u.posx, g->u.posy) > 1 ||
+        !g->sees_u(z->posx(), z->posy(), j))
+        return; // Out of range
+
+    z->sp_timeout = z->type->sp_freq; // Reset timer
+    g->add_msg(_("The %s charges at you!"), z->name().c_str());
+    z->moves -= 100;
+
+    if (g->u.uncanny_dodge()) { return; }
+
+    // Can we dodge the attack? Uses player dodge function % chance (melee.cpp)
+    int dodge_check = std::max(g->u.get_dodge() - rng(0, z->type->melee_skill), 0L);
+    if (rng(0, 10000) < 10000 / (1 + (99 * exp(-.6 * dodge_check)))) {
+        g->add_msg(_("You avoid its charge!"));
+        g->u.practice(g->turn, "dodge", z->type->melee_skill*2);
+        g->u.ma_ondodge_effects();
+        return;
+    }
+
+    int min_dam = 0;
+    int max_dam = 0;
+    int num_parts = rng(2, 4);
+    int knockdown_chance = 0;
+
+    switch (z->type->size)
+    {
+        case MS_TINY:   min_dam = 0; max_dam = 0; knockdown_chance = 0; break;
+        case MS_SMALL:  min_dam = 0; max_dam = 0; knockdown_chance = 0;break;
+        case MS_MEDIUM: min_dam = 5; max_dam = 10; knockdown_chance = 10;break;
+        case MS_LARGE:  min_dam = 10; max_dam = 20; knockdown_chance = 6;break;
+        case MS_HUGE:   min_dam = 20; max_dam = 40; knockdown_chance = 3;break;
+    }
+
+    for (int i = 0; i < num_parts; i++)
+    {
+        body_part hit = random_body_part();
+        int dam = rng(min_dam, max_dam), side = random_side(hit);
+        g->add_msg(_("Your %s is trampled for %d damage!"), body_part_name(hit, side).c_str(), dam);
+        g->u.hit(z, hit, side, dam, 0);
+    }
+
+    if (one_in(knockdown_chance))
+    {
+        g->add_msg(_("You are knocked over!"));
+        g->u.add_effect("downed", 30);
+    }
+
+    g->u.practice(g->turn, "dodge", z->type->melee_skill);
+}
+
+void mattack::thagomizer(monster *z)
+{
+    int j;
+    if (rl_dist(z->posx(), z->posy(), g->u.posx, g->u.posy) > 1 ||
+        !g->sees_u(z->posx(), z->posy(), j))
+        return; // Out of range
+
+    z->sp_timeout = z->type->sp_freq; // Reset timer
+    g->add_msg(_("The %s swings its spiked tail at you!"), z->name().c_str());
+    z->moves -= 100;
+
+    if (g->u.uncanny_dodge()) { return; }
+
+    // Can we dodge the attack? Uses player dodge function % chance (melee.cpp)
+    int dodge_check = std::max(g->u.get_dodge() - rng(0, z->type->melee_skill), 0L);
+    if (rng(0, 10000) < 10000 / (1 + (99 * exp(-.6 * dodge_check)))) {
+        g->add_msg(_("You avoid its charge!"));
+        g->u.practice(g->turn, "dodge", z->type->melee_skill*2);
+        g->u.ma_ondodge_effects();
+        return;
+    }
+
+    int min_dam = 0;
+    int max_dam = 0;
+    int chance = 0;
+
+    switch (z->type->size)
+    {
+        case MS_TINY:   min_dam = 1; max_dam = 2; chance = 0; break;
+        case MS_SMALL:  min_dam = 2; max_dam = 3; chance = 0; break;
+        case MS_MEDIUM: min_dam = 3; max_dam = 5; chance = 50; break;
+        case MS_LARGE:  min_dam = 5; max_dam = 10; chance = 25; break;
+        case MS_HUGE:   min_dam = 10; max_dam = 20; chance = 10; break;
+    }
+
+    body_part hit = random_body_part();
+    int dam = rng(min_dam, max_dam), side = random_side(hit);
+    g->add_msg(_("Your %s is impaled for %d damage!"), body_part_name(hit, side).c_str(), dam);
+    g->u.hit(z, hit, side, dam, 0);
+
+    // chance of instakill
+    if ((hit == bp_torso || hit == bp_eyes || hit == bp_head || hit == bp_mouth) && one_in(chance))
+    {
+        g->add_msg(_("Your vital organs are pierced, killing you instantly!"));
+        g->u.hit(z, hit, side, 9999, 0);
+    }
+
+    g->u.practice(g->turn, "dodge", z->type->melee_skill);
+}
+
+void mattack::tailbash(monster *z)
+{
+    int j;
+    if (rl_dist(z->posx(), z->posy(), g->u.posx, g->u.posy) > 1 ||
+        !g->sees_u(z->posx(), z->posy(), j))
+        return; // Out of range
+
+    z->sp_timeout = z->type->sp_freq; // Reset timer
+    g->add_msg(_("The %s swings its bony tail at you!"), z->name().c_str());
+    z->moves -= 100;
+
+    if (g->u.uncanny_dodge()) { return; }
+
+    // Can we dodge the attack? Uses player dodge function % chance (melee.cpp)
+    int dodge_check = std::max(g->u.get_dodge() - rng(0, z->type->melee_skill), 0L);
+    if (rng(0, 10000) < 10000 / (1 + (99 * exp(-.6 * dodge_check)))) {
+        g->add_msg(_("You avoid its tail!"));
+        g->u.practice(g->turn, "dodge", z->type->melee_skill*2);
+        g->u.ma_ondodge_effects();
+        return;
+    }
+
+    int min_dam = 0;
+    int max_dam = 0;
+    int chance = 0;
+
+    switch (z->type->size)
+    {
+        case MS_TINY:   min_dam = 1; max_dam = 1; chance = 0; break;
+        case MS_SMALL:  min_dam = 2; max_dam = 3; chance = 0; break;
+        case MS_MEDIUM: min_dam = 5; max_dam = 10; chance = 10; break;
+        case MS_LARGE:  min_dam = 10; max_dam = 15; chance = 5; break;
+        case MS_HUGE:   min_dam = 15; max_dam = 30; chance = 2; break;
+    }
+
+    body_part hit = random_body_part();
+    int dam = rng(min_dam, max_dam), side = random_side(hit);
+    g->add_msg(_("Its tail smashes into your %s for %d damage!"), body_part_name(hit, side).c_str(), dam);
+    g->u.hit(z, hit, side, dam, 0);
+
+    if (one_in(chance))
+    {
+        g->add_msg(_("You are knocked over!"));
+        g->u.add_effect("downed", 30);
+    }
+
+    g->u.practice(g->turn, "dodge", z->type->melee_skill);
+}

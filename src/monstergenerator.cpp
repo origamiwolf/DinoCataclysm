@@ -186,6 +186,9 @@ void MonsterGenerator::init_attack()
     attack_map["BRANDISH"] = &mattack::brandish;
     attack_map["FLESH_GOLEM"] = &mattack::flesh_golem;
     attack_map["PARROT"] = &mattack::parrot;
+    attack_map["TRAMPLE"] = &mattack::trample;
+    attack_map["THAGOMIZER"] = &mattack::thagomizer;
+    attack_map["TAILBASH"] = &mattack::tailbash;
 }
 
 void MonsterGenerator::init_trigger()

@@ -50,6 +50,9 @@ public:
     void brandish           (monster *z);
     void flesh_golem        (monster *z);
     void parrot             (monster *z);
+    void trample            (monster *z);
+    void thagomizer         (monster *z);
+    void tailbash           (monster *z);
 };
 
 #endif
