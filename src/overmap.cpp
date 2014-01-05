@@ -211,7 +211,7 @@ oter_id base_oter_id( const std::string & base ) {
         return 0;
     } else {
         return it->second.loadid_base;
-    }  
+    }
 }
 
 
@@ -938,7 +938,7 @@ point overmap::display_notes(int const z) const
     end_limit = 't';
     maxitems = 20;
  }
-    
+
  char ch = '.';
  int start = 0, cur_it(0);
 
@@ -3714,6 +3714,7 @@ void overmap::place_mongroups()
   }
  }
 
+/* I don't like worms
  if (!ACTIVE_WORLD_OPTIONS["CLASSIC_ZOMBIES"]) {
   // Place the "put me anywhere" groups
   int numgroups = rng(0, 3);
@@ -3723,7 +3724,7 @@ void overmap::place_mongroups()
              rng(20, 40), rng(30, 50)));
   }
  }
-
+*/
  // Forest groups cover the entire map
  zg.push_back( mongroup("GROUP_FOREST", OMAPX / 2, OMAPY / 2, 0,
                         OMAPY, rng(2000, 12000)));
@@ -3736,6 +3737,9 @@ void overmap::place_mongroups()
  zg.back().diffuse = true;
  zg.push_back( mongroup("GROUP_FOREST", (OMAPX * 3) / 2, (OMAPY * 3) / 2, 0,
                         OMAPX, rng(2000, 12000)));
+ zg.back().diffuse = true;
+ zg.push_back( mongroup("GROUP_DINOSAUR", OMAPX / 2, OMAPY / 2, 0,
+                        OMAPY, rng(2000, 12000)));
  zg.back().diffuse = true;
 }
 
@@ -4119,7 +4123,7 @@ void groundcover_extra::setup() { // fixme return bool for failure
         if ( it->second < 0.0001 ) continue;
         if ( termap.find( it->first ) != termap.end() ) {
             tf_id.ter = termap[ it->first ].loadid;
-        } else if ( furnmap.find( it->first ) != furnmap.end() ) { 
+        } else if ( furnmap.find( it->first ) != furnmap.end() ) {
             tf_id.furn = furnmap[ it->first ].loadid;
         } else {
             debugmsg("No clue what '%s' is! No such terrain or furniture",it->first.c_str() );
@@ -4135,7 +4139,7 @@ void groundcover_extra::setup() { // fixme return bool for failure
         if ( it->second < 0.0001 ) continue;
         if ( termap.find( it->first ) != termap.end() ) {
             tf_id.ter = termap[ it->first ].loadid;
-        } else if ( furnmap.find( it->first ) != furnmap.end() ) { 
+        } else if ( furnmap.find( it->first ) != furnmap.end() ) {
             tf_id.furn = furnmap[ it->first ].loadid;
         } else {
             debugmsg("No clue what '%s' is! No such terrain or furniture",it->first.c_str() );
