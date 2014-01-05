@@ -12,7 +12,7 @@
       "field_coverage": {                   "//": "biome settings for builtin field mapgen. The values below replicate results of hardcoded 'field' mapgen",
           "percent_coverage": 0.9333,       "//": "% of tiles that have a plant: one_in(120)",
           "default_ter": "t_shrub",         "//": "default plant",
-          "other": {                        "//": "% of plants that aren't default_ter",   
+          "other": {                        "//": "% of plants that aren't default_ter",
               "t_shrub_blueberry": 0.4166,
               "t_shrub_strawberry": 0.4166,
               "f_mutpoppy": 8.3333
@@ -38,7 +38,8 @@
           "park_radius": 130,               "//": "this is not a cut and dry % but rather an inverse voodoo number; rng(0,99) > VOODOO * distance / citysize;",
           "parks": {                        "//": "weighted list for park overmap terrains",
               "park": 4,
-              "pool": 1
+              "pool": 1,
+              "fieldoffice": 2
           },
           "shops": {                        "//": "weighted list of oterrains for commercial zoning",
               "s_gas": 5,
