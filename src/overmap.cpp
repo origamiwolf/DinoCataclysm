@@ -193,6 +193,9 @@ overmap_special overmap_specials[NUM_OMSPECS] = {
 {"s_gas_north",   10,  500,  10, 200, "GROUP_NULL", 0, 0, 0, 0,
  &omspec_place::by_highway, mfb(OMS_FLAG_CLASSIC) | mfb(OMS_FLAG_ROTATE_ROAD)},
 
+{"fieldoffice_north",   10,  500,  5, 20, "GROUP_FIELDOFFICE_MONSTERS", 20, 40, 1, 2,
+ &omspec_place::by_highway, mfb(OMS_FLAG_ROTATE_ROAD)},
+
 {"haz_sar_entrance",     1,  2, 15, -1, "GROUP_NULL", 0, 0, 0, 0,
  &omspec_place::wilderness, mfb(OMS_FLAG_ROAD) | mfb(OMS_FLAG_CLASSIC) | mfb(OMS_FLAG_2X2_SECOND)}
 };

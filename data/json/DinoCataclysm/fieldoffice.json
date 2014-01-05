@@ -43,8 +43,7 @@
             ["vest", 15],
             ["glasses_safety", 40],
             ["beartrap", 5],
-            ["radio", 20],
-            ["mag_traps", 20]
+            ["radio", 20]
         ]
     },
     {
@@ -89,6 +88,34 @@
             { "monster" : "mon_zombie_brute", "freq" : 10, "cost_multiplier" : 15 },
             { "monster" : "mon_zombie_hulk", "freq" : 1, "cost_multiplier" : 50 },
             { "monster" : "mon_zombie_master", "freq" : 1, "cost_multiplier" : 25 }
+        ]
+    },
+    {
+        "type":"monstergroup",
+        "name" : "GROUP_FIELDOFFICE_MONSTERS",
+        "default" : "mon_null",
+        "monsters" : [
+            { "monster" : "mon_zombie_tough", "freq" : 40, "cost_multiplier": 3},
+            { "monster" : "mon_zombie_fast", "freq" : 10, "cost_multiplier" : 2 },
+            { "monster" : "mon_zombie_grabber", "freq" : 70, "cost_multiplier" : 1 },
+            { "monster" : "mon_zombie_spitter", "freq" : 30, "cost_multiplier" : 5 },
+            { "monster" : "mon_zombie_survivor", "freq" : 1, "cost_multiplier" : 25 },
+          { "monster" : "mon_compsognathus", "freq" : 100, "cost_multiplier" : 0, "pack_size" : [4,12] },
+          { "monster" : "mon_gallimimus", "freq" : 50, "cost_multiplier" : 0, "pack_size" : [4,8] },
+          { "monster" : "mon_titanis", "freq" : 10, "cost_multiplier" : 10 },
+          { "monster" : "mon_spinosaurus", "freq" : 1, "cost_multiplier" : 50 },
+          { "monster" : "mon_tyrannosaurus", "freq" : 1, "cost_multiplier" : 40 },
+          { "monster" : "mon_triceratops", "freq" : 3, "cost_multiplier" : 30, "pack_size" : [1,2] },
+          { "monster" : "mon_stegosaurus", "freq" : 5, "cost_multiplier" : 20, "pack_size" : [2,4] },
+          { "monster" : "mon_ankylosaurus", "freq" : 5, "cost_multiplier" : 20 },
+          { "monster" : "mon_allosaurus", "freq" : 2, "cost_multiplier" : 30 },
+          { "monster" : "mon_eoraptor", "freq" : 20, "cost_multiplier" : 0, "pack_size" : [4,12]  },
+          { "monster" : "mon_velociraptor", "freq" : 15, "cost_multiplier" : 10, "pack_size" : [2,4]  },
+          { "monster" : "mon_deinonychus", "freq" : 10, "cost_multiplier" : 15, "pack_size" : [1,2]  },
+          { "monster" : "mon_utahraptor", "freq" : 5, "cost_multiplier" : 30 },
+          { "monster" : "mon_parasaurolophus", "freq" : 3, "cost_multiplier" : 10, "pack_size" : [2,4] },
+          { "monster" : "mon_dimorphodon", "freq" : 50, "cost_multiplier" : 0, "pack_size" : [2,4] },
+          { "monster" : "mon_dilophosaurus", "freq" : 15, "cost_multiplier" : 10, "pack_size" : [1,2] }
         ]
     },
     {
@@ -169,26 +196,26 @@
                 },
                 "comment": "randomly picked from a group ---v",
                 "place_groups": [
-                    { "item": "fieldoffice_weapons", "chance": 50, "x": [ 20,21 ], "y": 20 },
+                    { "item": "fieldoffice_weapons", "chance": 60, "x": [ 20,21 ], "y": 20 },
                     { "item": "fieldoffice_tools", "chance": 70, "x": [ 18,19 ], "y": 20 },
                     { "item": "fieldoffice_books", "chance": 80, "x": 22, "y": [9,10] },
-                    { "monster": "GROUP_FOREST", "chance": 4, "x": [ 3, 5 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 2, "x": [ 3, 5 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 4, "x": [ 3, 5 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_FOREST", "chance": 4, "x": [ 7, 9 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 2, "x": [ 7, 9 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 4, "x": [ 7, 9 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_FOREST", "chance": 4, "x": [ 11, 13 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 2, "x": [ 11, 13 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 4, "x": [ 11, 13 ], "y": [ 10, 12 ] },
-                    { "monster": "GROUP_FOREST", "chance": 8, "x": [ 3, 7 ], "y": [ 16, 20 ] },
+                    { "monster": "GROUP_FOREST", "chance": 2, "x": [ 3, 5 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 4, "x": [ 3, 5 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 3, "x": [ 3, 5 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_FOREST", "chance": 2, "x": [ 7, 9 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 4, "x": [ 7, 9 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 3, "x": [ 7, 9 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_FOREST", "chance": 2, "x": [ 11, 13 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 4, "x": [ 11, 13 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 3, "x": [ 11, 13 ], "y": [ 10, 12 ] },
+                    { "monster": "GROUP_FOREST", "chance": 2, "x": [ 3, 7 ], "y": [ 16, 20 ] },
                     { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 4, "x": [ 3, 7 ], "y": [ 16, 20 ] },
-                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 8, "x": [ 3, 7 ], "y": [ 16, 20 ] },
-                    { "monster": "GROUP_FOREST", "chance": 8, "x": [ 9, 13 ], "y": [ 16, 20 ] },
+                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 3, "x": [ 3, 7 ], "y": [ 16, 20 ] },
+                    { "monster": "GROUP_FOREST", "chance": 2, "x": [ 9, 13 ], "y": [ 16, 20 ] },
                     { "monster": "GROUP_DINOSAUR_DANGEROUS", "chance": 4, "x": [ 9, 13 ], "y": [ 16, 20 ] },
-                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 8, "x": [ 9, 13 ], "y": [ 16, 20 ] },
-                    { "monster": "GROUP_FIELDOFFICE_ZOMBIE", "chance": 50, "x": [ 1, 22 ], "y": [ 1, 6 ] },
-                    { "monster": "GROUP_FIELDOFFICE_ZOMBIE", "chance": 50, "x": [ 16, 22 ], "y": [ 8, 21 ] }
+                    { "monster": "GROUP_DINOSAUR_HARMLESS", "chance": 3, "x": [ 9, 13 ], "y": [ 16, 20 ] },
+                    { "monster": "GROUP_FIELDOFFICE_ZOMBIE", "chance": 4, "x": [ 1, 22 ], "y": [ 1, 6 ] },
+                    { "monster": "GROUP_FIELDOFFICE_ZOMBIE", "chance": 4, "x": [ 16, 22 ], "y": [ 8, 21 ] }
                 ],
             "comment": "end of mapgen json definition ---v"
         },
