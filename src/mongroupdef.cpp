@@ -54,6 +54,8 @@ MonsterGroupResult MonsterGroupManager::GetResultFromGroup(
         if(ACTIVE_WORLD_OPTIONS["CLASSIC_ZOMBIES"]){
             valid_entry = valid_entry && (GetMType(it->name)->in_category("CLASSIC") || GetMType(it->name)->in_category("WILDLIFE"));
         }
+        // wildlife spawns shouldn't be soooo frequent
+        valid_entry = valid_entry && (GetMType(it->name)->in_category("WILDLIFE") && one_in(10));
         //Insure that the time is not before the spawn first appears or after it stops appearing
         valid_entry = valid_entry && (HOURS(it->starts) < g->turn.get_turn());
         valid_entry = valid_entry && (it->lasts_forever() || HOURS(it->ends) > g->turn.get_turn());
@@ -77,7 +79,7 @@ MonsterGroupResult MonsterGroupManager::GetResultFromGroup(
                     valid_times_of_day.push_back( std::make_pair(sunrise-HOURS(1),sunrise+HOURS(1)) );
                 }
             }
-            
+
             //If we have any seasons listed, we know to limit by season, and if any season matches this season, we are good to spawn
             if( (*condition) == "SUMMER" || (*condition) == "WINTER" || (*condition) == "SPRING" || (*condition) == "AUTUMN" ){
                 season_limited = true;
@@ -221,7 +223,7 @@ void MonsterGroupManager::LoadMonsterGroup(JsonObject &jo)
             int ends = 0;
             if(mon.has_member("starts")){
                 starts = mon.get_int("starts");
-            } 
+            }
             if(mon.has_member("ends")){
                 ends = mon.get_int("ends");
             }
