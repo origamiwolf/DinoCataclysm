@@ -55,7 +55,11 @@ MonsterGroupResult MonsterGroupManager::GetResultFromGroup(
             valid_entry = valid_entry && (GetMType(it->name)->in_category("CLASSIC") || GetMType(it->name)->in_category("WILDLIFE"));
         }
         // wildlife spawns shouldn't be soooo frequent
-        valid_entry = valid_entry && (GetMType(it->name)->in_category("WILDLIFE") && one_in(10));
+        if ((GetMType(it->name)->in_category("WILDLIFE")))
+        {
+            if (!one_in(10))
+                valid_entry = false;
+        }
         //Insure that the time is not before the spawn first appears or after it stops appearing
         valid_entry = valid_entry && (HOURS(it->starts) < g->turn.get_turn());
         valid_entry = valid_entry && (it->lasts_forever() || HOURS(it->ends) > g->turn.get_turn());
