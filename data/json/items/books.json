@@ -1575,7 +1575,7 @@
         "id" : "novel_swash",
         "name" : "swashbuckling novel",
         "max_level" : 0,
-        "description" : "An exciting seventeenth century tale of how an enslaved irish doctor and his comrades-in-chains escape and become heroic pirates of the Robin Hood variety.",
+        "description" : "An exciting seventeenth century tale of how an enslaved Irish doctor and his comrades-in-chains escape and become heroic pirates of the Robin Hood variety.",
         "weight" : 582,
         "to_hit" : 0,
         "color" : "light_blue",
@@ -3123,7 +3123,7 @@
     {
         "type" : "BOOK",
         "id" : "textbook_armeast",
-        "name" : "The Art of Japenese Armormaking",
+        "name" : "The Art of Japanese Armormaking",
         "max_level" : 10,
         "description" : "This in-depth and technical text details various forms of ancient Japanese armor crafting, and is well illustrated with lots of photos.",
         "weight" : 654,

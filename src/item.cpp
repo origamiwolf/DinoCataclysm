@@ -669,6 +669,7 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
 
 } else if (is_book()) {
 
+  dump->push_back(iteminfo("DESCRIPTION", "--"));
   it_book* book = dynamic_cast<it_book*>(type);
   if (!book->type)
    dump->push_back(iteminfo("BOOK", _("Just for fun.")));
@@ -700,6 +701,7 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
        recipes += ", ";
    }
    std::string recipe_line = string_format(_("This book contains %d crafting recipes: %s"), book->recipes.size(), recipes.c_str());
+   dump->push_back(iteminfo("DESCRIPTION", "--"));
    dump->push_back(iteminfo("DESCRIPTION", recipe_line.c_str()));
   }
 
@@ -729,6 +731,7 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
  }
 
  if ( showtext && !is_null() ) {
+    dump->push_back(iteminfo("DESCRIPTION", "--"));
     if (is_stationary()) {
        // Just use the dynamic description
         dump->push_back( iteminfo("DESCRIPTION", SNIPPET.get(note)) );
@@ -738,38 +741,47 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
 
     if (is_armor() && has_flag("FIT"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing fits you perfectly.")));
     }
     if (is_armor() && has_flag("SKINTIGHT"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing lies close to the skin and layers easily.")));
     }
     if (is_armor() && has_flag("POCKETS"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing has pockets to warm your hands.")));
     }
     if (is_armor() && has_flag("HOOD"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing has a hood to keep your head warm.")));
     }
     if (is_armor() && has_flag("RAINPROOF"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing is designed to keep you dry in the rain.")));
     }
     if (is_armor() && has_flag("WATER_FRIENDLY"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing performs well even when soaking wet. This can feel good.")));
     }
     if (is_armor() && has_flag("WATERPROOF"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing won't let water through.")));
     }
     if (is_armor() && has_flag("STURDY"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing is designed to protect you from harm and withstand a lot of abuse.")));
     }
     if (is_armor() && has_flag("SWIM_GOGGLES"))
     {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
         dump->push_back(iteminfo("DESCRIPTION", _("This piece of clothing allows you to see much further under water.")));
     }
     if (is_armor() && type->id == "rad_badge")
@@ -2331,7 +2343,7 @@ int item::pick_reload_ammo(player &u, bool interactive)
  }
 
  // Check if the player is wielding ammo
- if (g->u.is_armed() && g->u.weapon.is_ammo()){
+ if (u.is_armed() && u.weapon.is_ammo()){
      // if it is compatible then include it.
      it_ammo* w_ammo = dynamic_cast<it_ammo*>(u.weapon.type);
      if (w_ammo->type == ammo_type())
@@ -2373,13 +2385,13 @@ int item::pick_reload_ammo(player &u, bool interactive)
      }
      amenu.query();
      if ( amenu.ret >= 0 ) {
-        am_pos = g->u.get_item_position(am[ amenu.ret ]);
+        am_pos = u.get_item_position(am[ amenu.ret ]);
         uistate.lastreload[ ammo_type() ] = am[ amenu.ret ]->typeId();
      }
  }
  // Either only one valid choice or chosing for a NPC, just return the first.
  else if (am.size() > 0){
-     am_pos = g->u.get_item_position(am[0]);
+     am_pos = u.get_item_position(am[0]);
  }
  return am_pos;
 }

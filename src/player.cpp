@@ -194,6 +194,7 @@ player::~player()
 
 player& player::operator= (const player & rhs)
 {
+ Character::operator=(rhs);
  id = rhs.id;
  posx = rhs.posx;
  posy = rhs.posy;
@@ -225,16 +226,6 @@ player& player::operator= (const player & rhs)
 
  my_bionics = rhs.my_bionics;
 
- str_cur = rhs.str_cur;
- dex_cur = rhs.dex_cur;
- int_cur = rhs.int_cur;
- per_cur = rhs.per_cur;
-
- str_max = rhs.str_max;
- dex_max = rhs.dex_max;
- int_max = rhs.int_max;
- per_max = rhs.per_max;
-
  power_level = rhs.power_level;
  max_power_level = rhs.max_power_level;
 
@@ -255,12 +246,10 @@ player& player::operator= (const player & rhs)
  blocks_left = rhs.blocks_left;
 
  stim = rhs.stim;
- pain = rhs.pain;
  pkill = rhs.pkill;
  radiation = rhs.radiation;
 
  cash = rhs.cash;
- moves = rhs.moves;
  movecounter = rhs.movecounter;
 
  for (int i = 0; i < num_hp_parts; i++)
@@ -988,7 +977,7 @@ void player::update_bodytemp()
         {
             temp_conv[i] += (temp_cur[i] > BODYTEMP_NORM ? 500 : 1000);
         }
-        // Disintergration
+        // Disintegration
         if (has_trait("ROT1")) { temp_conv[i] -= 250;}
         else if (has_trait("ROT2")) { temp_conv[i] -= 750;}
         else if (has_trait("ROT3")) { temp_conv[i] -= 1500;}
@@ -997,7 +986,7 @@ void player::update_bodytemp()
         else if (has_trait("RADIOACTIVE2")) { temp_conv[i] += 750; }
         else if (has_trait("RADIOACTIVE3")) { temp_conv[i] += 1500; }
         // Chemical Imbalance
-        // Added linse in player::suffer()
+        // Added line in player::suffer()
         // FINAL CALCULATION : Increments current body temperature towards convergant.
         if ( has_disease("sleep") ) {
             int sleep_bonus = floor_bedding_warmth + floor_item_warmth;
@@ -1165,7 +1154,7 @@ void player::update_bodytemp()
 void player::temp_equalizer(body_part bp1, body_part bp2)
 {
  // Body heat is moved around.
- // Shift in one direction only, will be shifted in the other direction seperately.
+ // Shift in one direction only, will be shifted in the other direction separately.
  int diff = (temp_cur[bp2] - temp_cur[bp1])*0.0001; // If bp1 is warmer, it will lose heat
  temp_cur[bp1] += diff;
 }
@@ -3157,8 +3146,15 @@ void player::disp_status(WINDOW *w, WINDOW *w2)
     int spdx = sideStyle ?  0 : x + dx * 4;
     int spdy = sideStyle ?  5 : y + dy * 4;
     mvwprintz(w, spdy, spdx, col_spd, _("Spd %2d"), spd_cur);
-    if (this->weight_carried() > this->weight_capacity() || this->volume_carried() > this->volume_capacity() - 2) {
-        col_time = c_red;
+    if (this->weight_carried() > this->weight_capacity()) {
+        col_time = h_black;
+    }
+    if (this->volume_carried() > this->volume_capacity() - 2) {
+        if (this->weight_carried() > this->weight_capacity()) {
+            col_time = c_dkgray_magenta;
+        } else {
+            col_time = c_dkgray_red;
+        }
     }
     wprintz(w, col_time, "  %d", movecounter);
  }
@@ -3274,7 +3270,7 @@ void player::set_cat_level_rec(const std::string &sMut)
         for (int i = 0; i < mutation_data[sMut].prereqs.size(); i++) {
             set_cat_level_rec(mutation_data[sMut].prereqs[i]);
         }
-        
+
         for (int i = 0; i < mutation_data[sMut].prereqs2.size(); i++) {
             set_cat_level_rec(mutation_data[sMut].prereqs2[i]);
         }
@@ -5222,7 +5218,7 @@ void player::suffer()
    std::vector<item *> possessions = inv_dump();
    for( std::vector<item *>::iterator it = possessions.begin(); it != possessions.end(); ++it ) {
        if( (*it)->type->id == "rad_badge" ) {
-           // Actual irridation levels of badges and the player aren't precisely matched.
+           // Actual irradiation levels of badges and the player aren't precisely matched.
            // This is intentional.
            int before = (*it)->irridation;
            (*it)->irridation += rng(0, localRadiation / 16);
@@ -7565,7 +7561,7 @@ bool player::wear_item(item *to_wear, bool interactive)
             }
             return false;
         }
-        
+
         if ((armor->covers & (mfb(bp_hands) | mfb(bp_arms) | mfb(bp_torso) | mfb(bp_legs) | mfb(bp_feet) | mfb(bp_head))) &&
         (has_trait("HUGE") || has_trait("HUGE_OK")))
         {
@@ -9578,7 +9574,7 @@ int player::adjust_for_focus(int amount)
 void player::practice (const calendar& turn, Skill *s, int amount)
 {
     SkillLevel& level = skillLevel(s);
-    // Double amount, but only if level.exercise isn't a amall negative number?
+    // Double amount, but only if level.exercise isn't a small negative number?
     if (level.exercise() < 0)
     {
         if (amount >= -level.exercise())
