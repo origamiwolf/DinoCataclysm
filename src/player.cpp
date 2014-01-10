@@ -10030,4 +10030,8 @@ bool player::has_weapon() {
     return !unarmed_attack();
 }
 
+m_size player::get_size() {
+    return MS_MEDIUM;
+}
+
 // --- End ---
