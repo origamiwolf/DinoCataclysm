@@ -71,5 +71,11 @@
     },{
         "type" : "SPECIES",
         "id" : "UNKNOWN"
+    },
+    {
+        "type" : "SPECIES",
+        "id" : "DINOSAUR",
+        "anger_triggers" : ["PLAYER_WEAK"],
+        "fear_triggers" : ["SOUND", "FIRE"]
     }
 ]
