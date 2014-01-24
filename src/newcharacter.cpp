@@ -486,6 +486,14 @@ bool player::create(character_type type, std::string tempname)
         tmp = item(itypes["inhaler"], 0);
         inv.push_back(tmp);
     }
+    
+    // Albinoes have their umbrella handy.
+    // Since they have to wield it, I don't think it breaks things
+    // too badly to issue one.
+    if (has_trait("ALBINO")) {
+        tmp = item(itypes["teleumbrella"], 0);
+        inv.push_back(tmp);
+    }
 
     // make sure we have no mutations
     for (std::map<std::string, trait>::iterator iter = traits.begin(); iter != traits.end(); ++iter)
@@ -542,6 +550,17 @@ int set_stats(WINDOW *w, player *u, int &points)
     const int iSecondColumn = 27;
     char ch;
     int read_spd;
+
+    // There is no map loaded currently, so any access to the map will
+    // fail (player::suffer, called from player::reset_stats), might access
+    // the map:
+    // There are traits that check/change the radioactivity on the map,
+    // that check if in sunlight...
+    // Setting the position to -1 ensures that the INBOUNDS check in
+    // map.cpp is triggered. This check prevents access to invalid position
+    // on the map (like -1,0) and instead returns a dummy default value.
+    u->posx = -1;
+    u->reset();
 
     draw_tabs(w, _("STATS"));
 
@@ -1302,7 +1321,7 @@ int set_description(WINDOW *w, player *u, character_type type, int &points)
     WINDOW* w_traits = newwin(13, 24, getbegy(w) + 10, getbegx(w) + 24);
     WINDOW* w_profession = newwin(1, 32, getbegy(w) + 10, getbegx(w) + 47);
     WINDOW* w_skills = newwin(9, 24, getbegy(w) + 12, getbegx(w) + 47);
-    WINDOW* w_guide = newwin(2, FULL_SCREEN_WIDTH - 4, getbegy(w) + 22, getbegx(w) + 2);
+    WINDOW* w_guide = newwin(2, FULL_SCREEN_WIDTH - 4, getbegy(w) + 21, getbegx(w) + 2);
     
     mvwprintz(w, 3, 2, c_ltgray, _("Points left:%3d"), points);
 

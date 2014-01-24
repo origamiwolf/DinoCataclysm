@@ -20,6 +20,8 @@
       ["cola", 12],
       ["creamsoda", 12],
       ["lemonlime", 12],
+      ["orangesoda", 10],
+      ["crispycran", 12],
       ["colamdew", 15],
       ["backpack", 38],
       ["pockknife", 14],
@@ -111,6 +113,8 @@
       ["purple_drink", 35],
       ["creamsoda", 35],
       ["lemonlime", 35],
+      ["orangesoda", 20],
+      ["crispycran", 20],
       ["colamdew", 35],
       ["television", 30],
       ["clock", 10],
@@ -270,6 +274,12 @@
       ["extinguisher", 20],
       ["whiskey", 16],
       ["bum_wine", 10],
+      ["drink_boozeberry", 8],
+      ["drink_rumcola", 8],
+      ["drink_screwdriver", 8],
+      ["drink_wild_apple", 8],
+      ["drink_strawberry_surprise", 5],
+      ["long_island", 2],
       ["wine_riesling", 6],
       ["wine_chardonnay", 10],
       ["wine_cabernet", 10],
@@ -419,6 +429,8 @@
       ["purple_drink", 35],
       ["creamsoda", 35],
       ["lemonlime", 35],
+      ["orangesoda", 20],
+      ["crispycran", 20],
       ["colamdew", 35],
       ["milk", 50],
       ["yoghurt", 50],
@@ -681,6 +693,8 @@
       ["chips", 65],
       ["cola", 70],
       ["lemonlime", 70],
+      ["orangesoda", 60],
+      ["crispycran", 30],
       ["creamsoda", 70],
       ["colamdew", 70],
       ["choc_drink", 10],
@@ -978,6 +992,8 @@
       ["cola", 70],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 5],
+      ["crispycran", 40],
       ["colamdew", 60],
       ["choc_drink", 30],
       ["rootbeer", 65],
@@ -1037,6 +1053,8 @@
       ["cola", 70],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 40],
+      ["crispycran", 30],
       ["colamdew", 60],
       ["choc_drink", 30],
       ["rootbeer", 65],
@@ -1078,6 +1096,8 @@
       ["rootbeer", 65],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 60],
+      ["crispycran", 30],
       ["colamdew", 60],
       ["purple_drink", 45],
       ["sandwich_t", 30],
@@ -1134,6 +1154,8 @@
       ["rootbeer", 65],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 40],
+      ["crispycran", 40],
       ["colamdew", 60],
       ["purple_drink", 35],
       ["juice", 20],
@@ -1210,7 +1232,8 @@
       ["gum", 30],
       ["caff_gum", 10],
       ["sm_extinguisher", 10],
-      ["nic_gum", 2]
+      ["nic_gum", 2],
+      ["razor_blade", 3]
     ]
   },{
     "type" : "item_group",
@@ -1448,7 +1471,8 @@
       ["lye_powder", 5],
       ["oxy_powder", 5],
       ["boots_rubber", 20],
-      ["charcoal", 5]
+      ["charcoal", 5],
+      ["soap", 20]
     ]
   },{
     "type" : "item_group",
@@ -1483,6 +1507,7 @@
       ["foot_crank", 10],
       ["spray_can", 50],
       ["ax", 8],
+      ["g_shovel", 20],
       ["jerrycan_big", 10],
       ["funnel", 50],
       ["bearing", 1],
@@ -1509,6 +1534,7 @@
       ["screwdriver", 40],
       ["hammer", 35],
       ["wrench", 30],
+      ["g_shovel", 20],
       ["saw", 15],
       ["circsaw_off", 5],
       ["hacksaw", 17],
@@ -1808,7 +1834,8 @@
       ["signal_flare", 25],
       ["airhorn", 20],
       ["charcoal", 20],
-      ["leathersandals", 10]
+      ["leathersandals", 10],
+      ["razor_blade", 9]
     ]
   },{
     "type" : "item_group",
@@ -1980,6 +2007,12 @@
       ["tequila", 12],
       ["triple_sec", 12],
       ["bum_wine", 20],
+      ["drink_boozeberry", 12],
+      ["drink_rumcola", 12],
+      ["drink_screwdriver", 12],
+      ["drink_wild_apple", 12],
+      ["drink_strawberry_surprise", 8],
+      ["long_island", 6],
       ["wine_riesling", 6],
       ["wine_chardonnay", 10],
       ["wine_cabernet", 10],
@@ -2016,6 +2049,7 @@
       ["stick", 95],
       ["muffler", 30],
       ["seed_wheat", 5],
+      ["seed_tomato", 5],
       ["seed_weed", 5],
       ["pipe", 20],
       ["bag_plastic", 10],
@@ -2049,7 +2083,8 @@
       ["30gal_drum", 2],
       ["creepy_doll", 1],
       ["striped_shirt", 1],
-      ["striped_pants", 1]
+      ["striped_pants", 1],
+      ["razor_blade", 10]
     ]
   },{
     "type" : "item_group",
@@ -2978,7 +3013,7 @@
       ["mag_stabbing", 20],
       ["mag_melee", 10],
       ["mag_traps", 10],
-      ["mp3", 15],
+      ["mp3", 9],
       ["cell_phone", 20],
       ["pda", 10],
       ["gold_watch", 5],
@@ -2995,10 +3030,20 @@
       ["switchblade", 4],
       ["blowgun", 4],
       ["dart", 4],
-      ["hatchet", 1],
       ["throwing_knife", 5],
-      ["throwing_axe", 1],
-      ["tazer", 1]
+      ["tazer", 1],
+      ["cig", 30],
+      ["rope_6", 5],
+      ["rope_30", 2],
+      ["duct_tape", 10],
+      ["battery", 15],
+      ["matches", 10],
+      ["gum", 10],
+      ["cable", 5],
+      ["panties", 2],
+      ["sharp_toothbrush", 10],
+      ["razor_blade", 20],
+      ["soap", 5]
     ]
   },{
     "type" : "item_group",
@@ -3264,6 +3309,8 @@
       ["cola", 70],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 60],
+      ["crispycran", 40],
       ["colamdew", 60],
       ["file", 90],
       ["mag_barter", 35],
@@ -3325,6 +3372,8 @@
       ["choc_drink", 30],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 60],
+      ["crispycran", 40],
       ["colamdew", 60],
       ["file", 90],
       ["mag_barter", 15],
@@ -3603,6 +3652,7 @@
       ["silver_ear", 14],
       ["copper_ear", 1],
       ["brooch", 2],
+      ["diamond", 1],
       ["nodachi", 1],
       ["manual_dodge", 1],
       ["fancy_sunglasses", 2],
@@ -3750,6 +3800,7 @@
       ["pickaxe", 1],
       ["ring", 12],
       ["diamond_ring", 1],
+      ["diamond", 1],
       ["pearl_collar", 1],
       ["necklace", 14],
       ["gold_ear", 12],
@@ -3852,7 +3903,8 @@
       ["bagh_nakha", 2],
       ["leathersandals", 10],
       ["maid_dress", 3],
-      ["maid_hat", 3]
+      ["maid_hat", 3],
+      ["razor_blade", 6]
     ]
   },{
     "type" : "item_group",
@@ -4021,7 +4073,8 @@
       ["flaregun", 5],
       ["signal_flare", 10],
       ["survivormap", 1],
-      ["pur_tablets", 5]
+      ["pur_tablets", 5],
+      ["razor_blade", 5]
     ]
   },{
     "type" : "item_group",
@@ -4284,6 +4337,7 @@
       ["rhubarb", 5],
       ["wheat", 5],
       ["seed_wheat", 1],
+      ["seed_tomato", 1],
       ["seed_blueberries", 1],
       ["seed_strawberries", 1],
       ["tomato", 9],
@@ -4903,7 +4957,6 @@
       ["bio_time_freeze", 10],
       ["bio_teleport", 10],
       ["bio_probability_travel", 10],
-      ["recipe_mil_bionics", 4],
       ["bio_power_armor_interface", 10],
       ["bio_power_armor_interface_mkII", 5]
     ]
@@ -5176,7 +5229,8 @@
       ["cola", 70],
       ["choc_drink", 20],
       ["creamsoda", 60],
-      ["lemonlime", 60],
+      ["lemonlime", 40],
+      ["orangesoda", 40],
       ["colamdew", 60],
       ["caffeine", 25],
       ["maltballs", 30],
@@ -6007,6 +6061,8 @@
       ["cola", 70],
       ["creamsoda", 60],
       ["lemonlime", 60],
+      ["orangesoda", 60],
+      ["crispycran", 40],
       ["colamdew", 60],
       ["choc_drink", 30],
       ["jerky", 55],

@@ -31,7 +31,7 @@ typedef std::string dis_type;
 enum add_type {
  ADD_NULL,
  ADD_CAFFEINE, ADD_ALCOHOL, ADD_SLEEP, ADD_PKILLER, ADD_SPEED, ADD_CIG,
- ADD_COKE, ADD_CRACK,
+ ADD_COKE, ADD_CRACK, ADD_MUTAGEN,
 };
 
 void realDebugmsg(const char* name, const char* line, const char *mes, ...);
@@ -121,6 +121,7 @@ enum activity_type {
  ACT_RELOAD, ACT_READ, ACT_GAME, ACT_WAIT, ACT_CRAFT, ACT_LONGCRAFT,
  ACT_DISASSEMBLE, ACT_BUTCHER, ACT_FORAGE, ACT_BUILD, ACT_VEHICLE, ACT_REFILL_VEHICLE,
  ACT_TRAIN, ACT_WAIT_WEATHER, ACT_FIRSTAID,
+ ACT_FISH,
  NUM_ACTIVITIES
 };
 

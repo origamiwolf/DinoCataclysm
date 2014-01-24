@@ -34,9 +34,7 @@ npc::npc()
  plt = 999;
  itx = -1;
  ity = -1;
- goalx = 999;
- goaly = 999;
- goalz = 999;
+ goal = no_goal_point;
  fatigue = 0;
  hunger = 0;
  thirst = 0;
@@ -87,9 +85,7 @@ npc& npc::operator= (const npc & rhs)
  plt = rhs.plt;
  itx = rhs.itx;
  ity = rhs.ity;
- goalx = rhs.goalx;
- goaly = rhs.goaly;
- goalz = rhs.goalz;
+ goal = rhs.goal;
 
  path = rhs.path;
 
@@ -1090,6 +1086,9 @@ void npc::form_opinion(player *u)
    op_of_u.fear++;
  }
 
+ if (has_trait("SAPIOVORE")) {
+    op_of_u.fear += 10; // Sapiovores = Scary
+ }
  if (u->has_trait("PRETTY"))
   op_of_u.fear += 1;
  else if (u->has_trait("BEAUTIFUL"))
@@ -1939,27 +1938,50 @@ void npc::die(bool your_fault)
     }
     if (your_fault){
         if (is_friend()) {
-            if(!g->u.has_trait("PSYCHOPATH")) {
+            if (g->u.has_trait("SAPIOVORE")) {
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed a friendly ape, %s.  Better eaten than eating."),
+                                      pgettext("memorial_female", "Killed a friendly ape, %s.  Better eaten than eating."),
+                                      name.c_str());
+            }
+            else if(!g->u.has_trait("PSYCHOPATH")) {
                 // Very long duration, about 7d, decay starts after 10h.
-                g->u.add_memorial_log(_("Killed a friend, %s."), name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed a friend, %s."),
+                                      pgettext("memorial_female", "Killed a friend, %s."),
+                                      name.c_str());
                 g->u.add_morale(MORALE_KILLED_FRIEND, -500, 0, 10000, 600);
             } else if(!g->u.has_trait("CANNIBAL") && g->u.has_trait("PSYCHOPATH")) {
-                g->u.add_memorial_log(_("Killed someone foolish enough to call you friend, %s. Didn't care."), name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed someone foolish enough to call you friend, %s. Didn't care."),
+                                      pgettext("memorial_female", "Killed someone foolish enough to call you friend, %s. Didn't care."),
+                                      name.c_str());
             } else {
-                g->u.add_memorial_log(_("Killed a delicious-looking friend, %s, in cold blood."), name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed a delicious-looking friend, %s, in cold blood."),
+                                      pgettext("memorial_female", "Killed a delicious-looking friend, %s, in cold blood."),
+                                      name.c_str());
             }
-        } else if (!is_enemy() || this->hit_by_player){
-            if(!g->u.has_trait("CANNIBAL") && !g->u.has_trait("PSYCHOPATH")) {
+        } else if (!is_enemy() || this->hit_by_player) {
+            if (g->u.has_trait("SAPIOVORE")) {
+                g->u.add_memorial_log(pgettext("memorial_male", "Caught and killed an ape.  Prey doesn't have a name."),
+                                      pgettext("memorial_female", "Caught and killed an ape.  Prey doesn't have a name."));
+            }
+            else if(!g->u.has_trait("CANNIBAL") && !g->u.has_trait("PSYCHOPATH")) {
                 // Very long duration, about 3.5d, decay starts after 5h.
-                g->u.add_memorial_log("Killed an innocent person, %s, in cold blood and felt terrible afterwards.", name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male","Killed an innocent person, %s, in cold blood and felt terrible afterwards."),
+                                      pgettext("memorial_female","Killed an innocent person, %s, in cold blood and felt terrible afterwards."),
+                                      name.c_str());
                 g->u.add_morale(MORALE_KILLED_INNOCENT, -100, 0, 5000, 300);
             } else if(!g->u.has_trait("CANNIBAL") && g->u.has_trait("PSYCHOPATH")) {
-                g->u.add_memorial_log(_("Killed an innocent, %s, in cold blood. They were weak."), name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed an innocent, %s, in cold blood. They were weak."),
+                                      pgettext("memorial_female", "Killed an innocent, %s, in cold blood. They were weak."),
+                                      name.c_str());
             } else if(g->u.has_trait("CANNIBAL") && !g->u.has_trait("PSYCHOPATH")) {
-                g->u.add_memorial_log(_("Killed an innocent, %s."), name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed an innocent, %s."),
+                                      pgettext("memorial_female", "Killed an innocent, %s."),
+                                      name.c_str());
                 g->u.add_morale(MORALE_KILLED_INNOCENT, -5, 0, 500, 300);
             } else {
-                g->u.add_memorial_log(_("Killed a delicious-looking innocent, %s, in cold blood."), name.c_str());
+                g->u.add_memorial_log(pgettext("memorial_male", "Killed a delicious-looking innocent, %s, in cold blood."),
+                                      pgettext("memorial_female", "Killed a delicious-looking innocent, %s, in cold blood."),
+                                      name.c_str());
             }
         }
     }
@@ -2054,3 +2076,5 @@ void npc::setID (int i)
 {
     this->player::setID(i);
 }
+
+const tripoint npc::no_goal_point(INT_MIN, INT_MIN, INT_MIN);

@@ -10,12 +10,67 @@ std::map<int, std::map<body_part, double> > Creature::default_hit_weights;
 
 Creature::Creature()
 {
+    str_max = 0;
+    dex_max = 0;
+    per_max = 0;
+    int_max = 0;
+    str_cur = 0;
+    dex_cur = 0;
+    per_cur = 0;
+    int_cur = 0;
+    moves = 0;
+    pain = 0;
+    killer = NULL;
+    speed_base = 100;
+
+    reset_bonuses();
+
     fake = false;
 }
 
-Creature::Creature(const Creature &)
+Creature::Creature(const Creature &rhs)
 {
-    fake = false;
+    str_max = rhs.str_max;
+    dex_max = rhs.dex_max;
+    per_max = rhs.per_max;
+    int_max = rhs.int_max;
+    str_cur = rhs.str_cur;
+    dex_cur = rhs.dex_cur;
+    per_cur = rhs.per_cur;
+    int_cur = rhs.int_cur;
+    moves = rhs.moves;
+    pain = rhs.pain;
+    killer = rhs.killer;
+    speed_base = rhs.speed_base;
+
+    str_bonus = rhs.str_bonus;
+    dex_bonus = rhs.dex_bonus;
+    per_bonus = rhs.per_bonus;
+    int_bonus = rhs.int_bonus;
+
+    num_blocks = rhs.num_blocks;
+    num_dodges = rhs.num_dodges;
+    num_blocks_bonus = rhs.num_blocks_bonus;
+    num_dodges_bonus = rhs.num_dodges_bonus;
+
+    armor_bash_bonus = rhs.armor_bash_bonus;
+    armor_cut_bonus = rhs.armor_cut_bonus;
+
+    speed_bonus = rhs.speed_bonus;
+    dodge_bonus = rhs.dodge_bonus;
+    block_bonus = rhs.block_bonus;
+    hit_bonus = rhs.hit_bonus;
+    bash_bonus = rhs.bash_bonus;
+    cut_bonus = rhs.cut_bonus;
+
+    bash_mult = rhs.bash_mult;
+    cut_mult = rhs.cut_mult;
+
+    melee_quiet = rhs.melee_quiet;
+    grab_resist = rhs.grab_resist;
+    throw_resist = rhs.throw_resist;
+
+    fake = rhs.fake;
 }
 
 void Creature::normalize()
@@ -57,6 +112,7 @@ void Creature::reset_bonuses()
     grab_resist = 0;
     throw_resist = 0;
 }
+
 void Creature::reset_stats()
 {
     // Reset our stats to normal levels
@@ -147,7 +203,7 @@ int Creature::deal_melee_attack(Creature *source, int hitroll, bool critical_hit
         stab_moves *= 1.5;
     }
     if (stab_moves >= 150) {
-        if (is_player()) {
+        if ((is_player()) && ((!(g->u.has_trait("LEG_TENT_BRACE"))) || (g->u.wearing_something_on(bp_feet))) ) {
             // can the player force their self to the ground? probably not.
             g->add_msg_if_npc(source, _("<npcname> forces you to the ground!"));
         } else {
@@ -155,8 +211,10 @@ int Creature::deal_melee_attack(Creature *source, int hitroll, bool critical_hit
                                      _("<npcname> forces %s to the ground!"),
                                      disp_name().c_str() );
         }
-        add_effect("downed", 1);
-        mod_moves(-stab_moves / 2);
+        if ((!(g->u.has_trait("LEG_TENT_BRACE"))) || (g->u.wearing_something_on(bp_feet)) ) {
+            add_effect("downed", 1);
+            mod_moves(-stab_moves / 2);
+        }
     } else {
         mod_moves(-stab_moves);
     }
@@ -370,7 +428,8 @@ bool is_expired_effect(effect &e)   // utility function for process_effects
 {
     if (e.get_duration() <= 0) {
         g->add_msg_string(e.get_effect_type()->get_remove_message());
-        g->u.add_memorial_log(e.get_effect_type()->get_remove_memorial_log().c_str());
+        g->u.add_memorial_log(pgettext("memorial_male", e.get_effect_type()->get_remove_memorial_log().c_str()),
+                              pgettext("memorial_female", e.get_effect_type()->get_remove_memorial_log().c_str()));
         return true;
     } else {
         return false;
@@ -395,7 +454,8 @@ void Creature::add_effect(efftype_id eff_id, int dur)
         effects.push_back(new_eff);
         if (is_player()) { // only print the message if we didn't already have it
             g->add_msg_string(effect_types[eff_id].get_apply_message());
-            g->u.add_memorial_log(effect_types[eff_id].get_apply_memorial_log().c_str());
+            g->u.add_memorial_log(pgettext("memorial_male", effect_types[eff_id].get_apply_memorial_log().c_str()),
+                                  pgettext("memorial_female", effect_types[eff_id].get_apply_memorial_log().c_str()));
         }
     }
 }

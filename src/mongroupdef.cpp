@@ -245,6 +245,11 @@ void MonsterGroupManager::LoadMonsterGroup(JsonObject &jo)
     monsterGroupMap[g.name] = g;
 }
 
+void MonsterGroupManager::ClearMonsterGroups()
+{
+    monsterGroupMap.clear();
+}
+
 void init_translation() {
     monStr2monId["mon_null"] = mon_null;
     monStr2monId["mon_bear"] = mon_bear;

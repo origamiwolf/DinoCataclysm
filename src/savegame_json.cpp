@@ -631,9 +631,9 @@ void npc::deserialize(JsonIn &jsin)
     data.read("plx",plx);
     data.read("ply",ply);
 
-    data.read("goalx",goalx);
-    data.read("goaly",goaly);
-    data.read("goalz",goalz);
+    data.read("goalx",goal.x);
+    data.read("goaly",goal.y);
+    data.read("goalz",goal.z);
 
     if ( data.read("mission",misstmp) ) {
         mission = npc_mission( misstmp );
@@ -691,9 +691,9 @@ void npc::serialize(JsonOut &json, bool save_contents) const
     json.member( "mapy", mapy );
     json.member( "plx", plx );
     json.member( "ply", ply );
-    json.member( "goalx", goalx );
-    json.member( "goaly", goaly );
-    json.member( "goalz", goalz );
+    json.member( "goalx", goal.x );
+    json.member( "goaly", goal.y );
+    json.member( "goalz", goal.z );
 
     json.member( "mission", mission ); // todo: stringid
     json.member( "flags", flags );
@@ -997,19 +997,6 @@ void item::deserialize(JsonObject &data)
     }
 
     data.read("contents", contents);
-
-    if (type->is_gun()) {//increase occupied_mod_locations for guns
-    	it_gun* gun = dynamic_cast<it_gun*>(type);
-    	for(std::map<std::string,int>::iterator i = gun->occupied_mod_locations.begin();
-		  i!=gun->occupied_mod_locations.end(); i++) {//correct available=0 for reload game without program closing
-			(*i).second = 0;
-    	}
-    	for (int mn = 0; mn < contents.size(); mn++)
-    	{//increase
-    		it_gunmod* mod = dynamic_cast<it_gunmod*>(contents[mn].type);
-    		gun->occupied_mod_locations[mod->location] += 1;
-    	}
-    }
 }
 
 void item::serialize(JsonOut &json, bool save_contents) const
@@ -1028,13 +1015,6 @@ void item::serialize(JsonOut &json, bool save_contents) const
      */
     if (curammo != NULL) {
         ammotmp = curammo->id;
-    }
-    if( std::find(unreal_itype_ids.begin(), unreal_itype_ids.end(),
-                  ammotmp) != unreal_itype_ids.end()  &&
-        std::find(artifact_itype_ids.begin(), artifact_itype_ids.end(),
-                  ammotmp) != artifact_itype_ids.end()
-      ) {
-        ammotmp = "null"; //Saves us from some bugs, apparently?
     }
 
     /////

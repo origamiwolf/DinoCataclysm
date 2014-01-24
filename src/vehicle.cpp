@@ -484,7 +484,7 @@ void vehicle::use_controls()
         current++;
     }
 
-    if( !g->u.controlling_vehicle && tags.count("convertible") ) {
+    if( tags.count("convertible") ) {
         options_choice.push_back(convert_vehicle);
         options_message.push_back(uimenu_entry(_("Fold bicycle"), 'f'));
         current++;
@@ -628,14 +628,17 @@ void vehicle::use_controls()
         break;
     case convert_vehicle:
     {
+        if(g->u.controlling_vehicle) {
+            g->add_msg(_("As the pitiless metal bars close on your nether regions, you reconsider trying to fold the bicycle while riding it."));
+            break;
+        }
         g->add_msg(_("You painstakingly pack the bicycle into a portable configuration."));
         // create a folding bicycle item
         item bicycle;
         bicycle.make( itypes["folding_bicycle"] );
 
         // Drop stuff in containers on ground
-        for (int p = 0; p < parts.size(); p++)
-        {
+        for (int p = 0; p < parts.size(); p++) {
             if( part_flag( p, "CARGO" ) ) {
                 for( std::vector<item>::iterator it = parts[p].items.begin();
                      it != parts[p].items.end(); ++it ) {
@@ -689,6 +692,7 @@ void vehicle::use_controls()
 
 void vehicle::start_engine()
 {
+    bool muscle_powered = false;
     // TODO: Make chance of success based on engine condition.
     for(int p = 0; p < engines.size(); p++) {
         if(parts[engines[p]].hp > 0) {
@@ -697,15 +701,15 @@ void vehicle::start_engine()
                 if(engine_power < 50) {
                     // Small engines can be pull-started
                     engine_on = true;
-                }
-                else {
+                } else {
                     // Starter motor battery draw proportional to engine power
                     if(!discharge_battery(engine_power / 10)) {
                         engine_on = true;
                     }
                 }
-            }
-            else {
+            } else if (part_info(engines[p]).fuel_type == fuel_type_muscle) {
+                muscle_powered = true;
+            } else {
                 // Electric & plasma engines
                 engine_on = true;
             }
@@ -714,8 +718,7 @@ void vehicle::start_engine()
 
     if(engine_on == true) {
         g->add_msg(_("The %s's engine starts up."), name.c_str());
-    }
-    else {
+    } else if (!muscle_powered) {
         g->add_msg (_("The %s's engine fails to start."), name.c_str());
     }
 }
@@ -1632,33 +1635,34 @@ int vehicle::print_part_desc(WINDOW *win, int y1, int width, int p, int hl /*= -
     return y;
 }
 
-void vehicle::print_fuel_indicator (void *w, int y, int x, bool fullsize, bool verbose)
+void vehicle::print_fuel_indicator (void *w, int y, int x, bool fullsize, bool verbose, bool desc)
 {
     WINDOW *win = (WINDOW *) w;
     const nc_color fcs[num_fuel_types] = { c_ltred, c_yellow, c_ltgreen, c_ltblue, c_ltcyan };
     const char fsyms[5] = { 'E', '\\', '|', '/', 'F' };
     nc_color col_indf1 = c_ltgray;
-    int yofs=0;
-    for (int i = 0; i < num_fuel_types; i++)
-    {
+    int yofs = 0;
+    for (int i = 0; i < num_fuel_types; i++) {
         int cap = fuel_capacity(fuel_types[i]);
-        if (cap > 0 && ( basic_consumption(fuel_types[i]) > 0 || fullsize ) )
-        {
-            mvwprintz(win, y+yofs, x, col_indf1, "E...F");
+        if (cap > 0 && ( basic_consumption(fuel_types[i]) > 0 || fullsize ) ) {
+            mvwprintz(win, y + yofs, x, col_indf1, "E...F");
             int amnt = cap > 0? fuel_left(fuel_types[i]) * 99 / cap : 0;
             int indf = (amnt / 20) % 5;
-            mvwprintz(win, y+yofs, x + indf, fcs[i], "%c", fsyms[indf]);
-            if(verbose) {
-              if(g->debugmon) {
-                mvwprintz(win, y+yofs, x+6, fcs[i], "%d/%d",fuel_left(fuel_types[i]),cap);
-              } else {
-                mvwprintz(win, y+yofs, x+6, fcs[i], "%d",(fuel_left(fuel_types[i])*100)/cap);
-                wprintz(win, c_ltgray, "%c",045);
-              }
-              wprintz(win, c_ltgray, " - %s", ammo_name(fuel_types[i]).c_str() );
-
+            mvwprintz(win, y + yofs, x + indf, fcs[i], "%c", fsyms[indf]);
+            if (verbose) {
+                if (g->debugmon) {
+                    mvwprintz(win, y + yofs, x + 6, fcs[i], "%d/%d", fuel_left(fuel_types[i]), cap);
+                } else {
+                    mvwprintz(win, y + yofs, x + 6, fcs[i], "%d", (fuel_left(fuel_types[i]) * 100) / cap);
+                    wprintz(win, c_ltgray, "%c", 045);
+                }
             }
-            if(fullsize) yofs++;
+            if (desc) {
+                wprintz(win, c_ltgray, " - %s", ammo_name(fuel_types[i]).c_str() );
+            }
+            if (fullsize) {
+                yofs++;
+            }
         }
     }
 }
@@ -3617,7 +3621,9 @@ int vehicle::damage_direct (int p, int dmg, int type)
                 if (type == 2 ||
                     (one_in (ft == fuel_type_gasoline ? 2 : 4) && pow > 5 && rng (75, 150) < dmg))
                 {
-                    g->u.add_memorial_log(_("The fuel tank of the %s exploded!"), name.c_str());
+                    g->u.add_memorial_log(pgettext("memorial_male","The fuel tank of the %s exploded!"),
+                        pgettext("memorial_female", "The fuel tank of the %s exploded!"),
+                        name.c_str());
                     g->explosion (global_x() + parts[p].precalc_dx[0], global_y() + parts[p].precalc_dy[0],
                                 pow, 0, ft == fuel_type_gasoline);
                     parts[p].hp = 0;

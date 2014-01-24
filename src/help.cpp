@@ -13,20 +13,19 @@ std::vector<std::string> hints;
 void display_help()
 {
     WINDOW* w_help_border = newwin(FULL_SCREEN_HEIGHT, FULL_SCREEN_WIDTH,
-                                   (TERMY > FULL_SCREEN_HEIGHT) ? (TERMY-FULL_SCREEN_HEIGHT)/2 : 0,
-                                   (TERMX > FULL_SCREEN_WIDTH) ? (TERMX-FULL_SCREEN_WIDTH)/2 : 0);
-    WINDOW* w_help = newwin(FULL_SCREEN_HEIGHT-2, FULL_SCREEN_WIDTH-2,
-                            1 + (int)((TERMY > FULL_SCREEN_HEIGHT) ? (TERMY-FULL_SCREEN_HEIGHT)/2 : 0),
-                            1 + (int)((TERMX > FULL_SCREEN_WIDTH) ? (TERMX-FULL_SCREEN_WIDTH)/2 : 0));
+                                   (TERMY > FULL_SCREEN_HEIGHT) ? (TERMY - FULL_SCREEN_HEIGHT) / 2 : 0,
+                                   (TERMX > FULL_SCREEN_WIDTH) ? (TERMX - FULL_SCREEN_WIDTH) / 2 : 0);
+    WINDOW* w_help = newwin(FULL_SCREEN_HEIGHT - 2, FULL_SCREEN_WIDTH - 2,
+                            1 + (int)((TERMY > FULL_SCREEN_HEIGHT) ? (TERMY - FULL_SCREEN_HEIGHT) / 2 : 0),
+                            1 + (int)((TERMX > FULL_SCREEN_WIDTH) ? (TERMX - FULL_SCREEN_WIDTH) / 2 : 0));
 
     char ch;
-    action_id movearray[] = {ACTION_MOVE_NW,ACTION_MOVE_N,ACTION_MOVE_NE,
-                             ACTION_MOVE_W, ACTION_PAUSE, ACTION_MOVE_E,
-                             ACTION_MOVE_SW,ACTION_MOVE_S,ACTION_MOVE_SE};
+    action_id movearray[] = {ACTION_MOVE_NW, ACTION_MOVE_N, ACTION_MOVE_NE,
+                             ACTION_MOVE_W,  ACTION_PAUSE,  ACTION_MOVE_E,
+                             ACTION_MOVE_SW, ACTION_MOVE_S, ACTION_MOVE_SE};
     do {
         draw_border(w_help_border);
-
-        mvwprintz(w_help_border, 0, 38, c_ltred, _(" HELP "));
+        center_print(w_help_border, 0, c_ltred, _(" HELP "));
         wrefresh(w_help_border);
         werase(w_help);
         mvwprintz(w_help, 1, 0, c_white, _("\
@@ -109,7 +108,7 @@ movement will be ignored if new monsters enter the player's view."),
                     std::vector<char> keys = keys_bound_to( movearray[acty*3+actx] );
                     if (!keys.empty()) {
                         mvwputch(w_help, (acty * 3 + 2), (actx * 3), c_ltblue, keys[0]);
-                        if (keys.size() >0) {
+                        if (keys.size() > 0) {
                             mvwputch(w_help, (acty * 3 + 2), (actx * 3 + 10), c_ltblue, keys[1]);
                         }
                     }
@@ -420,12 +419,20 @@ your inventory, or will be dropped on the ground if there is no space.\n\
 \n\
 To wear a piece of clothing, %s then the proper letter. Armor reduces\n\
 damage and helps you resist things like smoke. To take off an item, %s\n\
-then the proper letter."),
+then the proper letter.\n\
+\n\
+Also available in the %s nearby items menu is the ability to filter or \n\
+prioritize items. You can enter item names, or various advanced filter \n\
+strings: {<token>:<search param>}\n\
+Currently Available tokens:\n\
+\tc = category (books, food, etc) | {c:books}\n\
+\tm = material (cotton, kevlar, etc) | {m:iron}\n\
+\tdgt = damage greater than (0-5 | {dgt:2})\n\
+\tdlt = damage less than (0-5) | {dlt:1}"),
             from_sentence_case(press_x(ACTION_WIELD)).c_str(),
             from_sentence_case(press_x(ACTION_WEAR)).c_str(),
-            from_sentence_case(press_x(ACTION_TAKE_OFF)).c_str()/*,
-            press_x(ACTION_SORT_ARMOR).c_str(),
-            press_x(ACTION_PICK_STYLE).c_str()*/);
+            from_sentence_case(press_x(ACTION_TAKE_OFF)).c_str(),
+            press_x(ACTION_LIST_ITEMS, _("view")).c_str());
             wrefresh(w_help);
             refresh();
             getch();
@@ -583,7 +590,7 @@ from the driver's seat."),
                     std::vector<char> keys = keys_bound_to( movearray[acty*3+actx] );
                     if (!keys.empty()) {
                         mvwputch(w_help, (acty * 3 + 2), (actx * 3), c_ltblue, keys[0]);
-                        if (keys.size() >0) {
+                        if (keys.size() > 0) {
                             mvwputch(w_help, (acty * 3 + 2), (actx * 3 + 10), c_ltblue, keys[1]);
                         }
                     }
@@ -621,13 +628,13 @@ from the driver's seat."),
                     needs_refresh = false;
                 }
                 // Clear the lines
-                for (int i = 0; i < FULL_SCREEN_HEIGHT-2; i++)
+                for (int i = 0; i < FULL_SCREEN_HEIGHT - 2; i++)
                     mvwprintz(w_help, i, 0, c_black, "                                                ");
 
                 //Draw Scrollbar
-                draw_scrollbar(w_help_border, offset-1, FULL_SCREEN_HEIGHT-2, NUM_ACTIONS-20, 1);
+                draw_scrollbar(w_help_border, offset - 1, FULL_SCREEN_HEIGHT - 2, NUM_ACTIONS - 20, 1);
 
-                for (int i = 0; i < FULL_SCREEN_HEIGHT-2 && offset + i < NUM_ACTIONS; i++) {
+                for (int i = 0; i < FULL_SCREEN_HEIGHT - 2 && offset + i < NUM_ACTIONS; i++) {
                     std::vector<char> keys = keys_bound_to( action_id(offset + i) );
                     nc_color col = (keys.empty() ? c_ltred : c_white);
                     mvwprintz(w_help, i, 3, col, "%s: ", action_name( action_id(offset + i) ).c_str());
@@ -662,7 +669,8 @@ from the driver's seat."),
                     if (actch >= 'a' && actch <= 'a' + 24 &&
                         actch - 'a' + offset < NUM_ACTIONS) {
                         action_id act = action_id(actch - 'a' + offset);
-                        if (remapch == '-' && query_yn(_("Clear keys for %s?"),action_name(act).c_str())){
+                        if (remapch == '-' && query_yn(_("Clear keys for %s?"),
+                            action_name(act).c_str())){
                             clear_bindings(act);
                             changed_keymap = true;
                         } else if (remapch == '+') {
@@ -680,14 +688,10 @@ from the driver's seat."),
             } while (remapch != 'q' && remapch != 'Q' && remapch != KEY_ESCAPE);
 
 
-            if (changed_keymap)
-            {
-               if(query_yn(_("Save changes?")))
-               {
+            if (changed_keymap) {
+               if(query_yn(_("Save changes?"))) {
                    save_keymap();
-               }
-               else
-               {
+               } else {
                    // Player wants to keep the old keybindings. Revert!
                    keymap = keymap_old;
                }
@@ -902,7 +906,7 @@ of bullets. However, they are more effective when firing single shots, so\n\
 use discretion. They mainly use the 9mm and .45 ammunition; however, other\n\
 SMGs exist. They reload moderately quickly, and are suitable for close or\n\
 medium-long range combat."));
-            mvwprintz(w_help, FULL_SCREEN_HEIGHT-3, 0, c_white, _("Press any key to continue..."));
+            mvwprintz(w_help, FULL_SCREEN_HEIGHT - 3, 0, c_white, _("Press any key to continue..."));
 
             wrefresh(w_help);
             refresh();
@@ -928,7 +932,7 @@ fire, so save it for when you're highly skilled.\n\
 Assault rifles are an excellent choice for medium or long range combat, or\n\
 even close-range bursts again a large number of enemies. They are difficult\n\
 to use, and are best saved for skilled riflemen."));
-            mvwprintz(w_help, FULL_SCREEN_HEIGHT-1, 0, c_white, _("Press any key to continue..."));
+            mvwprintz(w_help, FULL_SCREEN_HEIGHT - 1, 0, c_white, _("Press any key to continue..."));
 
             wrefresh(w_help);
             refresh();
@@ -953,7 +957,7 @@ Energy weapons have no recoil at all; they are nearly silent, have a long\n\
 range, and are fairly damaging. The biggest drawback to energy weapons is\n\
 scarcity of ammunition; it is wise to reserve the precious ammo for when\n\
 you really need it."));
-            mvwprintz(w_help, FULL_SCREEN_HEIGHT-1, 0, c_white, _("Press any key to continue..."));
+            mvwprintz(w_help, FULL_SCREEN_HEIGHT - 1, 0, c_white, _("Press any key to continue..."));
 
             wrefresh(w_help);
             refresh();
@@ -1051,6 +1055,11 @@ A: Ask the helpful people on the forum at smf.cataclysmdda.com or email\n\
 void load_hint(JsonObject &jsobj)
 {
     hints.push_back(_(jsobj.get_string("text").c_str()));
+}
+
+void clear_hints()
+{
+    hints.clear();
 }
 
 std::string get_hint()
