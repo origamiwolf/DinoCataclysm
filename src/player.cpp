@@ -3601,7 +3601,7 @@ void player::recalc_sight_limits()
 
     // Set sight_boost and sight_boost_cap, based on night vision.
     // (A player will never have more than one night vision trait.)
-    sight_boost_cap = 12;
+    sight_boost_cap = 24;
     if (has_nv() || has_trait("NIGHTVISION3") || has_trait("ELFA_FNV")) {
         sight_boost = sight_boost_cap;
     }else if (has_trait("ELFA_NV")) {
@@ -5167,7 +5167,7 @@ void player::suffer()
             else focus_pool --;
         }
     }
-    
+
     if (has_trait("SUNBURN") && g->is_in_sunlight(posx, posy) && one_in(10)) {
         if (!((worn_with_flag("RAINPROOF")) || (weapon.has_flag("RAIN_PROTECT"))) ) {
         g->add_msg(_("The sunlight burns your skin!"));
@@ -7086,7 +7086,7 @@ bool player::eat(item *eaten, it_comest *comest)
     if( has_trait("HIBERNATE") ) {
         capacity = -620;
     }
-    
+
     if ( (has_trait("EATHEALTH")) && ( comest->nutr > 0 && temp_hunger < capacity ) ) {
         int room = (capacity - temp_hunger);
         int excess_food = ((comest->nutr) - room);
@@ -7097,7 +7097,7 @@ bool player::eat(item *eaten, it_comest *comest)
         // Straight conversion, except it's divided amongst all your body parts.
         else healall(excess_food /= 5);
     }
-    
+
     if( ( comest->nutr > 0 && temp_hunger < capacity ) ||
         ( comest->quench > 0 && temp_thirst < capacity ) ) {
         if (spoiled){//rotten get random nutrification
@@ -7746,7 +7746,7 @@ bool player::wear_item(item *to_wear, bool interactive)
             }
             return false;
         }
-        
+
         if (armor->covers & mfb(bp_mouth) && has_trait("SABER_TEETH"))
         {
             if(interactive)
