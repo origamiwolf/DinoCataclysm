@@ -574,6 +574,7 @@ public:
   void forage(); // Foraging ('a' on underbrush)
   void eat(int pos = INT_MIN); // Eat food or fuel  'E' (or 'a')
   void use_item(int pos = INT_MIN); // Use item; also tries E,R,W  'a'
+  void modify_item();
   void use_wielded_item();
   void wear(int pos = INT_MIN); // Wear armor  'W' (or 'a')
   void takeoff(int pos = INT_MIN); // Remove armor  'T'

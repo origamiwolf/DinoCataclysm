@@ -598,7 +598,7 @@ void inventory::form_from_map(point origin, int range, bool assign_invlet)
                 if (cargo >= 0) {
                     *this += std::list<item>(veh->parts[cargo].items.begin(), veh->parts[cargo].items.end());
                 }
-                
+
                 if (kpart >= 0) {
                     item hotplate(itypes["hotplate"], 0);
                     hotplate.charges = veh->fuel_left("battery");
@@ -1255,6 +1255,20 @@ bool inventory::has_items_with_quality(std::string id, int level, int amount) co
     } else {
       return false;
     }
+}
+
+item& inventory::item_by_quality(std::string id, int level)
+{
+    for (invstack::iterator iter = items.begin(); iter != items.end(); ++iter){
+        for(std::list<item>::iterator stack_iter = iter->begin(); stack_iter != iter->end(); ++stack_iter){
+            std::map<std::string,int> qualities = stack_iter->type->qualities;
+            std::map<std::string,int>::const_iterator quality_iter = qualities.find(id);
+            if(quality_iter!=qualities.end() && level >= quality_iter->second){
+              return iter->front();
+            }
+        }
+    }
+    return nullitem;
 }
 
 bool inventory::has_gun_for_ammo(ammotype type) const

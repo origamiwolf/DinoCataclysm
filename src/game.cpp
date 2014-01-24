@@ -2739,6 +2739,10 @@ bool game::handle_action()
    }
    break;
 
+  case ACTION_ITEM_MODIFICATION:
+    modify_item();
+    break;
+
   case ACTION_CRAFT:
    craft();
    break;
@@ -2827,7 +2831,7 @@ bool game::handle_action()
             u.try_to_sleep();
         }
     }
-    break;
+    break;_("Toggle Fullscreen mode");
 
   case ACTION_CONTROL_VEHICLE:
    control_vehicle();
@@ -6070,7 +6074,7 @@ void game::shockwave(int x, int y, int radius, int force, int stun, int dam_mult
         }
     }
     if (rl_dist(u.posx, u.posy, x, y) <= radius && !ignore_player && ( (!(u.has_trait("LEG_TENT_BRACE"))) ||
-    (u.wearing_something_on(bp_feet))) ) 
+    (u.wearing_something_on(bp_feet))) )
     {
         add_msg(_("You're caught in the shockwave!"));
         knockback(x, y, u.posx, u.posy, force, stun, dam_mult);
@@ -7140,6 +7144,151 @@ void game::use_item(int pos)
 void game::use_wielded_item()
 {
   u.use_wielded();
+}
+
+void game::modify_item()
+{
+    int choice = -1;
+    const int cut_item = 0;
+    const int cancel = 1;
+
+    int pos;
+
+    uimenu menu;
+    menu.selected = uistate.modify_item_selected;
+    menu.text = _("Modify item:");
+    menu.addentry( cut_item, true, -1, _("Cut up item") );
+    menu.addentry( cancel, true, 'q', _("Cancel") );
+    menu.query();
+    choice = menu.ret;
+
+    switch(choice) {
+    case 0:
+    // check if player has item of cutting quality
+        if (u.inv.has_items_with_quality("CUT", 1, 1) || u.has_bionic("bio_tools")
+            || u.has_trait("CLAWS") || u.has_trait("TALONS")
+            || u.has_trait("CLAWS_RETRACT") || u.has_trait("CLAWS_TENTACLE"))
+        {
+            pos = inv(_("Chop up what?"));
+            item *cut = &(u.i_at(pos));
+            item *cut_tool = new item();
+            if (u.inv.has_items_with_quality("CUT", 1, 1))
+            {
+                cut_tool = &(u.inv.item_by_quality("CUT", 1));
+            }
+            if (cut->is_null())
+            {
+                add_msg(_("You do not have that item!"));
+                return;
+            }
+            if (cut == &u.weapon)
+            {
+                if(!query_yn(_("You are wielding that, are you sure?"))) {
+                return;
+                }
+            } else if (u.has_weapon_or_armor(cut->invlet))
+            {
+                if(!query_yn(_("You're wearing that, are you sure?"))) {
+                return;
+                }
+            }
+            if (cut->is_container() && !cut->contents.empty()) {
+                add_msg(_("That %s is not empty!"), cut->tname().c_str());
+                return;
+            }
+            if (cut == cut_tool)
+            {
+                if (!(u.inv.has_items_with_quality("CUT", 1, 2) || u.has_bionic("bio_tools")
+                    || u.has_trait("CLAWS") || u.has_trait("TALONS")
+                    || u.has_trait("CLAWS_RETRACT") || u.has_trait("CLAWS_TENTACLE")))
+                {
+                    g->add_msg(_("You can not cut the %s with itself!"), cut->tname().c_str());
+                    return;
+                }
+            }
+
+            // a valid item has been picked
+            int count = cut->volume();
+            if(count == 0) {
+                add_msg(_("This object is too small to salvage a meaningful quantity of anything from!"));
+                return;
+            }
+            if (cut->type->id == "rag" || cut->type->id == "rag_bloody" || cut->type->id == "leather" ||
+                cut->type->id == "nomex" || cut->type->id == "plastic_chunk" || cut->type->id == "kevlar_plate" ||
+                cut->type->id == "skewer")
+            {
+                add_msg_if_player(&u, _("There's no point in cutting a %s."), cut->type->name.c_str());
+                return;
+            }
+
+            u.moves -= 25 * cut->volume();
+            if (dice(3, 3) > u.dex_cur) {
+                count -= rng(1, 3);
+            }
+            if(count>0)
+            {
+                float component_success_chance = std::min((float)pow(0.8f, cut->damage), 1.f);
+                for(int i = count; i > 0; i--)
+                {
+                    if(component_success_chance < rng_float(0,1))
+                    {
+                        count--;
+                    }
+                }
+            }
+            std::string scrap_text, sliced_text, type;
+            if (cut->made_of("cotton")) {
+                scrap_text = _("You clumsily cut the %s into useless ribbons.");
+                sliced_text = ngettext("You slice the %s into a rag.", "You slice the %1$s into %2$d rags.",
+                               count);
+                type = "rag";
+            } else if (cut->made_of("leather")) {
+                scrap_text = _("You clumsily cut the %s into useless scraps.");
+                sliced_text = ngettext("You slice the %s into a piece of leather.",
+                               "You slice the %1$s into %2$d pieces of leather.", count);
+                type = "leather";
+            } else if (cut->made_of("nomex")) {
+                scrap_text = _("You clumsily cut the %s into useless scraps.");
+                sliced_text = ngettext("You cut the %s into a piece of nomex.",
+                               "You slice the %1$s into %2$d pieces of nomex.", count);
+                type = "nomex";
+            } else if (cut->made_of("plastic")) {
+                scrap_text = _("You clumsily cut the %s into useless scraps.");
+                sliced_text = ngettext("You cut the %s into a plastic chunk.",
+                               "You slice the %1$s into %2$d plastic chunks.", count);
+                type = "plastic_chunk";
+            } else if (cut->made_of("kevlar")) {
+                scrap_text = _("You clumsily cut the %s into useless scraps.");
+                sliced_text = ngettext("You cut the %s into a kevlar plate.",
+                               "You slice the %1$s into %2$d kevlar plates.", count);
+                type = "kevlar_plate";
+            } else if (cut->made_of("wood")) {
+                count *= 2;
+                scrap_text = _("You clumsily carve the %s into useless scraps.");
+                sliced_text = ngettext("You carve the %s into a skewer.",
+                               "You slice the %1$s into %2$d skewers.", count);
+                type = "skewer";
+            } else {
+                add_msg("You can't cut that up.");
+                return;
+            }
+            if (count <= 0)
+            {
+                add_msg_if_player(&u, scrap_text.c_str(), cut->tname().c_str());
+                u.i_rem(pos);
+                return;
+            }
+            add_msg_if_player(&u, sliced_text.c_str(), cut->tname().c_str(), count);
+            item result(itypes[type], int(turn), nextinv);
+            u.i_rem(pos);
+            u.i_add_or_drop(result, count);
+            return;
+        }
+        else
+            add_msg("You don't have anything sharp to cut with.");
+            return;
+    break;
+    }
 }
 
 bool game::choose_adjacent(std::string message, int &x, int &y)

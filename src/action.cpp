@@ -302,6 +302,8 @@ std::string action_ident(action_id act)
         return "toggle_sidebar_style";
     case ACTION_TOGGLE_FULLSCREEN:
         return "toggle_fullscreen";
+    case ACTION_ITEM_MODIFICATION:
+        return "item_modification";
     case ACTION_NULL:
         return "null";
     default:
@@ -482,6 +484,8 @@ std::string action_name(action_id act)
         return _("Switch Sidebar Style");
     case ACTION_TOGGLE_FULLSCREEN:
         return _("Toggle Fullscreen mode");
+    case ACTION_ITEM_MODIFICATION:
+        return _("Item Modification Menu");
     case ACTION_NULL:
         return _("No Action");
     default:
@@ -630,6 +634,7 @@ drop d\n\
 drop_adj D\n\
 bionics p\n\
 sort_armor +\n\
+item_modification [\n\
 \n\
 # LONG TERM & SPECIAL ACTIONS\n\
 wait |\n\
