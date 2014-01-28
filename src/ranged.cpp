@@ -328,7 +328,7 @@ void player::fire_gun(int tarx, int tary, bool burst) {
             g->zombie(zid).name().c_str(),
             g->zombie(zid).hp);
         }
-
+/*
         // Drop a shell casing if appropriate.
         itype_id casing_type = curammo->casing;
         if (casing_type != "NULL" && !casing_type.empty()) {
@@ -351,7 +351,7 @@ void player::fire_gun(int tarx, int tary, bool burst) {
                 g->m.add_item_or_charges(x, y, casing);
             }
         }
-
+*/
         // Use up a round (or 100)
         if (used_weapon->has_flag("FIRE_100")) {
             used_weapon->charges -= 100;

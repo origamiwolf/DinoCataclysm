@@ -824,7 +824,7 @@ bool game::do_turn()
         }
     }
 
-    if (turn % 100 == 0) { // Hunger & thirst up every 5 minutes
+    if (turn % 50 == 0) { // Hunger & thirst up every 5 minutes
         if ((!u.has_trait("LIGHTEATER") || !one_in(3)) &&
             (!u.has_bionic("bio_recycler") || turn % 300 == 0)) {
             u.hunger++;
