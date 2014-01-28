@@ -134,12 +134,12 @@ void mission_start::kill_horde_master(mission *miss)
  tile.load(site.x * 2, site.y * 2, g->levz, false, &om);
  tile.add_spawn("mon_zombie_master", 1, SEEX, SEEY, false, -1, miss->uid, "Demonic Soul");
  tile.add_spawn("mon_zombie_brute",3,SEEX,SEEY);
- tile.add_spawn("mon_zombie_fast",3,SEEX,SEEY);
+ tile.add_spawn("mon_zombie_dog",3,SEEX,SEEY);
  if (SEEX > 1 && SEEX < OMAPX && SEEY > 1 && SEEY < OMAPY){
  for (int x = SEEX - 1; x <= SEEX + 1; x++) {
   for (int y = SEEY - 1; y <= SEEY + 1; y++)
    tile.add_spawn("mon_zombie",rng(3,10),x,y);
-   tile.add_spawn("mon_zombie_fast",rng(0,2),SEEX,SEEY);
+   tile.add_spawn("mon_zombie_dog",rng(0,2),SEEX,SEEY);
  }
 }
  tile.add_spawn("mon_zombie_necro",2,SEEX,SEEY);
@@ -426,11 +426,8 @@ void mission_start::recruit_tracker(mission *miss)
  npc * temp = new npc();
  temp->normalize();
  temp->randomize(NC_COWBOY);
- temp->omx = om.pos().x;
- temp->omy = om.pos().y;
- // mapx/y is in submap coordinates, site is in overmap terrain coords
- temp->mapx = site.x * 2;
- temp->mapy = site.y * 2;
+ // NPCs spawn with submap coordinates, site is in overmap terrain coords
+ temp->spawn_at(&om, site.x * 2, site.y * 2, g->levz);
  temp->posx = 11;
  temp->posy = 11;
  temp->attitude = NPCATT_TALK;
@@ -439,7 +436,6 @@ void mission_start::recruit_tracker(mission *miss)
  temp->op_of_u.owed = 10; int mission_index = g->reserve_mission(MISSION_JOIN_TRACKER, temp->getID());
  if (mission_index != -1)
     temp->chatbin.missions.push_back(mission_index);
- om.npcs.push_back(temp);
 }
 
 void mission_start::place_book( mission *)
