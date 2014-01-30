@@ -4980,8 +4980,8 @@
 },{
         "type" : "recipe",
   "result": "salt_water",
-  "category": "CC_FOOD",
-  "subcategory": "CSC_FOOD_DRINKS",
+  "category": "CC_CHEM",
+  "subcategory": "CSC_CHEM_OTHER",
   "skill_used": "cooking",
   "difficulty": 0,
   "time": 1000,
@@ -7306,7 +7306,7 @@
   ],
   "components": [
     [
-      [ "broth", 2 ]
+      [ "broth", 1 ]
     ],
     [
       [ "spaghetti_raw", 1 ],
@@ -7351,7 +7351,7 @@
   ],
   "components": [
     [
-      [ "broth", 2 ]
+      [ "broth", 1 ]
     ],
     [
       [ "spaghetti_raw", 1 ],
@@ -7390,7 +7390,7 @@
   ],
   "components": [
     [
-      [ "broth", 2 ]
+      [ "broth", 1 ]
     ],
     [
       [ "spaghetti_raw", 1 ],
@@ -7496,7 +7496,7 @@
   ],
   "components": [
     [
-      [ "broth", 2 ]
+      [ "broth", 1 ]
     ],
     [
       [ "spaghetti_raw", 1 ],
@@ -10854,7 +10854,7 @@
         "type" : "recipe",
   "result": "aspirin",
   "category": "CC_CHEM",
-  "subcategory": "CSC_CHEM_CHEMICALS",
+  "subcategory": "CSC_CHEM_DRUGS",
   "skill_used": "cooking",
   "skills_required": [ "firstaid", 1 ],
   "difficulty": 4,
@@ -11028,6 +11028,7 @@
 },{
         "type" : "recipe",
   "result": "sugar",
+  "id_suffix": "from_sweets",
   "category": "CC_FOOD",
   "subcategory": "CSC_FOOD_OTHER",
   "skill_used": "cooking",
@@ -11079,6 +11080,41 @@
     [
       [ "water_clean", 1 ],
       [ "water", 1 ]
+    ]
+  ]
+},{
+        "type" : "recipe",
+  "result": "sugar",
+  "id_suffix": "from_wood",
+  "category": "CC_FOOD",
+  "subcategory": "CSC_FOOD_OTHER",
+  "note": "high-temperature acid hydrolysis, to extract edible wood sugars",
+  "skill_used": "cooking",
+  "difficulty": 7,
+  "time": 60000,
+  "reversible": false,
+  "autolearn": false,
+  "book_learn": [["adv_chemistry", 7] , ["textbook_chemistry", 8] , ["recipe_labchem", 6]],
+  "tools": [
+    [
+      [ "chemistry_set", 50 ],
+      [ "hotplate", 50 ],
+      [ "toolset", 2 ]
+    ],
+    [
+      [ "chemistry_set", -1 ]
+    ]
+  ],
+  "components": [
+    [
+      [ "2x4", 8 ],
+      [ "stick", 8 ],
+      [ "splinter", 16 ]
+    ],
+    [
+      [ "water_acid_weak", 3 ],
+      [ "water_acid", 2 ],
+      [ "acid", 1 ]
     ]
   ]
 },{
@@ -16406,7 +16442,7 @@
         "type" : "recipe",
   "result": "armor_chitin",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "tailor",
   "difficulty": 7,
   "time": 100000,
@@ -16426,7 +16462,7 @@
         "type" : "recipe",
   "result": "armor_bone",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "tailor",
   "difficulty": 7,
   "time": 30000,
@@ -16456,7 +16492,7 @@
         "type" : "recipe",
   "result": "armor_larmor",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "tailor",
   "difficulty": 4,
   "note": "Whilst the trenchcoat needs 6 skill this'll need at least 4.",
@@ -16483,7 +16519,7 @@
         "type" : "recipe",
   "result": "armor_farmor",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "tailor",
   "difficulty": 4,
   "time": 28000,
@@ -16508,7 +16544,7 @@
         "type" : "recipe",
   "result": "armor_blarmor",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "cooking",
   "difficulty": 3,
   "skills_required": [ "tailor", 3 ],
@@ -16547,7 +16583,7 @@
         "type" : "recipe",
   "result": "armor_plarmor",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "fabrication",
   "difficulty": 2,
   "skills_required": [ "tailor", 3 ],
@@ -20919,7 +20955,7 @@
         "type" : "recipe",
   "result": "armor_scrapsuit",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "fabrication",
   "difficulty": 7,
   "time": 100000,
@@ -23453,7 +23489,7 @@
         "type" : "recipe",
   "result": "armor_plate",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "fabrication",
   "difficulty": 9,
   "time": 600000,
@@ -23687,7 +23723,7 @@
         "type" : "recipe",
   "result": "armor_samurai",
   "category": "CC_ARMOR",
-  "subcategory": "CSC_ARMOR_TORSO",
+  "subcategory": "CSC_ARMOR_SUIT",
   "skill_used": "fabrication",
   "difficulty": 9,
   "time": 560000,
