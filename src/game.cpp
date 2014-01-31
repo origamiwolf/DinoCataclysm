@@ -7109,144 +7109,367 @@ void game::modify_item()
 {
     int choice = -1;
     const int cut_item = 0;
-    const int cancel = 1;
+    const int reinforce_item = 1;
+    const int cancel = 2;
 
     int pos;
 
     uimenu menu;
     menu.selected = uistate.modify_item_selected;
     menu.text = _("Modify item:");
-    menu.addentry( cut_item, true, -1, _("Cut up item") );
+    menu.addentry( cut_item, true, 'c', _("Cut up item") );
+    menu.addentry( reinforce_item, true, 'r', _("Repair or reinforce item") );
     menu.addentry( cancel, true, 'q', _("Cancel") );
     menu.query();
     choice = menu.ret;
 
-    switch(choice) {
-    case 0:
-    // check if player has item of cutting quality
-        if (u.inv.has_items_with_quality("CUT", 1, 1) || u.has_bionic("bio_tools")
-            || u.has_trait("CLAWS") || u.has_trait("TALONS")
-            || u.has_trait("CLAWS_RETRACT") || u.has_trait("CLAWS_TENTACLE"))
+    switch(choice)
+    {
+        case 0:
         {
-            pos = inv(_("Chop up what?"));
-            item *cut = &(u.i_at(pos));
-            item *cut_tool = new item();
-            if (u.inv.has_items_with_quality("CUT", 1, 1))
+        // check if player has item of cutting quality
+            if (u.inv.has_items_with_quality("CUT", 1, 1) || u.has_bionic("bio_tools")
+                || u.has_trait("CLAWS") || u.has_trait("TALONS")
+                || u.has_trait("CLAWS_RETRACT") || u.has_trait("CLAWS_TENTACLE"))
             {
-                cut_tool = &(u.inv.item_by_quality("CUT", 1));
-            }
-            if (cut->is_null())
-            {
-                add_msg(_("You do not have that item!"));
-                return;
-            }
-            if (cut == &u.weapon)
-            {
-                if(!query_yn(_("You are wielding that, are you sure?"))) {
-                return;
-                }
-            } else if (u.has_weapon_or_armor(cut->invlet))
-            {
-                if(!query_yn(_("You're wearing that, are you sure?"))) {
-                return;
-                }
-            }
-            if (cut->is_container() && !cut->contents.empty()) {
-                add_msg(_("That %s is not empty!"), cut->tname().c_str());
-                return;
-            }
-            if (cut == cut_tool)
-            {
-                if (!(u.inv.has_items_with_quality("CUT", 1, 2) || u.has_bionic("bio_tools")
-                    || u.has_trait("CLAWS") || u.has_trait("TALONS")
-                    || u.has_trait("CLAWS_RETRACT") || u.has_trait("CLAWS_TENTACLE")))
+                pos = inv(_("Chop up what?"));
+                item *cut = &(u.i_at(pos));
+                item *cut_tool = new item();
+                if (u.inv.has_items_with_quality("CUT", 1, 1))
                 {
-                    g->add_msg(_("You can not cut the %s with itself!"), cut->tname().c_str());
+                    cut_tool = &(u.inv.item_by_quality("CUT", 1));
+                }
+                if (cut->is_null())
+                {
+                    add_msg(_("You do not have that item!"));
                     return;
                 }
-            }
-
-            // a valid item has been picked
-            int count = cut->volume();
-            if(count == 0) {
-                add_msg(_("This object is too small to salvage a meaningful quantity of anything from!"));
-                return;
-            }
-            if (cut->type->id == "rag" || cut->type->id == "rag_bloody" || cut->type->id == "leather" ||
-                cut->type->id == "nomex" || cut->type->id == "plastic_chunk" || cut->type->id == "kevlar_plate" ||
-                cut->type->id == "skewer")
-            {
-                add_msg_if_player(&u, _("There's no point in cutting a %s."), cut->type->name.c_str());
-                return;
-            }
-
-            u.moves -= 25 * cut->volume();
-            if (dice(3, 3) > u.dex_cur) {
-                count -= rng(1, 3);
-            }
-            if(count>0)
-            {
-                float component_success_chance = std::min((float)pow(0.8f, cut->damage), 1.f);
-                for(int i = count; i > 0; i--)
+                if (cut == &u.weapon)
                 {
-                    if(component_success_chance < rng_float(0,1))
-                    {
-                        count--;
+                    if(!query_yn(_("You are wielding that, are you sure?"))) {
+                    return;
+                    }
+                } else if (u.has_weapon_or_armor(cut->invlet))
+                {
+                    if(!query_yn(_("You're wearing that, are you sure?"))) {
+                    return;
                     }
                 }
-            }
-            std::string scrap_text, sliced_text, type;
-            if (cut->made_of("cotton")) {
-                scrap_text = _("You clumsily cut the %s into useless ribbons.");
-                sliced_text = ngettext("You slice the %s into a rag.", "You slice the %1$s into %2$d rags.",
-                               count);
-                type = "rag";
-            } else if (cut->made_of("leather")) {
-                scrap_text = _("You clumsily cut the %s into useless scraps.");
-                sliced_text = ngettext("You slice the %s into a piece of leather.",
-                               "You slice the %1$s into %2$d pieces of leather.", count);
-                type = "leather";
-            } else if (cut->made_of("nomex")) {
-                scrap_text = _("You clumsily cut the %s into useless scraps.");
-                sliced_text = ngettext("You cut the %s into a piece of nomex.",
-                               "You slice the %1$s into %2$d pieces of nomex.", count);
-                type = "nomex";
-            } else if (cut->made_of("plastic")) {
-                scrap_text = _("You clumsily cut the %s into useless scraps.");
-                sliced_text = ngettext("You cut the %s into a plastic chunk.",
-                               "You slice the %1$s into %2$d plastic chunks.", count);
-                type = "plastic_chunk";
-            } else if (cut->made_of("kevlar")) {
-                scrap_text = _("You clumsily cut the %s into useless scraps.");
-                sliced_text = ngettext("You cut the %s into a kevlar plate.",
-                               "You slice the %1$s into %2$d kevlar plates.", count);
-                type = "kevlar_plate";
-            } else if (cut->made_of("wood")) {
-                count *= 2;
-                scrap_text = _("You clumsily carve the %s into useless scraps.");
-                sliced_text = ngettext("You carve the %s into a skewer.",
-                               "You slice the %1$s into %2$d skewers.", count);
-                type = "skewer";
-            } else {
-                add_msg("You can't cut that up.");
-                return;
-            }
-            if (count <= 0)
-            {
-                add_msg_if_player(&u, scrap_text.c_str(), cut->tname().c_str());
+                if (cut->is_container() && !cut->contents.empty()) {
+                    add_msg(_("That %s is not empty!"), cut->tname().c_str());
+                    return;
+                }
+                if (cut == cut_tool)
+                {
+                    if (!(u.inv.has_items_with_quality("CUT", 1, 2) || u.has_bionic("bio_tools")
+                        || u.has_trait("CLAWS") || u.has_trait("TALONS")
+                        || u.has_trait("CLAWS_RETRACT") || u.has_trait("CLAWS_TENTACLE")))
+                    {
+                        g->add_msg(_("You can not cut the %s with itself!"), cut->tname().c_str());
+                        return;
+                    }
+                }
+
+                // a valid item has been picked
+                int count = cut->volume();
+                if(count == 0) {
+                    add_msg(_("This object is too small to salvage a meaningful quantity of anything from!"));
+                    return;
+                }
+                if (cut->type->id == "rag" || cut->type->id == "rag_bloody" || cut->type->id == "leather" ||
+                    cut->type->id == "nomex" || cut->type->id == "plastic_chunk" || cut->type->id == "kevlar_plate" ||
+                    cut->type->id == "skewer")
+                {
+                    add_msg_if_player(&u, _("There's no point in cutting a %s."), cut->type->name.c_str());
+                    return;
+                }
+
+                u.moves -= 25 * cut->volume();
+                if (dice(3, 3) > u.dex_cur) {
+                    count -= rng(1, 3);
+                }
+                if(count>0)
+                {
+                    float component_success_chance = std::min((float)pow(0.8f, cut->damage), 1.f);
+                    for(int i = count; i > 0; i--)
+                    {
+                        if(component_success_chance < rng_float(0,1))
+                        {
+                            count--;
+                        }
+                    }
+                }
+                std::string scrap_text, sliced_text, type;
+                if (cut->made_of("cotton")) {
+                    scrap_text = _("You clumsily cut the %s into useless ribbons.");
+                    sliced_text = ngettext("You slice the %s into a rag.", "You slice the %1$s into %2$d rags.",
+                                   count);
+                    type = "rag";
+                } else if (cut->made_of("leather")) {
+                    scrap_text = _("You clumsily cut the %s into useless scraps.");
+                    sliced_text = ngettext("You slice the %s into a piece of leather.",
+                                   "You slice the %1$s into %2$d pieces of leather.", count);
+                    type = "leather";
+                } else if (cut->made_of("nomex")) {
+                    scrap_text = _("You clumsily cut the %s into useless scraps.");
+                    sliced_text = ngettext("You cut the %s into a piece of nomex.",
+                                   "You slice the %1$s into %2$d pieces of nomex.", count);
+                    type = "nomex";
+                } else if (cut->made_of("plastic")) {
+                    scrap_text = _("You clumsily cut the %s into useless scraps.");
+                    sliced_text = ngettext("You cut the %s into a plastic chunk.",
+                                   "You slice the %1$s into %2$d plastic chunks.", count);
+                    type = "plastic_chunk";
+                } else if (cut->made_of("kevlar")) {
+                    scrap_text = _("You clumsily cut the %s into useless scraps.");
+                    sliced_text = ngettext("You cut the %s into a kevlar plate.",
+                                   "You slice the %1$s into %2$d kevlar plates.", count);
+                    type = "kevlar_plate";
+                } else if (cut->made_of("wood")) {
+                    count *= 2;
+                    scrap_text = _("You clumsily carve the %s into useless scraps.");
+                    sliced_text = ngettext("You carve the %s into a skewer.",
+                                   "You slice the %1$s into %2$d skewers.", count);
+                    type = "skewer";
+                } else {
+                    add_msg("You can't cut that up.");
+                    return;
+                }
+                if (count <= 0)
+                {
+                    add_msg_if_player(&u, scrap_text.c_str(), cut->tname().c_str());
+                    u.i_rem(pos);
+                    return;
+                }
+                add_msg_if_player(&u, sliced_text.c_str(), cut->tname().c_str(), count);
+                item result(itypes[type], int(turn), nextinv);
                 u.i_rem(pos);
+                u.i_add_or_drop(result, count);
                 return;
             }
-            add_msg_if_player(&u, sliced_text.c_str(), cut->tname().c_str(), count);
-            item result(itypes[type], int(turn), nextinv);
-            u.i_rem(pos);
-            u.i_add_or_drop(result, count);
-            return;
+            else
+                add_msg("You don't have anything sharp to cut with.");
+                return;
         }
-        else
-            add_msg("You don't have anything sharp to cut with.");
-            return;
-    break;
+        break;
+        case 1:
+        {
+            if (u.is_underwater())
+            {
+                add_msg_if_player(&u, _("You can't do that while underwater."));
+                return;
+            }
+
+            int pos = inv_type(_("Repair what?"), IC_ARMOR);
+            item* fix = &(u.i_at(pos));
+            if (fix == NULL || fix->is_null())
+            {
+                add_msg_if_player(&u,_("You do not have that item!"));
+                return;
+            }
+        // presumably equipment repair can be put here later
+            if (!fix->is_armor())
+            {
+                add_msg_if_player(&u,_("That isn't clothing!"));
+                return;
+            }
+
+            itype_id repair_item = "none";
+            std::vector<std::string> plurals;
+            std::vector<itype_id> repair_items;
+            std::string plural = "";
+            int fix_type = -1;  // 0 - uses sewing kit, 1 - uses solder iron/welder
+            //translation note: add <plural> tag to keep them unique
+            if (fix->made_of("cotton") || fix->made_of("wool"))
+            {
+                repair_items.push_back("rag");
+                plurals.push_back(rm_prefix(_("<plural>rags")));
+                fix_type = 0;
+            }
+            if (fix->made_of("leather"))
+            {
+                repair_items.push_back("leather");
+                plurals.push_back(rm_prefix(_("<plural>leather")));
+                fix_type = 0;
+            }
+            if (fix->made_of("fur"))
+            {
+                repair_items.push_back("fur");
+                plurals.push_back(rm_prefix(_("<plural>fur")));
+                fix_type = 0;
+            }
+            if (fix->made_of("nomex"))
+            {
+                repair_items.push_back("nomex");
+                plurals.push_back(rm_prefix(_("<plural>nomex")));
+                fix_type = 0;
+            }
+            if (fix->made_of("kevlar"))
+            {
+                repair_items.push_back("kevlar_plate");
+                plurals.push_back(rm_prefix(_("<plural>kevlar plate")));
+                fix_type = 1;
+            }
+            if (fix->made_of("plastic"))
+            {
+                repair_items.push_back("plastic_chunk");
+                plurals.push_back(rm_prefix(_("<plural>plastic chunk")));
+                fix_type = 1;
+            }
+            if (fix->made_of("iron") || fix->made_of("steel"))
+            {
+                repair_items.push_back("scrap");
+                plurals.push_back(rm_prefix(_("<plural>scrap metal")));
+                fix_type = 1;
+            }
+            if(repair_items.empty())
+            {
+                add_msg_if_player(&u,_("Your %s can't be repaired."),
+                                     fix->tname().c_str());
+                return;
+            }
+        // item can be reinforced
+        // do we have the tools needed?
+            bool has_tool = false;
+            std::vector<component> tools;
+            std::string skill_used = "";
+
+            switch (fix_type)
+            {
+                case 0:
+                    skill_used = "tailor";
+                    if (u.has_charges("sewing_kit", 1))
+                    {
+                        has_tool = true;
+                        tools.push_back(component("sewing_kit", 1));
+                    }
+                break;
+
+                case 1:
+                    skill_used = "fabrication";
+                    if (u.has_charges("soldering_iron", 1))
+                    {
+                        has_tool = true;
+                        tools.push_back(component("soldering_iron", 1));
+                    }
+                    if (u.has_charges("toolset", 1))
+                    {
+                        has_tool = true;
+                        tools.push_back(component("toolset", 1));
+
+                    }
+                    if (u.has_charges("welder", 50))
+                    {
+                        has_tool = true;
+                        tools.push_back(component("welder", 50));
+                    }
+                    if (u.has_charges("welder_crude", 75))
+                    {
+                        has_tool = true;
+                        tools.push_back(component("welder_crude", 75));
+                    }
+                break;
+            }
+
+            if (!has_tool)
+            {
+                add_msg_if_player(&u, "You don't have the tools required.");
+                return;
+            }
+
+            int items_needed = (fix->damage > 2 || fix->damage == 0) ? 1 : 0;
+
+            // this will cause issues if/when NPCs start being able to sew.
+            // but, then again, it'll cause issues when they start crafting, too.
+            inventory crafting_inv = crafting_inventory(&u);
+            bool bFound = false;
+            //go through all discovered repair items and see if we have any of them available
+            for(unsigned int i = 0; i< repair_items.size(); i++) {
+                if (crafting_inv.has_amount(repair_items[i], items_needed)) {
+                   //we've found enough of a material, use this one
+                   repair_item = repair_items[i];
+                   bFound = true;
+                }
+            }
+            if (!bFound) {
+                for(unsigned int i = 0; i< repair_items.size(); i++) {
+                    add_msg_if_player(&u,_("You don't have enough %s to do that."), plurals[i].c_str());
+                }
+                return;
+            }
+            if (fix->damage < 0) {
+                add_msg_if_player(&u,_("Your %s is already enhanced."), fix->tname().c_str());
+                return;
+            }
+
+            std::vector<component> comps;
+            comps.push_back(component(repair_item, items_needed));
+            comps.back().available = true;
+            consume_tools(&u, tools, true);
+
+            if (fix->damage == 0) {
+                u.moves -= 500 * u.fine_detail_vision_mod();
+                u.practice(turn, skill_used, 10);
+                int rn = dice(4, 2 + u.skillLevel(skill_used));
+                if (u.dex_cur < 8 && one_in(u.dex_cur)) {
+                    rn -= rng(2, 6);
+                }
+                if (u.dex_cur >= 16 || (u.dex_cur > 8 && one_in(16 - u.dex_cur))) {
+                    rn += rng(2, 6);
+                }
+                if (u.dex_cur > 16) {
+                    rn += rng(0, u.dex_cur - 16);
+                }
+                if (rn <= 4) {
+                    add_msg_if_player(&u,_("You damage your %s!"), fix->tname().c_str());
+                    fix->damage++;
+                } else if (rn >= 12 && fix->has_flag("VARSIZE") && !fix->has_flag("FIT")) {
+                    add_msg_if_player(&u,_("You take your %s in, improving the fit."), fix->tname().c_str());
+                    fix->item_tags.insert("FIT");
+                } else if (rn >= 12 && (fix->has_flag("FIT") || !fix->has_flag("VARSIZE"))) {
+                    add_msg_if_player(&u, _("You make your %s extra sturdy."), fix->tname().c_str());
+                    fix->damage--;
+                    consume_items(&u, comps);
+                } else {
+                    add_msg_if_player(&u,_("You practice your repair skills."));
+                }
+            } else {
+                u.moves -= 500 * u.fine_detail_vision_mod();
+                u.practice(turn, skill_used, 8);
+                int rn = dice(4, 2 + u.skillLevel(skill_used));
+                rn -= rng(fix->damage, fix->damage * 2);
+                if (u.dex_cur < 8 && one_in(u.dex_cur)) {
+                    rn -= rng(2, 6);
+                }
+                if (u.dex_cur >= 8 && (u.dex_cur >= 16 || one_in(16 - u.dex_cur))) {
+                    rn += rng(2, 6);
+                }
+                if (u.dex_cur > 16) {
+                    rn += rng(0, u.dex_cur - 16);
+                }
+                if (rn <= 4) {
+                    add_msg_if_player(&u,_("You damage your %s further!"), fix->tname().c_str());
+                    fix->damage++;
+                    if (fix->damage >= 5) {
+                        add_msg_if_player(&u,_("You destroy it!"));
+                        u.i_rem(pos);
+                    }
+                } else if (rn <= 6) {
+                    add_msg_if_player(&u,_("You fail to repair your %s."),
+                                         fix->tname().c_str());
+                } else if (rn <= 16) {
+                    add_msg_if_player(&u,_("You repair your %s!"), fix->tname().c_str());
+                    if (fix->damage>=3) {consume_items(&u, comps);}
+                    fix->damage--;
+                } else {
+                    add_msg_if_player(&u,_("You repair your %s completely!"), fix->tname().c_str());
+                    if (fix->damage>=3) {consume_items(&u, comps);}
+                    fix->damage = 0;
+                }
+                // remove charges
+            }
+        }
+        break;
     }
 }
 
