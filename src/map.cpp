@@ -852,7 +852,7 @@ bool map::displace_water (const int x, const int y)
             for (int tx = -1; tx <= 1; tx++)
                 for (int ty = -1; ty <= 1; ty++)
                 {
-                    if ((!tx && !ty) 
+                    if ((!tx && !ty)
                             || move_cost_ter_furn(x + tx, y + ty) == 0
                             || has_flag(TFLAG_DEEP_WATER, x + tx, y + ty))
                         continue;
@@ -2822,9 +2822,7 @@ std::list<item> map::use_charges(const point origin, const int range,
                         if (craftpart >= 0) { // we have a craftrig, now to see what to drain
                             ammotype ftype = "NULL";
 
-                            if (type == "press") {
-                                ftype = "battery";
-                            } else if (type == "vac_sealer") {
+                            if (type == "vac_sealer") {
                                 ftype = "battery";
                             } else if (type == "dehydrator") {
                                 ftype = "battery";

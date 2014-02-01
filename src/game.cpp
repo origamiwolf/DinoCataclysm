@@ -6458,18 +6458,6 @@ void game::resonance_cascade(int x, int y)
  }
 }
 
-void game::scrambler_blast(int x, int y)
-{
-    int mondex = mon_at(x, y);
-    if (mondex != -1) {
-        monster &critter = critter_tracker.find(mondex);
-        if (critter.has_flag(MF_ELECTRONIC)) {
-            critter.make_friendly();
-        }
-        add_msg(_("The %s sparks and begins searching for a target!"), critter.name().c_str());
-    }
-}
-
 void game::emp_blast(int x, int y)
 {
  int rn;

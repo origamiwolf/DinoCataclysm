@@ -80,8 +80,7 @@
                 "fire_ax",
                 "primitive_axe",
                 "battleaxe",
-                "chainsaw_on",
-                "combatsaw_on"
+                "chainsaw_on"
             ]
         ],
         "pre_terrain" : "t_tree",
@@ -98,8 +97,7 @@
                 "fire_ax",
                 "primitive_axe",
                 "battleaxe",
-                "chainsaw_on",
-                "combatsaw_on"
+                "chainsaw_on"
             ]
         ],
         "pre_terrain" : "t_trunk",

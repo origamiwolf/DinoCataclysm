@@ -2626,8 +2626,7 @@
             {"item": "pot", "min": 0, "max": 1},
             {"item": "water_purifier", "min": 0, "max": 1},
             {"item": "vac_sealer", "min": 0, "max": 1},
-            {"item": "dehydrator", "min": 0, "max": 1},
-            {"item": "press", "min": 0, "max": 1}
+            {"item": "dehydrator", "min": 0, "max": 1}
         ]
     },{
         "type" : "vehicle_part",

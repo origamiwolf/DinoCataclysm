@@ -630,10 +630,6 @@ void inventory::form_from_map(point origin, int range, bool assign_invlet)
                     item dehydrator(itypes["dehydrator"], 0);
                     dehydrator.charges = veh->fuel_left("battery");
                     add_item(dehydrator);
-
-                    item press(itypes["press"], 0);
-                    press.charges = veh->fuel_left("battery");
-                    add_item(press);
                 }
                 if (forgepart >= 0) {
                     item forge(itypes["forge"], 0);

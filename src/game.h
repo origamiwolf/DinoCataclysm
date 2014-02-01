@@ -190,7 +190,6 @@ public:
   bool refill_vehicle_part (vehicle &veh, vehicle_part *part, bool test=false);
   bool pl_refill_vehicle (vehicle &veh, int part, bool test=false);
   void resonance_cascade(int x, int y);
-  void scrambler_blast(int x, int y);
   void emp_blast(int x, int y);
   int  npc_at(const int x, const int y) const; // Index of the npc at (x, y); -1 for none
   int  npc_by_id(const int id) const; // Index of the npc at (x, y); -1 for none

@@ -126,7 +126,6 @@
       ["pipe_tobacco", 5],
       ["weed", 20],
       ["seed_weed", 5],
-      ["rolling_paper", 5],
       ["mask_hockey", 5],
       ["hockey_stick", 10],
       ["news_regional", 8],
@@ -232,8 +231,6 @@
       ["dogfood", 10],
       ["catfood", 10],
       ["nic_gum", 2],
-      ["oxygen_tank", 2],
-      ["smoxygen_tank", 1],
       ["leathersandals", 25]
     ]
   },{
@@ -560,7 +557,6 @@
       ["hacksaw", 17],
       ["xacto", 10],
       ["gloves_leather", 45],
-      ["cordless_drill", 10],
       ["mask_dust", 65],
       ["glasses_safety", 40],
       ["battery", 50],
@@ -607,7 +603,6 @@
       ["pipe_tobacco", 5],
       ["weed", 20],
       ["seed_weed", 15],
-      ["rolling_paper", 5],
       ["pipe_glass", 5],
       ["coke", 8],
       ["meth", 2],
@@ -688,8 +683,6 @@
       ["mp3", 18],
       ["portable_game", 8],
       ["usb_drive", 5],
-      ["firecracker_pack", 5],
-      ["firecracker", 5],
       ["chips", 65],
       ["cola", 70],
       ["lemonlime", 70],
@@ -705,8 +698,6 @@
       ["handflare", 40],
       ["blanket", 20],
       ["house_coat", 25],
-      ["talking_doll", 65],
-      ["creepy_doll", 1],
       ["money_bundle", 30],
       ["wristwatch", 15],
       ["diving_watch", 5],
@@ -735,8 +726,6 @@
       ["nomex_hood", 1],
       ["nomex_gloves", 1],
       ["nomex_socks", 1],
-      ["oxygen_tank", 3],
-      ["smoxygen_tank", 2],
       ["alarmclock", 30],
       ["maid_dress", 3],
       ["maid_hat", 3],
@@ -870,8 +859,6 @@
       ["10gal_hat", 5],
       ["glasses_monocle", 2],
       ["duct_tape", 60],
-      ["firecracker_pack", 5],
-      ["firecracker", 5],
       ["wolfsuit", 4],
       ["dinosuit", 4],
       ["snuggie", 5],
@@ -1278,8 +1265,6 @@
       ["vaccine_shot", 10],
       ["protein_powder", 15],
       ["caff_gum", 10],
-      ["oxygen_tank", 20],
-      ["smoxygen_tank", 5],
       ["nic_gum", 25]
     ]
   },{
@@ -1435,7 +1420,6 @@
       ["chain", 20],
       ["rope_6", 4],
       ["rope_30", 35],
-      ["cordless_drill", 30],
       ["circsaw_off", 10],
       ["circsaw_blade", 8],
       ["glass_sheet", 5],
@@ -1499,8 +1483,6 @@
       ["fire_ax", 3],
       ["nailgun", 12],
       ["carver_off", 4],
-      ["press", 5],
-      ["puller", 5],
       ["boltcutters", 5],
       ["ax", 8],
       ["tongs", 3],
@@ -1522,7 +1504,6 @@
       ["trimmer_off", 10],
       ["hammer_sledge", 6],
       ["jackhammer", 2],
-      ["jacqueshammer", 2],
       ["pickaxe", 1],
       ["welder", 25],
       ["ax", 8],
@@ -1688,13 +1669,11 @@
       ["pan", 25],
       ["waffleiron", 25],
       ["binoculars", 20],
-      ["firecracker_pack", 5],
       ["hotplate", 10],
       ["coffeemaker", 5],
       ["tin_plate", 10],
       ["knife_combat", 14],
       ["throwing_knife", 7],
-      ["tanto", 1],
       ["machete", 5],
       ["vest", 15],
       ["backpack", 38],
@@ -1768,7 +1747,6 @@
       ["dive_bag", 10],
       ["rebreather", 3],
       ["fishing_waders", 12],
-      ["gasoline_lantern", 5],
       ["folding_bicycle", 1],
       ["coat_rain",10],
       ["hood_rain", 5],
@@ -1849,7 +1827,6 @@
       ["hotplate", 10],
       ["knife_combat", 14],
       ["throwing_knife", 7],
-      ["tanto", 1],
       ["machete", 5],
       ["vest", 15],
       ["backpack", 38],
@@ -2022,10 +1999,8 @@
       ["jar_glass", 10],
       ["jar_3l_glass", 8],
       ["flyer", 10],
-      ["talking_doll", 60],
       ["55gal_drum", 1],
       ["30gal_drum", 2],
-      ["creepy_doll", 1],
       ["striped_shirt", 1],
       ["striped_pants", 1],
       ["razor_blade", 10]
@@ -2676,7 +2651,6 @@
     "items":[
       ["tonfa", 50],
       ["tonfa_wood", 10],
-      ["shocktonfa_off", 25],
       ["tazer", 25],
       ["remington_700", 5],
       ["3006", 5],
@@ -2729,8 +2703,7 @@
       ["hk_mp5", 10],
       ["9mm", 12],
       ["fn57", 4],
-      ["fn_p90", 3],
-      ["shocktonfa_off", 15]
+      ["fn_p90", 3]
     ]
   },{
     "type" : "item_group",
@@ -2802,9 +2775,7 @@
       ["emer_blanket", 5],
       ["battery", 10],
       ["smokebomb", 10],
-      ["oxygen_tank", 5],
-      ["jack", 2],
-      ["smoxygen_tank", 10]
+      ["jack", 2]
     ]
   },{
     "type" : "item_group",
@@ -2813,7 +2784,6 @@
       ["crackpipe", 8],
       ["weed", 20],
       ["seed_weed", 15],
-      ["rolling_paper", 5],
       ["pipe_glass", 15],
       ["coke", 8],
       ["meth", 2],
@@ -2824,7 +2794,6 @@
       ["textbook_anarch", 3],
       ["recipe_bullets", 1],
       ["knife_combat", 14],
-      ["tanto", 3],
       ["throwing_knife", 7],
       ["punch_dagger", 12],
       ["crowbar", 18],
@@ -2864,7 +2833,6 @@
       ["nic_gum", 10],
       ["lsd", 2],
       ["weed", 10],
-      ["rolling_paper", 5],
       ["heroin", 2],
       ["syringe", 2],
       ["mag_porn", 30],
@@ -3056,8 +3024,6 @@
       ["oxy_powder", 2],
       ["hazmat_suit", 5],
       ["fungicide", 10],
-      ["oxygen_tank", 40],
-      ["smoxygen_tank", 10],
       ["jar_3l_glass", 15]
     ]
   },{
@@ -3143,8 +3109,6 @@
       ["medical_tape", 45],
       ["jar_glass", 20],
       ["jar_3l_glass", 15],
-      ["oxygen_tank", 50],
-      ["smoxygen_tank", 25],
       ["quikclot", 10]
     ]
   },{
@@ -3635,7 +3599,6 @@
       ["chainsaw_off", 7],
       ["carver_off", 7],
       ["jackhammer", 2],
-      ["jacqueshammer", 2],
       ["pickaxe", 1],
       ["ring", 12],
       ["diamond_ring", 1],
@@ -3679,10 +3642,7 @@
       ["picklocks", 10],
       ["rucksack", 20],
       ["briefcase", 5],
-      ["puller", 5],
-      ["press", 5],
       ["vac_sealer", 10],
-      ["gasoline_lantern", 5],
       ["flotation_vest", 1],
       ["quiver", 2],
       ["quiver_large", 1],
@@ -3695,7 +3655,6 @@
       ["textbook_tailor", 12],
       ["nodachi", 1],
       ["wakizashi", 5],
-      ["tanto", 7],
       ["swage", 2],
       ["forge", 5],
       ["char_forge", 5],
@@ -3723,8 +3682,6 @@
       ["flaregun", 10],
       ["signal_flare", 15],
       ["knee_pads", 10],
-      ["oxygen_tank", 10],
-      ["smoxygen_tank", 5],
       ["clogs", 1],
       ["rebreather", 5],
       ["diveknife", 10],
@@ -3795,7 +3752,6 @@
       ["helmet_liner", 20],
       ["pur_tablets", 10],
       ["knife_trench", 14],
-      ["tanto", 7],
       ["flaregun", 20],
       ["signal_flare", 25],
       ["quikclot", 20]
@@ -3888,7 +3844,6 @@
       ["blanket", 20],
       ["emer_blanket", 20],
       ["flyer", 10],
-      ["gasoline_lantern", 5],
       ["flotation_vest", 1],
       ["vaccine_shot", 10],
       ["coat_rain", 5],
@@ -4228,7 +4183,6 @@
       ["pipe_tobacco", 5],
       ["weed", 20],
       ["seed_weed", 15],
-      ["rolling_paper", 5],
       ["pipe_glass", 5],
       ["coke", 8],
       ["meth", 2],
@@ -4304,8 +4258,6 @@
       ["mp3", 18],
       ["portable_game", 8],
       ["usb_drive", 8],
-      ["firecracker_pack", 1],
-      ["firecracker", 1],
       ["chips", 65],
       ["cola", 70],
       ["choco_coffee_beans", 20],
@@ -4319,8 +4271,6 @@
       ["glowstick", 60],
       ["blanket", 20],
       ["house_coat", 25],
-      ["talking_doll", 5],
-      ["creepy_doll", 1],
       ["wristwatch", 15],
       ["pocketwatch", 5],
       ["lsd", 1],
@@ -4680,8 +4630,6 @@
       ["fungicide", 5],
       ["rx12_injector", 8],
       ["ampoule", 12],
-      ["oxygen_tank", 10],
-      ["smoxygen_tank", 20],
       ["quikclot", 10]
     ]
   },{
@@ -4768,7 +4716,6 @@
       ["hatchet", 10],
       ["ax", 8],
       ["knife_combat", 14],
-      ["tanto", 7],
       ["throwing_knife", 7],
       ["throwing_axe", 6],
       ["punch_dagger", 6],
@@ -4786,7 +4733,6 @@
       ["switchblade", 4],
       ["tonfa", 10],
       ["tonfa_wood", 10],
-      ["shocktonfa_off", 5],
       ["nodachi", 1]
     ]
   },{
@@ -4995,7 +4941,6 @@
       ["flashlight", 40],
       ["pickaxe", 1],
       ["jackhammer", 2],
-      ["jacqueshammer", 2],
       ["dynamite", 5],
       ["UPS_off", 5],
       ["bio_tools", 10],
@@ -5006,7 +4951,6 @@
       ["bio_hydraulics", 10],
       ["jerrycan", 10],
       ["jerrycan_big", 10],
-      ["gasoline_lantern", 5],
       ["shovel", 10],
       ["e_tool", 5],
       ["apron_leather", 10]
@@ -5035,7 +4979,6 @@
       ["pipe_tobacco", 5],
       ["weed", 20],
       ["seed_weed", 15],
-      ["rolling_paper", 5],
       ["pipe_glass", 5],
       ["amplifier", 8],
       ["transponder", 5],
@@ -5130,7 +5073,6 @@
       ["jar_glass", 10],
       ["jar_3l_glass", 8],
       ["flyer", 10],
-      ["gasoline_lantern", 10],
       ["child_book", 4],
       ["hairpin", 3],
       ["fc_hairpin", 1],
@@ -5165,7 +5107,6 @@
     "items":[
       ["rock", 40],
       ["jackhammer", 2],
-      ["jacqueshammer", 2],
       ["flashlight", 40],
       ["dynamite", 5],
       ["matches", 60],
@@ -5190,7 +5131,6 @@
       ["pipe_tobacco", 5],
       ["weed", 20],
       ["seed_weed", 15],
-      ["rolling_paper", 5],
       ["pipe_glass", 5],
       ["coke", 8],
       ["adrenaline_injector", 4],
@@ -5398,7 +5338,6 @@
       ["kevlar_plate", 10],
       ["ceramic_armor", 15],
       ["tonfa", 10],
-      ["shocktonfa_off", 5],
       ["alloy_plate", 10]
     ]
   },{
@@ -5548,7 +5487,6 @@
       ["chaw", 30],
       ["knife_combat", 14],
       ["throwing_knife", 7],
-      ["tanto", 2],
       ["boots_steel", 50],
       ["boots_combat", 50],
       ["pants_army", 30],
@@ -5866,8 +5804,6 @@
       ["3006fmj", 3],
       ["762_51", 6],
       ["arrow_cf", 5],
-      ["press", 5],
-      ["puller", 5],
       ["RPG-7_ammo", 1],
       ["cu_pipe", 5],
       ["signal_flare", 5]
@@ -5894,7 +5830,6 @@
       ["adrenaline_injector", 2],
       ["weed", 60],
       ["seed_weed", 35],
-      ["rolling_paper", 9],
       ["pipe_glass", 17],
       ["coke", 8],
       ["meth", 2],
@@ -5942,7 +5877,6 @@
       ["machete", 5],
       ["katana", 1],
       ["wakizashi", 5],
-      ["tanto", 6],
       ["pants_cargo", 70],
       ["shorts_cargo", 50],
       ["hoodie", 65],
@@ -6081,8 +6015,6 @@
       ["molotov_lit", 0],
       ["dynamite_act", 5],
       ["matchbomb_act", 0],
-      ["firecracker_pack_act", 5],
-      ["firecracker_act", 5],
       ["mininuke_act", 0],
       ["UPS_on", 0],
       ["mp3_on", 0],
@@ -6226,10 +6158,8 @@
       ["emer_blanket", 5],
       ["battery", 10],
       ["tool_belt", 5],
-      ["oxygen_tank", 15],
       ["fireman_belt", 15],
-      ["jack", 5],
-      ["smoxygen_tank", 35]
+      ["jack", 5]
     ]
   },{
     "type" : "item_group",
@@ -6272,8 +6202,6 @@
     "items":[
       ["wrapped_rad_badge", 80],
       ["geiger_off", 20],
-      ["oxygen_tank", 10],
-      ["smoxygen_tank", 15],
       ["adv_UPS_off", 2],
       ["iodine", 50]
     ]
@@ -6461,9 +6389,6 @@
       ["beret_wool", 14],
       ["balclava", 12],
       ["mask_survivorxl", 2],
-      ["combatsaw_off", 1],
-      ["firemachete_off", 1],
-      ["shishkebab_off", 2],
       ["helsing", 1],
       ["tihar", 2],
       ["ashot", 4],
