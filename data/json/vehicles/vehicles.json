@@ -2728,7 +2728,7 @@
         "blueprint" : [
             ["O-++-OH"],
             ["|H##'|H"],
-            ["t###'|H"],
+            ["|###'|H"],
             ["|H##'|H"],
             ["O-++-OH"]
         ],
@@ -2798,7 +2798,6 @@
             {"x": -1, "y": 1, "part": "hdframe_horizontal_2"},
             {"x": -1, "y": 1, "part": "aisle_horizontal"},
             {"x": -1, "y": 1, "part": "roof"},
-            {"x": -1, "y": 1, "part": "mounted_browning"},
             {"x": -1, "y": 2, "part": "hdframe_horizontal_2"},
             {"x": -1, "y": 2, "part": "seat"},
             {"x": -1, "y": 2, "part": "seatbelt"},
@@ -2843,18 +2842,6 @@
             {"x": -3, "y": -1, "part": "hdboard_sw"},
             {"x": -3, "y": -1, "part": "plating_military"},
             {"x": -3, "y": -1, "part": "wheel_armor"}
-        ],
-        "items" : [
-            {"x": -1, "y": 1, "chance": 8, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 1, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 2, "items": ["50bmg"]},
-            {"x": -1, "y": 1, "chance": 2, "items": ["50bmg"]}
         ]
     },{
         "type" : "vehicle",

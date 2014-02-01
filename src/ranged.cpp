@@ -328,30 +328,7 @@ void player::fire_gun(int tarx, int tary, bool burst) {
             g->zombie(zid).name().c_str(),
             g->zombie(zid).hp);
         }
-/*
-        // Drop a shell casing if appropriate.
-        itype_id casing_type = curammo->casing;
-        if (casing_type != "NULL" && !casing_type.empty()) {
-            item casing;
-            casing.make(itypes[casing_type]);
-            // Casing needs a charges of 1 to stack properly with other casings.
-            casing.charges = 1;
-            if( used_weapon->has_gunmod("brass_catcher") != -1 ) {
-                i_add( casing );
-            } else {
-                int x = 0;
-                int y = 0;
-                int count = 0;
-                do {
-                    x = xpos() - 1 + rng(0, 2);
-                    y = ypos() - 1 + rng(0, 2);
-                    count++;
-                    // Try not to drop the casing on a wall if at all possible.
-                } while( g->m.move_cost( x, y ) == 0 && count < 10 );
-                g->m.add_item_or_charges(x, y, casing);
-            }
-        }
-*/
+
         // Use up a round (or 100)
         if (used_weapon->has_flag("FIRE_100")) {
             used_weapon->charges -= 100;

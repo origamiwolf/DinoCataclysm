@@ -2777,7 +2777,6 @@ std::list<item> map::use_charges(const point origin, const int range,
                         const int kpart = veh->part_with_feature(vpart, "KITCHEN");
                         const int weldpart = veh->part_with_feature(vpart, "WELDRIG");
                         const int craftpart = veh->part_with_feature(vpart, "CRAFTRIG");
-                        const int forgepart = veh->part_with_feature(vpart, "FORGE");
                         const int chempart = veh->part_with_feature(vpart, "CHEMLAB");
                         const int cargo = veh->part_with_feature(vpart, "CARGO");
 
@@ -2825,23 +2824,6 @@ std::list<item> map::use_charges(const point origin, const int range,
                             if (type == "vac_sealer") {
                                 ftype = "battery";
                             } else if (type == "dehydrator") {
-                                ftype = "battery";
-                            }
-
-                            item tmp = item_controller->create(type, 0); //TODO add a sane birthday arg
-                            tmp.charges = veh->drain(ftype, quantity);
-                            quantity -= tmp.charges;
-                            ret.push_back(tmp);
-
-                            if (quantity == 0) {
-                                return ret;
-                            }
-                        }
-
-                        if (forgepart >= 0) { // we have a veh_forge, now to see what to drain
-                            ammotype ftype = "NULL";
-
-                            if (type == "forge") {
                                 ftype = "battery";
                             }
 

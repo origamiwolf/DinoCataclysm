@@ -2652,25 +2652,6 @@
         ]
     },{
         "type" : "vehicle_part",
-        "id" : "veh_forge",
-        "name" : "mounted electric forge",
-        "symbol" : "&",
-        "color" : "red",
-        "broken_symbol" : "x",
-        "broken_color" : "light_gray",
-        "damage_modifier" : 10,
-        "durability" : 180,
-        "item" : "forge",
-        "difficulty" : 3,
-        "location" : "center",
-        "flags" : ["OBSTACLE", "FORGE"],
-        "breaks_into" : [
-            {"item": "steel_lump", "min": 4, "max": 5},
-            {"item": "steel_chunk", "min": 4, "max": 6},
-            {"item": "scrap", "min": 4, "max": 6}
-        ]
-    },{
-        "type" : "vehicle_part",
         "id" : "m249",
         "name" : "mounted M249",
         "symbol" : "t",
@@ -2760,25 +2741,6 @@
         "flags" : ["TURRET"],
         "breaks_into" : [
             {"item": "nx17", "min": 0, "max": 1}
-        ]
-    },{
-        "type" : "vehicle_part",
-        "id" : "mounted_browning",
-        "name" : "mounted M2 Browning",
-        "symbol" : "t",
-        "color" : "green",
-        "broken_symbol" : "#",
-        "broken_color" : "green",
-        "damage_modifier" : 80,
-        "durability" : 400,
-        "fuel_type" : "50",
-        "item" : "m2browning",
-        "difficulty" : 6,
-        "size" : 160,
-        "location" : "on_roof",
-        "flags" : ["TURRET", "CARGO"],
-        "breaks_into" : [
-            {"item": "m2browning", "min": 0, "max": 1}
         ]
     },{
         "type" : "vehicle_part",

@@ -590,7 +590,6 @@ void inventory::form_from_map(point origin, int range, bool assign_invlet)
                 const int kpart = veh->part_with_feature(vpart, "KITCHEN");
                 const int weldpart = veh->part_with_feature(vpart, "WELDRIG");
                 const int craftpart = veh->part_with_feature(vpart, "CRAFTRIG");
-                const int forgepart = veh->part_with_feature(vpart, "FORGE");
                 const int chempart = veh->part_with_feature(vpart, "CHEMLAB");
                 const int cargo = veh->part_with_feature(vpart, "CARGO");
 
@@ -630,11 +629,6 @@ void inventory::form_from_map(point origin, int range, bool assign_invlet)
                     item dehydrator(itypes["dehydrator"], 0);
                     dehydrator.charges = veh->fuel_left("battery");
                     add_item(dehydrator);
-                }
-                if (forgepart >= 0) {
-                    item forge(itypes["forge"], 0);
-                    forge.charges = veh->fuel_left("battery");
-                    add_item(forge);
                 }
                 if (chempart >= 0) {
                     item hotplate(itypes["hotplate"], 0);

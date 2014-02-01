@@ -1644,8 +1644,6 @@ void game::disassemble(int pos)
                             (req <= 0 && type == ("goggles_welding")) ||
                             (req <= 0 && (type == ("crucible")) &&
                              (!((cur_recipe->result) == ("anvil")))) ||
-                            // No mold needed for disassembly.
-                            (req <= 0 && (type == "mold_plastic")) ||
                             (req >  0 && crafting_inv.has_charges(type, req))) {
                             have_this_tool = true;
                             k = cur_recipe->tools[j].size();

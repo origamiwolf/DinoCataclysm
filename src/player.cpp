@@ -6572,7 +6572,6 @@ int player::amount_of(itype_id it) {
     if (it == "apparatus") {
         if (has_amount("crackpipe", 1) ||
             has_amount("can_drink", 1) ||
-            has_amount("pipe_glass", 1) ||
             has_amount("pipe_tobacco", 1)) {
             return 1;
         }
@@ -8331,7 +8330,6 @@ hint_rating player::rate_action_unload(item *it) {
   has_40mml = it->has_gunmod ("pipe_launcher40mm");
   has_shotgun = it->has_gunmod ("u_shotgun");
   has_shotgun2 = it->has_gunmod ("masterkey");
-  has_shotgun3 = it->has_gunmod ("rm121aux");
   has_auxflamer = it->has_gunmod ("aux_flamer");
  }
  if (it->is_container() ||

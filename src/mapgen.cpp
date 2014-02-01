@@ -4071,15 +4071,6 @@ ff.......|....|WWWWWWWW|\n\
                         if (one_in(2)) {
                         spawn_item(i + 2, j + 1, "556", 2);
                         }
-                        if (one_in(4)) {
-                        spawn_item(i + 2, j + 1, "8mm_fmj", 2);
-                        }
-                        if (one_in(4)) {
-                        spawn_item(i + 2, j + 1, "8mm_inc", 2);
-                        }
-                        if (one_in(5)) {
-                        spawn_item(i + 2, j + 1, "20x66_flechette", 2);
-                        }
                         if (one_in(5)) {
                         spawn_item(i + 2, j + 1, "40mm_concussive", 2);
                         }
