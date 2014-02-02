@@ -6015,7 +6015,7 @@ bool player::process_single_active_item(item *it)
                 }
             }
         }
-        else if (it->type->id == "corpse")
+        else if (it->type->id == "corpse" && (ACTIVE_WORLD_OPTIONS["REVIVE_ZOMBIES"]))
         {
             if (it->ready_to_revive())
             {

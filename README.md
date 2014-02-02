@@ -1,23 +1,20 @@
-# Cataclysm: Dark Days Ahead
+# DinoCataclysm
 
-Cataclysm: Dark Days Ahead is a roguelike set in a post-apocalyptic world. While some have described it as a "zombie game", there's far more to Cataclysm than that. Struggle to survive in a harsh, persistent, procedurally generated world. Scavenge the remnants of a dead civilization for for food, equipment, or, if you're lucky, a vehicle with a full tank of gas to get you the hell out of Dodge. Fight to defeat or escape from a wide variety of powerful monstrosities, from zombies to giant insects to killer robots and things far stranger and deadlier, and against the others like yourself, that want what you have...
-
+DinoCataclysm is a fork of Cataclysm: Dark Days Ahead, a roguelike set in a post-apocalyptic world. While some have described it as a "zombie game", there's far more to Cataclysm than that. Struggle to survive in a harsh, persistent, procedurally generated world. Scavenge the remnants of a dead civilization for for food, equipment, or, if you're lucky, a vehicle with a full tank of gas to get you the hell out of Dodge. Fight to defeat or escape from a wide variety of powerful monstrosities, from zombies to giant insects to killer robots and things far stranger and deadlier, and against the others like yourself, that want what you have...
 
 ## Download
 
 Visit [our website](http://en.cataclysmdda.com/) for download links to all stable and experimental releases
 
-The source can either be downloaded as [an archive](https://github.com/CleverRaven/Cataclysm-DDA/archive/master.zip), or you can clone it from [our GitHub repository](https://github.com/CleverRaven/Cataclysm-DDA/).
-
-
-## Compile
-
-The latest instructions on how to compile can be found on [our wiki](http://www.wiki.cataclysmdda.com/index.php?title=How_to_compile).
-
+The source can either be downloaded as [an archive](https://github.com/origamiwolf/DinoCataclysm/archive/master.zip), or you can clone it from [our GitHub repository](https://github.com/origamiwolf/DinoCataclysm/).
 
 ## Contribute
 
 Please see [CONTRIBUTING.md](https://github.com/CleverRaven/Cataclysm-DDA/blob/master/CONTRIBUTING.md) for details.
+
+## Compile
+
+The latest instructions on how to compile can be found on [our wiki](http://www.wiki.cataclysmdda.com/index.php?title=How_to_compile).
 
 
 ## Frequently Asked Questions
@@ -36,4 +33,4 @@ Press the `?` key, followed by the `1` key to see the full list of key commands.
 
 #### I've found a bug / I would like to make a suggestion. What should I do?
 
-Please submit an issue on [our GitHub page](https://github.com/CleverRaven/Cataclysm-DDA/issues/). If you're not able to, send an email to `kevin.granade@gmail.com`.
+Please submit an issue on [our GitHub page](https://github.com/origamiwolf/DinoCataclysm/issues/). If you're not able to, send an email to `origamiwolf@gmail.com`.

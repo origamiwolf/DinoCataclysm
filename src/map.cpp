@@ -2607,7 +2607,7 @@ bool map::process_active_item(item *it, const int nonant, const int i, const int
                     grid[nonant]->active_item_count--;
                 }
             }
-        } else if (it->type->id == "corpse") { // some corpses rez over time
+        } else if ((it->type->id == "corpse") && (ACTIVE_WORLD_OPTIONS["REVIVE_ZOMBIES"])) { // some corpses rez over time
             if (it->ready_to_revive()) {
                 if (rng(0,it->volume()) > it->burnt) {
                     int mapx = (nonant % my_MAPSIZE) * SEEX + i;

@@ -884,8 +884,8 @@ it from spreading. Fire extinguishers can put out fires that get out of control.
 
     text.push_back(_("\
 Q: I have a question that's not addressed here. How can I get an answer?\n\
-A: Ask the helpful people on the forum at smf.cataclysmdda.com or email your question to \
-TheDarklingWolf@Gmail.com."));
+A: Ask the helpful people on the forums at smf.cataclysmdda.com or email your question to \
+origamiwolf@gmail.com."));
 
     return text;
 }

@@ -39,44 +39,25 @@ void game::print_menu(WINDOW *w_open, int iSel, const int iMenuOffsetX, int iMen
     }
 
     center_print(w_open, window_height - 1, c_red,
-                 _("Please report bugs to kevin.granade@gmail.com or post on the forums."));
+                 _("Please report bugs at https://github.com/origamiwolf/DinoCataclysm"));
 
     int iLine = 0;
     const int iOffsetX1 = 3 + (window_width - FULL_SCREEN_WIDTH) / 2;
-    const int iOffsetX2 = 4 + (window_width - FULL_SCREEN_WIDTH) / 2;
-    const int iOffsetX3 = 18 + (window_width - FULL_SCREEN_WIDTH) / 2;
 
-    const nc_color cColor1 = c_ltcyan;
-    const nc_color cColor2 = c_ltblue;
+    const nc_color cColor1 = c_green;
     const nc_color cColor3 = c_ltblue;
 
-    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "_________            __                   .__                            ");
-    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "\\_   ___ \\ _____   _/  |_ _____     ____  |  |   ___.__   ______  _____  ");
-    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "/    \\  \\/ \\__  \\  \\   __\\\\__  \\  _/ ___\\ |  |  <   |  | /  ___/ /     \\ ");
-    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "\\     \\____ / __ \\_ |  |   / __ \\_\\  \\___ |  |__ \\___  | \\___ \\ |  Y Y  \\");
-    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, " \\______  /(____  / |__|  (____  / \\___  >|____/ / ____|/____  >|__|_|  /");
-    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "        \\/      \\/             \\/      \\/        \\/          \\/       \\/ ");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "______ _             _____       _             _                     ");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "|  _  (_)           /  __ \\     | |           | |                    ");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "| | | |_ _ __   ___ | /  \\/ __ _| |_ __ _  ___| |_   _ ___ _ __ ___  ");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "| | | | | '_ \\ / _ \\| |    / _` | __/ _` |/ __| | | | / __| '_ ` _ \\ ");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "| |/ /| | | | | (_) | \\__/\\ (_| | || (_| | (__| | |_| \\__ \\ | | | | |");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "|___/ |_|_| |_|\\___/ \\____/\\__,_|\\__\\__,_|\\___|_|\\__, |___/_| |_| |_|");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "                                                  __/ |              ");
+    mvwprintz(w_open, iLine++, iOffsetX1, cColor1, "                                                 |___/               ");
 
-    if (bShowDDA) {
-        if (FULL_SCREEN_HEIGHT > 24) {
-            ++iLine;
-        }
-        mvwprintz(w_open, iLine++, iOffsetX2, cColor2, "________                   .__      ________                           ");
-        mvwprintz(w_open, iLine++, iOffsetX2, cColor2, "\\______ \\  _____   _______ |  | __  \\______ \\  _____    ___.__   ______");
-        mvwprintz(w_open, iLine++, iOffsetX2, cColor2, " |    |  \\ \\__  \\  \\_  __ \\|  |/ /   |    |  \\ \\__  \\  <   |  | /  ___/");
-        mvwprintz(w_open, iLine++, iOffsetX2, cColor2, " |    `   \\ / __ \\_ |  | \\/|    <    |    `   \\ / __ \\_ \\___  | \\___ \\ ");
-        mvwprintz(w_open, iLine++, iOffsetX2, cColor2, "/_______  /(____  / |__|   |__|_ \\  /_______  /(____  / / ____|/____  >");
-        mvwprintz(w_open, iLine++, iOffsetX2, cColor2, "        \\/      \\/              \\/          \\/      \\/  \\/          \\/ ");
-
-        mvwprintz(w_open, iLine++, iOffsetX3, cColor3, "   _____   .__                         .___");
-        mvwprintz(w_open, iLine++, iOffsetX3, cColor3, "  /  _  \\  |  |__    ____  _____     __| _/");
-        mvwprintz(w_open, iLine++, iOffsetX3, cColor3, " /  /_\\  \\ |  |  \\ _/ __ \\ \\__  \\   / __ | ");
-        mvwprintz(w_open, iLine++, iOffsetX3, cColor3, "/    |    \\|   Y  \\\\  ___/  / __ \\_/ /_/ | ");
-        mvwprintz(w_open, iLine++, iOffsetX3, cColor3, "\\____|__  /|___|  / \\___  >(____  /\\____ | ");
-        mvwprintz(w_open, iLine++, iOffsetX3, cColor3, "        \\/      \\/      \\/      \\/      \\/ ");
-        iLine++;
-        center_print(w_open, iLine++, cColor3, _("Version: %s"), getVersionString());
-    }
+    iLine++;
+    center_print(w_open, iLine++, cColor3, _("Based on Cataclysm Dark Days Ahead Version: %s"), getVersionString());
 
     std::vector<std::string> vMenuItems;
     vMenuItems.push_back(pgettext("Main Menu", "<M>OTD"));

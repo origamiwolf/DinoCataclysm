@@ -1,14 +1,9 @@
 # This message may be 16 lines long at maximum.
 # Max length of a line is 68 characters; the following line is for reference
 ####################################################################
-Major features v0.9 Ma:
-* World Factory: Multiple worlds managed at once.
-* New mutation categories.
-* TsuTiles.
-* Basic mouse support in SDL builds.
-* Vehicle constructon system rework.
-* Backward compatability with 0.8 saves.
-* Unbelievable amount of new content.
+
+For latest discussion on DinoCataclysm, please visit the forum thread at:
+http://smf.cataclysmdda.com/index.php?topic=21.0
 
 For latest discussions and news on Cataclysm DDA, please visit:
 Homepage: http://www.cataclysmdda.com/

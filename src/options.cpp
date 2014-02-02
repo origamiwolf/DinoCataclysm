@@ -594,6 +594,11 @@ void initOptions() {
                                              false
                                             );
 
+    OPTIONS["REVIVE_ZOMBIES"] =        cOpt("world_default", _("Revive zombies"),
+                                             _("Revives zombies over time."),
+                                             false
+                                            );
+
     OPTIONS["BLACK_ROAD"] =             cOpt("world_default", _("Black Road"),
                                              _("If true, spawn zombies at shelters."),
                                              false
