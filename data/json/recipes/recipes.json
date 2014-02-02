@@ -2893,6 +2893,39 @@
     ]
   ]
 },{
+         "type" : "recipe",
+  "result": "saline",
+  "category": "CC_OTHER",
+  "subcategory": "CSC_OTHER_MEDICAL",
+  "skill_used": "cooking",
+  "difficulty": 2,
+  "time": 30000,
+  "reversible": false,
+  "autolearn": false,
+  "book_learn": [["textbook_firstaid", 2] , ["pocket_firstaid", 3], ["manual_first_aid", 2], ["atomic_survival", 4], ["textbook_chemistry", 5], ["adv_chemistry", 4] , ["emergency_book", 3]],
+  "tools": [
+    [
+      [ "hotplate", 3 ],
+      [ "char_smoker", 1 ],
+      [ "toolset", 1 ],
+      [ "fire", -1 ]
+    ],
+    [
+      [ "pan", -1 ],
+      [ "pot", -1 ],
+      [ "rock_pot", -1 ],
+      [ "teapot", -1 ]
+    ]
+  ],
+  "components": [
+    [
+      [ "water_clean", 1 ]
+    ],
+    [
+      [ "salt", 1 ]
+    ]
+  ]
+},{
         "type" : "recipe",
   "result": "acid",
   "category": "CC_CHEM",
