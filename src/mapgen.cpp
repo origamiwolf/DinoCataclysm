@@ -12517,80 +12517,126 @@ void map::add_extra(map_extra type)
     }
     break;
 
-    case mx_military: {
+    case mx_military:
+    {
         int num_bodies = dice(2, 6);
-        for (int i = 0; i < num_bodies; i++) {
-            int x, y, tries = 0;;
-            do { // Loop until we find a valid spot to dump a body, or we give up
-                x = rng(0, SEEX * 2 - 1);
-                y = rng(0, SEEY * 2 - 1);
-                tries++;
-            } while (tries < 10 && move_cost(x, y) == 0);
+        for (int i = 0; i < num_bodies; i++)
+        {
+            int body_condition = rng(1,4);  // how many are zombified?
+            if (body_condition == 4)    // generate pulped body
+            {
+                int x, y, tries = 0;;
+                do { // Loop until we find a valid spot to dump a body, or we give up
+                    x = rng(0, SEEX * 2 - 1);
+                    y = rng(0, SEEY * 2 - 1);
+                    tries++;
+                } while (tries < 10 && move_cost(x, y) == 0);
 
-            if (tries < 10) { // We found a valid spot!
-                if (one_in(10)) {
-                    add_spawn("mon_zombie_soldier", 1, x, y);
-                } else {
-                    add_item(x, y, body);
-                    spawn_item(x, y, "pants_army");
+                if (tries < 10)
+                { // We found a valid spot!
+                    item body;
+                    body.make_corpse(itypes["corpse"], GetMType("mon_null"), 0);
+                    body.damage = 4;
+                    add_item_or_charges(x, y, body);
+
                     spawn_item(x, y, "boots_combat");
-                    place_items("mil_armor_torso", 40, x, y, x, y, true, 0);
-                    place_items("mil_armor_helmet", 30, x, y, x, y, true, 0);
-                    place_items("military", 86, x, y, x, y, true, 0);
-                    if( one_in(8) ) {
+                    put_items_from("mil_armor_torso", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("mil_armor_pants", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("mil_armor_helmet", 1, x, y, 0, 0, 0, rng(1,4));
+                    place_items("military_no_armor", 86, x, y, x, y, true, 0);
+                    if( one_in(8) )
+                    {
                         spawn_item( x, y, "id_military" );
                     }
-                    if (one_in(2)) {
-                        place_items("female_underwear_top", 40, x, y, x, y, true, 0 );
-                        place_items("female_underwear_bottom", 40, x, y, x, y, true, 0 );
-                    } else {
-                        place_items("male_underwear_top", 40, x, y, x, y, true, 0 );
-                        place_items("male_underwear_bottom", 40, x, y, x, y, true, 0 );
+                    if (one_in(2))
+                    {
+                        put_items_from("female_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("female_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
+                    } else
+                    {
+                        put_items_from("male_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("male_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
                     }
                 }
-            }
+            } else // it's a zombified soldier!
+            {
+                int x, y, tries = 0;;
+                do { // Loop until we find a valid spot to dump a body, or we give up
+                    x = rng(0, SEEX * 2 - 1);
+                    y = rng(0, SEEY * 2 - 1);
+                    tries++;
+                } while (tries < 10 && move_cost(x, y) == 0);
 
+                add_spawn("mon_zombie_soldier", 1, x, y);
+                place_items("military_no_armor", 86, x, y, x, y, true, 0);
+                if( one_in(8) )
+                {
+                    spawn_item( x, y, "id_military" );
+                }
+            }
+            place_items("rare", 25, 0, 0, SEEX * 2 - 1, SEEY * 2 - 1, true, 0);
         }
-        place_spawns("GROUP_MAYBE_MIL", 2, 0, 0, SEEX * 2 - 1, SEEX * 2 - 1,
-                     0.1f);//0.1 = 1-5
-        place_items("rare", 25, 0, 0, SEEX * 2 - 1, SEEY * 2 - 1, true, 0);
     }
     break;
 
-    case mx_science: {
-        int num_bodies = dice(2, 5);
-        for (int i = 0; i < num_bodies; i++) {
-            int x, y, tries = 0;
-            do { // Loop until we find a valid spot to dump a body, or we give up
-                x = rng(0, SEEX * 2 - 1);
-                y = rng(0, SEEY * 2 - 1);
-                tries++;
-            } while (tries < 10 && move_cost(x, y) == 0);
+    case mx_science:
+    {
+        int num_bodies = dice(2, 6);
+        for (int i = 0; i < num_bodies; i++)
+        {
+            int body_condition = rng(1,4);  // how many are zombified?
+            if (body_condition == 4)    // generate pulped body
+            {
+                int x, y, tries = 0;;
+                do { // Loop until we find a valid spot to dump a body, or we give up
+                    x = rng(0, SEEX * 2 - 1);
+                    y = rng(0, SEEY * 2 - 1);
+                    tries++;
+                } while (tries < 10 && move_cost(x, y) == 0);
 
-            if (tries < 10) { // We found a valid spot!
-                if (one_in(10)) {
-                    add_spawn("mon_zombie_scientist", 1, x, y);
-                } else {
-                    add_item(x, y, body);
-                    spawn_item(x, y, "coat_lab");
-                    if (one_in(2)) {
-                        spawn_item(x, y, "id_science");
-                    }
+                if (tries < 10)
+                { // We found a valid spot!
+                    item body;
+                    body.make_corpse(itypes["corpse"], GetMType("mon_null"), 0);
+                    body.damage = 4;
+                    add_item_or_charges(x, y, body);
+
+                    put_items_from("lab_torso", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("lab_pants", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("lab_shoes", 1, x, y, 0, 0, 0, rng(1,4));
                     place_items("science", 84, x, y, x, y, true, 0);
-                    place_items("lab_pants", 50, x, y, x, y, true, 0);
-                    place_items("lab_shoes", 50, x, y, x, y, true, 0);
-                    place_items("lab_torso", 40, x, y, x, y, true, 0);
-                    if (one_in(2)) {
-                        place_items("female_underwear_top", 50, x, y, x, y, true, 0 );
-                        place_items("female_underwear_bottom", 50, x, y, x, y, true, 0 );
-                    } else {
-                        place_items("male_underwear_top", 50, x, y, x, y, true, 0 );
-                        place_items("male_underwear_bottom", 50, x, y, x, y, true, 0 );
+                    if( one_in(4) )
+                    {
+                        spawn_item( x, y, "id_science" );
+                    }
+                    if (one_in(2))
+                    {
+                        put_items_from("female_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("female_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
+                    } else
+                    {
+                        put_items_from("male_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("male_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
                     }
                 }
+            } else // it's a zombified scientist!
+            {
+                int x, y, tries = 0;;
+                do { // Loop until we find a valid spot to dump a body, or we give up
+                    x = rng(0, SEEX * 2 - 1);
+                    y = rng(0, SEEY * 2 - 1);
+                    tries++;
+                } while (tries < 10 && move_cost(x, y) == 0);
+
+                add_spawn("mon_zombie_scientist", 1, x, y);
+                place_items("science", 84, x, y, x, y, true, 0);
+                if( one_in(4) )
+                {
+                    spawn_item( x, y, "id_science" );
+                }
             }
+            place_items("rare", 45, 0, 0, SEEX * 2 - 1, SEEY * 2 - 1, true, 0);
         }
-        place_items("rare", 45, 0, 0, SEEX * 2 - 1, SEEY * 2 - 1, true, 0);
     }
     break;
 
@@ -12705,7 +12751,8 @@ void map::add_extra(map_extra type)
         bool north_south = one_in(2);
         bool a_has_drugs = one_in(2);
 
-        for (int i = 0; i < num_bodies_a; i++) {
+        for (int i = 0; i < num_bodies_a; i++)
+        {
             int x, y, x_offset, y_offset, tries = 0;
             do { // Loop until we find a valid spot to dump a body, or we give up
                 if (north_south) {
@@ -12722,48 +12769,80 @@ void map::add_extra(map_extra type)
                 tries++;
             } while (tries < 10 && move_cost(x, y) == 0);
 
-            if (tries < 10) { // We found a valid spot!
-                if (one_in(10)) {
-                    add_spawn("mon_zombie_spitter", 1, x, y);
-                } else {
-                    add_item(x, y, body);
+            if (tries < 10) // We found a valid spot!
+            {
+                int body_condition = rng(1,4);  // how many are zombified?
+                if (body_condition == 4)    // generate pulped body
+                {
+                    item body;
+                    body.make_corpse(itypes["corpse"], GetMType("mon_null"), 0);
+                    body.damage = 4;
+                    add_item_or_charges(x, y, body);
+
                     int splatter_range = rng(1, 3);
                     for (int j = 0; j <= splatter_range; j++) {
                         add_field(x + (j * x_offset), y + (j * y_offset),
-                                  fd_blood, 1);
+                                fd_blood, 1);
                     }
-                    place_items("drugdealer", 75, x, y, x, y, true, 0);
-                    spawn_item(x, y, "pants_cargo");
-                    place_items("lab_shoes", 50, x, y, x, y, true, 0);
-                    place_items("shirts", 50, x, y, x, y, true, 0);
-                    place_items("jackets", 30, x, y, x, y, true, 0);
-                    if (one_in(2)) {
-                        place_items("female_underwear_top", 40, x, y, x, y, true, 0 );
-                        place_items("female_underwear_bottom", 40, x, y, x, y, true, 0 );
+                    place_items("drugdealer_noarmor", 75, x, y, x, y, true, 0);
+                    put_items_from("drugdealer_torso", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("drugdealer_pants", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("drugdealer_shoes", 1, x, y, 0, 0, 0, rng(1,4));
+                    if (one_in(3))
+                        put_items_from("drugdealer_over", 1, x, y, 0, 0, 0, rng(1,4));
+                    if (one_in(2))
+                    {
+                        put_items_from("female_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("female_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
                     } else {
-                        place_items("male_underwear_top", 40, x, y, x, y, true, 0 );
-                        place_items("male_underwear_bottom", 40, x, y, x, y, true, 0 );
+                        put_items_from("male_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("male_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
+                    }
+                    if (a_has_drugs && num_drugs > 0)
+                    {
+                        int drugs_placed = rng(2, 6);
+                        if (drugs_placed > num_drugs)
+                        {
+                            drugs_placed = num_drugs;
+                            num_drugs = 0;
+                        }
+                        spawn_item(x, y, drugtype, 0, drugs_placed);
                     }
                 }
-                if (a_has_drugs && num_drugs > 0) {
-                    int drugs_placed = rng(2, 6);
-                    if (drugs_placed > num_drugs) {
-                        drugs_placed = num_drugs;
-                        num_drugs = 0;
+                else  // generate zombie
+                {
+                    if (one_in(3))
+                        add_spawn("mon_zombie_fat", 1, x, y);
+                    else
+                        add_spawn("mon_zombie_tough", 1, x, y);
+                    if (a_has_drugs && num_drugs > 0)
+                    {
+                        int drugs_placed = rng(2, 6);
+                        if (drugs_placed > num_drugs)
+                        {
+                            drugs_placed = num_drugs;
+                            num_drugs = 0;
+                        }
+                        spawn_item(x, y, drugtype, 0, drugs_placed);
                     }
-                    spawn_item(x, y, drugtype, 0, drugs_placed);
+                    place_items("drugdealer_noarmor", 75, x, y, x, y, true, 0);
                 }
             }
         }
-        for (int i = 0; i < num_bodies_b; i++) {
+
+        for (int i = 0; i < num_bodies_b; i++)
+        {
             int x, y, x_offset, y_offset, tries = 0;
-            do { // Loop until we find a valid spot to dump a body, or we give up
-                if (north_south) {
+            do
+            { // Loop until we find a valid spot to dump a body, or we give up
+                if (north_south)
+                {
                     x = rng(0, SEEX * 2 - 1);
                     y = rng(SEEY + 3, SEEY * 2 - 1);
                     x_offset = 0;
                     y_offset = 1;
-                } else {
+                } else
+                {
                     x = rng(SEEX + 3, SEEX * 2 - 1);
                     y = rng(0, SEEY * 2 - 1);
                     x_offset = 1;
@@ -12772,36 +12851,64 @@ void map::add_extra(map_extra type)
                 tries++;
             } while (tries < 10 && move_cost(x, y) == 0);
 
-            if (tries < 10) { // We found a valid spot!
-                if (one_in(20)) {
-                    add_spawn("mon_zombie_smoker", 1, x, y);
-                } else {
-                    add_item(x, y, body);
+            if (tries < 10)
+            { // We found a valid spot!
+                int body_condition = rng(1,4);  // how many are zombified?
+                if (body_condition == 4)    // generate pulped body
+                {
+                    item body;
+                    body.make_corpse(itypes["corpse"], GetMType("mon_null"), 0);
+                    body.damage = 4;
+                    add_item_or_charges(x, y, body);
+
                     int splatter_range = rng(1, 3);
-                    for (int j = 0; j <= splatter_range; j++) {
+                    for (int j = 0; j <= splatter_range; j++)
+                    {
                         add_field( x + (j * x_offset), y + (j * y_offset),
-                                   fd_blood, 1 );
+                                    fd_blood, 1 );
                     }
-                    place_items("drugdealer", 75, x, y, x, y, true, 0);
-                    spawn_item(x, y, "pants_cargo");
-                    place_items("lab_shoes", 50, x, y, x, y, true, 0);
-                    place_items("shirts", 50, x, y, x, y, true, 0);
-                    place_items("jackets", 25, x, y, x, y, true, 0);
-                    if (one_in(2)) {
-                        place_items("female_underwear_top", 40, x, y, x, y, true, 0 );
-                        place_items("female_underwear_bottom", 40, x, y, x, y, true, 0 );
+                    place_items("drugdealer_noarmor", 75, x, y, x, y, true, 0);
+                    put_items_from("drugdealer_torso", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("drugdealer_pants", 1, x, y, 0, 0, 0, rng(1,4));
+                    put_items_from("drugdealer_shoes", 1, x, y, 0, 0, 0, rng(1,4));
+                    if (one_in(3))
+                        put_items_from("drugdealer_over", 1, x, y, 0, 0, 0, rng(1,4));
+                    if (one_in(2))
+                    {
+                        put_items_from("female_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("female_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
                     } else {
-                        place_items("male_underwear_top", 40, x, y, x, y, true, 0 );
-                        place_items("male_underwear_bottom", 40, x, y, x, y, true, 0 );
+                        put_items_from("male_underwear_top", 1, x, y, 0, 0, 0, rng(1,4));
+                        put_items_from("male_underwear_bottom", 1, x, y, 0, 0, 0, rng(1,4));
                     }
-                    if (!a_has_drugs && num_drugs > 0) {
+                    if (!a_has_drugs && num_drugs > 0)
+                    {
                         int drugs_placed = rng(2, 6);
-                        if (drugs_placed > num_drugs) {
+                        if (drugs_placed > num_drugs)
+                        {
                             drugs_placed = num_drugs;
                             num_drugs = 0;
                         }
                         spawn_item(x, y, drugtype, 0, drugs_placed);
                     }
+                }
+                else  // generate zombie
+                {
+                    if (one_in(3))
+                        add_spawn("mon_zombie_fat", 1, x, y);
+                    else
+                        add_spawn("mon_zombie_tough", 1, x, y);
+                    if (!a_has_drugs && num_drugs > 0)
+                    {
+                        int drugs_placed = rng(2, 6);
+                        if (drugs_placed > num_drugs)
+                        {
+                            drugs_placed = num_drugs;
+                            num_drugs = 0;
+                        }
+                        spawn_item(x, y, drugtype, 0, drugs_placed);
+                    }
+                    place_items("drugdealer_noarmor", 75, x, y, x, y, true, 0);
                 }
             }
         }
