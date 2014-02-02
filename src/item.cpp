@@ -133,7 +133,7 @@ item::item(itype *it, unsigned int turn, char let)
 void item::make_corpse(itype* it, mtype* mt, unsigned int turn)
 {
     init();
-    active = mt->has_flag(MF_REVIVES)? true : false;
+    active = (mt->has_flag(MF_REVIVES) && ACTIVE_WORLD_OPTIONS["REVIVE_ZOMBIES"])? true : false;
     if(!it)
         type = nullitem();
     else
