@@ -2633,7 +2633,7 @@ bool game::handle_action()
     } while (iRetItems != -1 && iRetMonsters != -1 && !(iRetItems == 0 && iRetMonsters == 0));
 
     if (iRetItems == 0 && iRetMonsters == 0) {
-        add_msg(_("You dont see any items or monsters around you!"));
+        add_msg(_("You don't see any items or monsters around you!"));
     } else if ( iRetMonsters == 2 ) {
         refresh_all();
         plfire(false);
@@ -2654,14 +2654,17 @@ bool game::handle_action()
 
   case ACTION_COMPARE:
    compare();
+   refresh_all();
    break;
 
   case ACTION_ORGANIZE:
    reassign_item();
+   refresh_all();
    break;
 
   case ACTION_USE:
    use_item();
+   refresh_all();
    break;
 
   case ACTION_USE_WIELDED:
@@ -2670,22 +2673,27 @@ bool game::handle_action()
 
   case ACTION_WEAR:
    wear();
+   refresh_all();
    break;
 
   case ACTION_TAKE_OFF:
    takeoff();
+   refresh_all();
    break;
 
   case ACTION_EAT:
    eat();
+   refresh_all();
    break;
 
   case ACTION_READ:
    read();
+   refresh_all();
    break;
 
   case ACTION_WIELD:
    wield();
+   refresh_all();
    break;
 
   case ACTION_PICK_STYLE:
@@ -2719,10 +2727,12 @@ bool game::handle_action()
 
   case ACTION_DROP:
    drop();
+   refresh_all();
    break;
 
   case ACTION_DIR_DROP:
    drop_in_direction();
+   refresh_all();
    break;
 
   case ACTION_BIONICS:
@@ -2765,6 +2775,7 @@ bool game::handle_action()
           add_msg(_("You can't disassemble items while driving."));
       } else {
           disassemble();
+          refresh_all();
       }
    break;
 
@@ -2938,6 +2949,7 @@ bool game::handle_action()
 
   case ACTION_DEBUG:
    debug();
+   refresh_all();
    break;
 
   case ACTION_TOGGLE_SIDEBAR_STYLE:
