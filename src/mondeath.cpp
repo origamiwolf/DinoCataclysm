@@ -575,10 +575,6 @@ void mdeath::zombie(monster *z) {
                 g->m.put_items_from("survivorzed_tops", 1, z->posx(), z->posy(), g->turn, 0, 0, rng(1,4));
                 g->m.put_items_from("survivorzed_bottoms", 1, z->posx(), z->posy(), g->turn, 0, 0, rng(1,4));
             }
-            if (one_in(3)) {
-                underwear = false;
-                g->m.put_items_from("loincloth", 1, z->posx(), z->posy(), g->turn, 0, 0, rng(1,4));
-            }
         break;
 
 

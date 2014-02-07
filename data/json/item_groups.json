@@ -690,8 +690,6 @@
       ["colamdew", 70],
       ["choc_drink", 10],
       ["picklocks", 10],
-      ["wolfsuit", 4],
-      ["dinosuit", 4],
       ["glowstick", 60],
       ["handflare", 40],
       ["blanket", 20],
@@ -706,14 +704,9 @@
       ["gum", 30],
       ["caff_gum", 4],
       ["nic_gum", 2],
-      ["clown_suit", 1],
-      ["clownshoes", 1],
-      ["bondage_suit", 5],
-      ["bondage_mask", 5],
       ["flask_hip", 5],
       ["tux", 1],
       ["dress_wedding", 1],
-      ["corset", 15],
       ["firehelmet", 1],
       ["bunker_coat", 1],
       ["bunker_pants", 1],
@@ -725,8 +718,6 @@
       ["nomex_gloves", 1],
       ["nomex_socks", 1],
       ["alarmclock", 30],
-      ["maid_dress", 3],
-      ["maid_hat", 3],
       ["leathersandals", 25]
     ]
   },{
@@ -855,8 +846,6 @@
       ["10gal_hat", 5],
       ["glasses_monocle", 2],
       ["duct_tape", 60],
-      ["wolfsuit", 4],
-      ["dinosuit", 4],
       ["snuggie", 5],
       ["flyer", 10],
       ["socks", 70],
@@ -866,9 +855,7 @@
       ["tux", 1],
       ["dress_wedding", 1],
       ["clogs", 2],
-      ["wristwatch", 15],
-      ["maid_dress", 3],
-      ["maid_hat", 3]
+      ["wristwatch", 15]
     ]
   },{
     "type" : "item_group",
@@ -2453,13 +2440,7 @@
       ["wetsuit_booties", 10],
       ["wetsuit_hood", 5],
       ["dive_bag", 5],
-      ["jedi_cloak", 1],
       ["apron_leather", 1],
-      ["clown_suit", 1],
-      ["clownshoes", 1],
-      ["bondage_suit", 1],
-      ["bondage_mask", 1],
-      ["corset", 10],
       ["boots_combat", 10],
       ["pants_army", 10],
       ["jacket_army", 10],
@@ -2473,9 +2454,7 @@
       ["jersey", 40],
       ["postman_shorts", 5],
       ["postman_shirt", 5],
-      ["postman_hat", 5],
-      ["maid_dress", 3],
-      ["maid_hat", 3]
+      ["postman_hat", 5]
     ]
   },{
     "type" : "item_group",
@@ -2800,12 +2779,8 @@
       ["file", 5],
       ["RPG", 1],
       ["RPG-7_ammo", 1],
-      ["clown_suit", 2],
-      ["clownshoes", 2],
-      ["bondage_suit", 1],
       ["knife_trench", 14],
       ["switchblade", 15],
-      ["bondage_mask", 1],
       ["pie_human", 5],
       ["bobburger", 5],
       ["cheeseburgerhuman", 5]
@@ -3676,8 +3651,6 @@
       ["alarmclock", 5],
       ["bagh_nakha", 2],
       ["leathersandals", 10],
-      ["maid_dress", 3],
-      ["maid_hat", 3],
       ["razor_blade", 6]
     ]
   },{
@@ -4258,9 +4231,6 @@
       ["choc_drink", 20],
       ["cola_meth", 1],
       ["picklocks", 10],
-      ["wolfsuit", 4],
-      ["dinosuit", 4],
-      ["jedi_cloak", 4],
       ["glowstick", 60],
       ["blanket", 20],
       ["house_coat", 25],
@@ -4272,12 +4242,7 @@
       ["nic_gum", 5],
       ["hairpin", 5],
       ["barrette", 3],
-      ["clown_suit", 1],
-      ["clownshoes", 1],
-      ["bondage_suit", 5],
-      ["bondage_mask", 5],
       ["flask_hip", 5],
-      ["corset", 15],
       ["tieclip", 3],
       ["collarpin", 3]
     ]
@@ -6214,14 +6179,6 @@
     ]
   },{
     "type" : "item_group",
-    "id" : "loincloth",
-    "items":[
-      ["loincloth", 2],
-      ["loincloth_fur", 1],
-      ["loincloth_leather", 1]
-    ]
-  },{
-    "type" : "item_group",
     "id" : "dog_cop",
     "items":[
       ["kevlar_harness", 1]
@@ -6398,7 +6355,6 @@
       ["armor_chitin", 2],
       ["armor_lightplate", 1],
       ["armor_plate", 1],
-      ["bondage_suit", 1],
       ["snuggie", 1]
     ]
   },{
@@ -6423,7 +6379,6 @@
       ["modularveststeel", 1],
       ["modularvestsuper", 1],
       ["dragonskin", 1],
-      ["corset", 1],
       ["football_armor", 18],
       ["jacket_leather", 12],
       ["jacket_jean", 8],
@@ -6481,8 +6436,7 @@
       ["boots_bone", 22],
       ["boots_fur", 22],
       ["boots_plate", 2],
-      ["boots_bunker", 8],
-      ["footrags", 1]
+      ["boots_bunker", 8]
     ]
   },{
     "type" : "item_group",
@@ -6506,7 +6460,6 @@
       ["firehelmet", 2],
       ["helmet_barbute", 1],
       ["helmet_plate", 1],
-      ["bondage_mask", 1],
       ["hood_rain", 14]
     ]
   },{
