@@ -7139,7 +7139,7 @@ bool player::eat(item *eaten, it_comest *comest)
           add_morale(MORALE_CANNIBAL, -60, -400, 600, 300);
       }
     }
-    if (has_trait("VEGETARIAN") && (eaten->made_of("flesh") || eaten->made_of("hflesh"))) {
+    if (has_trait("VEGETARIAN") && (eaten->made_of("flesh") || eaten->made_of("hflesh") || eaten->made_of("iflesh"))) {
         g->add_msg_if_player(this,_("Almost instantly you feel a familiar pain in your stomach."));
         add_morale(MORALE_VEGETARIAN, -75, -400, 300, 240);
     }
@@ -10112,6 +10112,15 @@ m_size player::get_size() {
     return MS_MEDIUM;
 }
 
+field_id player::playerBloodType() {
+    if (player::has_trait("THRESH_PLANT"))
+        return fd_blood_veggy;
+    if (player::has_trait("THRESH_INSECT") || player::has_trait("THRESH_SPIDER"))
+        return fd_blood_insect;
+    if (player::has_trait("THRESH_CEPHALOPOD"))
+        return fd_blood_invertebrate;
+    return fd_blood;
+}
 Creature *player::auto_find_hostile_target(int range, int &boo_hoo, int &fire_t)
 {
     if (is_player()) {
