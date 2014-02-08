@@ -60,6 +60,7 @@
         "special_attack":"NONE",
         "description":"A feathered bipedal dinosaur, standing as tall as a human.  It looks somewhat like a reptilian ostrich.",
         "flags":["SEES", "SMELLS", "HEARS", "GOODHEARING", "HUNTS_VERMIN", "ANIMAL", "VIS40", "BONES", "FEATHERS", "LEATHER"],
+        "anger_triggers":["PLAYER_WEAK", "HURT"],
         "fear_triggers":["SOUND", "PLAYER_CLOSE", "FIRE"],
          "categories":["DINOSAUR"]
     },
@@ -91,7 +92,7 @@
         "special_attack":"NONE",
         "description":"It looks like a dodo, only much bigger, with longer, muscular legs and a predatory gleam in its eyes.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "HUNTS_VERMIN", "GRABS", "KEENNOSE", "VIS50", "BLEED", "BONES", "FEATHERS", "LEATHER"],
-        "anger_triggers":["STALK", "PLAYER_WEAK", "HURT"],
+        "anger_triggers":["STALK", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
         "fear_triggers":["SOUND", "FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
@@ -124,8 +125,8 @@
         "special_attack":"NONE",
         "description":"A huge dinosaur about the size of a small house, with a ferocious crocodile-like head and a sail on its back.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "BASHES", "DESTROYS", "VIS50", "BLEED", "ATTACKMON", "BONES", "LEATHER"],
-        "anger_triggers":["STALK", "PLAYER_WEAK", "HURT"],
-        "fear_triggers":["SOUND", "FIRE"],
+        "anger_triggers":["STALK", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
+        "fear_triggers":["FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
     },
@@ -157,8 +158,8 @@
         "special_attack":"NONE",
         "description":"Look at those TEETH!",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "BASHES", "DESTROYS", "VIS50", "BLEED", "ATTACKMON", "BONES", "LEATHER"],
-        "anger_triggers":["STALK", "PLAYER_WEAK", "HURT"],
-        "fear_triggers":["SOUND", "FIRE"],
+        "anger_triggers":["STALK", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
+        "fear_triggers":["FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
     },
@@ -190,8 +191,8 @@
         "special_attack":"TRAMPLE",
         "description":"A massive rhino-like dinosaur with a bony crest from which three large horns emerge.",
         "flags":["SEES", "SMELLS", "HEARS", "GOODHEARING", "ANIMAL", "BASHES", "VIS30", "BONES", "LEATHER"],
-        "anger_triggers":["HURT"],
-        "fear_triggers":["SOUND", "PLAYER_CLOSE", "FIRE"],
+        "anger_triggers":["HURT", "PLAYER_CLOSE"],
+        "fear_triggers":["FIRE"],
          "categories":["DINOSAUR"]
     },
     {
@@ -222,8 +223,8 @@
         "special_attack":"THAGOMIZER",
         "description":"A large quadruped dinosaur with plates on its back, and a spiked tail.",
         "flags":["SEES", "SMELLS", "HEARS", "GOODHEARING", "ANIMAL", "BASHES", "VIS30", "BONES", "LEATHER"],
-        "anger_triggers":["HURT"],
-        "fear_triggers":["SOUND", "PLAYER_CLOSE", "FIRE"],
+        "anger_triggers":["HURT", "PLAYER_CLOSE"],
+        "fear_triggers":["FIRE"],
          "categories":["DINOSAUR"]
     },
     {
@@ -254,8 +255,8 @@
         "special_attack":"TAILBASH",
         "description":"This dinosaur looks like a giant prehistoric armadillo.  Its tail ends in a massive spiked club of bone.",
         "flags":["SEES", "SMELLS", "HEARS", "GOODHEARING", "ANIMAL", "BASHES", "VIS30", "BONES", "LEATHER"],
-        "anger_triggers":["HURT"],
-        "fear_triggers":["SOUND", "PLAYER_CLOSE", "FIRE"],
+        "anger_triggers":["HURT", "PLAYER_CLOSE"],
+        "fear_triggers":["SOUND", "FIRE"],
          "categories":["DINOSAUR"]
     },
     {
@@ -286,8 +287,8 @@
         "special_attack":"NONE",
         "description":"A large predatory bipedal dinosaur, with tiger-like stripes on its broad back.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "BASHES", "VIS50", "BLEED", "ATTACKMON", "BONES", "LEATHER"],
-        "anger_triggers":["STALK", "PLAYER_WEAK", "HURT"],
-        "fear_triggers":["SOUND", "FIRE"],
+        "anger_triggers":["STALK", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
+        "fear_triggers":["FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
     },
@@ -319,7 +320,7 @@
         "special_attack":"NONE",
         "description":"A bipedal dinosaur about the size of a chicken.  It roots around the undergrowth, scavenging on small animals and plants.",
         "flags":["SEES", "SMELLS", "HEARS", "GOODHEARING", "SMALL_BITER", "HUNTS_VERMIN", "HIT_AND_RUN", "ANIMAL", "VIS50", "BONES"],
-        "fear_triggers":["SOUND", "PLAYER_CLOSE", "FIRE"],
+        "fear_triggers":["SOUND", "PLAYER_CLOSE", "HURT", "FIRE"],
         "categories":["DINOSAUR"]
     },
     {
@@ -350,7 +351,7 @@
         "special_attack":"LEAP",
         "description":"A small bipedal dinosaur covered with feathers.  Small, hooked claws emerge from its feet and hands.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "HUNTS_VERMIN", "KEENNOSE", "VIS50", "BLEED", "BONES", "FEATHERS", "LEATHER"],
-        "anger_triggers":["STALK", "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "HURT"],
+        "anger_triggers":["STALK", "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
         "fear_triggers":["SOUND", "FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
@@ -383,8 +384,8 @@
         "special_attack":"LEAP",
         "description":"A medium-sized bipedal dinosaur covered with feathers.  At the end of each foot is a large sickle-like claw.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "HUNTS_VERMIN", "KEENNOSE", "VIS50", "BLEED", "ATTACKMON", "BONES", "FEATHERS", "LEATHER"],
-        "anger_triggers":["STALK", "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "HURT"],
-        "fear_triggers":["SOUND", "FIRE"],
+        "anger_triggers":["STALK", "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
+        "fear_triggers":["FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
     },
@@ -416,8 +417,8 @@
         "special_attack":"LEAP",
         "description":"A large bipedal dinosaur with feathered arms, a long tail, and scythe-like claws.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "KEENNOSE", "VIS50", "BLEED", "ATTACKMON", "BONES", "FEATHERS", "LEATHER"],
-        "anger_triggers":["STALK", "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "HURT"],
-        "fear_triggers":["SOUND", "FIRE"],
+        "anger_triggers":["STALK", "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
+        "fear_triggers":["FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
     },
@@ -481,6 +482,7 @@
         "special_attack":"NONE",
         "description":"A small flying reptile, circling overhead looking for prey.",
         "flags":["SEES", "SMELLS", "HEARS", "FLIES", "HIT_AND_RUN", "SMALL_BITER", "HUNTS_VERMIN", "ANIMAL", "VIS50", "BLEED", "BONES"],
+        "anger_triggers":["PLAYER_WEAK"],
         "fear_triggers":["SOUND", "PLAYER_CLOSE", "FIRE"],
         "placate_triggers":["MEAT"],
         "categories":["DINOSAUR"]
@@ -513,8 +515,8 @@
         "special_attack":"NONE",
         "description":"A medium dinosaur with a sticky green bile dripping from its teeth.",
         "flags":["SEES", "SMELLS", "HEARS", "ANIMAL", "HUNTS_VERMIN", "KEENNOSE", "VIS50", "BLEED", "BONES", "LEATHER"],
-        "anger_triggers":["PLAYER_WEAK", "HURT"],
-        "fear_triggers":["SOUND", "FIRE"],
+        "anger_triggers":["PLAYER_WEAK", "PLAYER_CLOSE", "HURT"],
+        "fear_triggers":["FIRE"],
         "placate_triggers":["MEAT"],
          "categories":["DINOSAUR"]
     },

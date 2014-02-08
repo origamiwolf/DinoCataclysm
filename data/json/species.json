@@ -75,7 +75,6 @@
     {
         "type" : "SPECIES",
         "id" : "DINOSAUR",
-        "anger_triggers" : ["PLAYER_WEAK"],
-        "fear_triggers" : ["SOUND", "FIRE"]
+        "fear_triggers" : ["FIRE"]
     }
 ]
