@@ -116,38 +116,6 @@
 
   {
     "type":"GENERIC",
-    "id": "string_6",
-    "symbol": ",",
-    "color": "light_gray",
-    "name": "small string",
-    "description": "A 6-inch long piece of cotton string.",
-    "price": 5,
-    "material": "cotton",
-    "weight": 6,
-    "volume": 0,
-    "bashing": -20,
-    "cutting": 0,
-    "to_hit": 1
-  },
-
-  {
-    "type":"GENERIC",
-    "id": "string_36",
-    "symbol": ",",
-    "color": "light_gray",
-    "name": "long string",
-    "description": "A 3-foot long piece of cotton string. Disassemble it to cut it into smaller pieces.",
-    "price": 30,
-    "material": "cotton",
-    "weight": 36,
-    "volume": 1,
-    "bashing": -5,
-    "cutting": 0,
-    "to_hit": 1
-  },
-
-  {
-    "type":"GENERIC",
     "id": "rope_30",
     "symbol": ",",
     "color": "light_gray",

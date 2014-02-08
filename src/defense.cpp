@@ -1221,7 +1221,7 @@ std::vector<itype_id> caravan_items(caravan_category cat)
 
     case CARAVAN_COMPONENTS:
         setvector(&ret,
-                  "rag", "fur", "leather", "superglue", "string_36", "chain",
+                  "rag", "fur", "leather", "superglue", "string_6", "chain",
                   "processor", "RAM", "power_supply", "motor", "hose", "pot",
                   "2x4", "battery", "nail", "gasoline", NULL);
         break;

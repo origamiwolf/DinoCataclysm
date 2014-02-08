@@ -1850,7 +1850,7 @@ void map::shoot(const int x, const int y, int &dam,
                     ter_set(x, y, t_window_frame);
                     spawn_item(x, y, "sheet", 1);
                     spawn_item(x, y, "stick");
-                    spawn_item(x, y, "string_36");
+                    spawn_item(x, y, "string_6");
                 }
             }
         break;

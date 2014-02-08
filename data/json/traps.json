@@ -199,7 +199,7 @@
         "difficulty" : 3,
         "player_action" : "tripwire",
         "monster_action" : "tripwire",
-        "drops" : ["string_36"]
+        "drops" : ["string_6"]
     },
     {
         "type" : "trap",
@@ -214,7 +214,7 @@
         "difficulty" : 5,
         "player_action" : "crossbow",
         "monster_action" : "crossbow",
-        "drops" : ["string_36", "crossbow_recurve", "bolt_metal"]
+        "drops" : ["string_6", "crossbow_recurve", "bolt_metal"]
     },
     {
         "type" : "trap",
@@ -229,7 +229,7 @@
         "difficulty" : 6,
         "player_action" : "shotgun",
         "monster_action" : "shotgun",
-        "drops" : ["string_36", "shotgun_sawn"]
+        "drops" : ["string_6", "shotgun_sawn"]
     },
     {
         "type" : "trap",
@@ -244,7 +244,7 @@
         "difficulty" : 6,
         "player_action" : "shotgun",
         "monster_action" : "shotgun",
-        "drops" : ["string_36", "shotgun_sawn"]
+        "drops" : ["string_6", "shotgun_sawn"]
     },
     {
         "type" : "trap",
@@ -259,7 +259,7 @@
         "difficulty" : 2,
         "player_action" : "none",
         "monster_action" : "none",
-        "drops" : ["motor", "blade", "blade", "string_36"]
+        "drops" : ["motor", "blade", "blade", "string_3"]
     },
     {
         "type" : "trap",

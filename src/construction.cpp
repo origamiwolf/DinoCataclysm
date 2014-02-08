@@ -689,7 +689,7 @@ void construct::done_deconstruct(point p)
         g->m.spawn_item(g->u.posx, g->u.posy, "sheet", 2);
         g->m.spawn_item(g->u.posx, g->u.posy, "glass_sheet");
         g->m.spawn_item(g->u.posx, g->u.posy, "nail", 0, rng(3,4));
-        g->m.spawn_item(g->u.posx, g->u.posy, "string_36", 0, 1);
+        g->m.spawn_item(g->u.posx, g->u.posy, "string_6", 0, 6);
         g->m.ter_set(p.x, p.y, t_window_empty);
       break;
       case old_t_window:

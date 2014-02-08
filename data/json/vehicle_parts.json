@@ -2504,7 +2504,7 @@
         "location" : "on_seat",
         "flags" : ["SEATBELT"],
         "breaks_into" : [
-            {"item": "string_36", "min": 0, "max": 3}
+            {"item": "string_6", "min": 0, "max": 18}
         ]
     },{
         "type" : "vehicle_part",
@@ -2522,7 +2522,7 @@
         "location" : "on_seat",
         "flags" : ["SEATBELT"],
         "breaks_into" : [
-            {"item": "string_36", "min": 0, "max": 3}
+            {"item": "string_6", "min": 0, "max": 18}
         ]
     },{
         "type" : "vehicle_part",

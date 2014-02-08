@@ -367,7 +367,7 @@ void trapfuncm::snare_light(monster *z, int x, int y)
    break;
  }
  g->m.remove_trap(x, y);
- g->m.spawn_item(x, y, "string_36");
+ g->m.spawn_item(x, y, "string_6");
  g->m.spawn_item(x, y, "snare_trigger");
 }
 

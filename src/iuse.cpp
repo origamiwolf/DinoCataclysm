@@ -2105,7 +2105,7 @@ static bool valid_fabric(player *p, item *it, bool)
         g->add_msg_if_player(p, _("You do not have that item!"));
         return false;
     }
-    if (it->type->id == "string_6" || it->type->id == "string_36" || it->type->id == "rope_30" ||
+    if (it->type->id == "string_6" || it->type->id == "rope_30" ||
         it->type->id == "rope_6") {
         g->add_msg(_("You cannot cut that, you must disassemble it using the disassemble key"));
         return false;
@@ -3308,7 +3308,7 @@ int iuse::crowbar(player *p, item *it, bool)
      g->m.ter_set(dirx, diry, t_window_frame);
      g->m.spawn_item(dirx, diry, "sheet", 2);
      g->m.spawn_item(dirx, diry, "stick");
-     g->m.spawn_item(dirx, diry, "string_36");
+     g->m.spawn_item(dirx, diry, "string_6");
      return it->type->charges_to_use();
     }
    }

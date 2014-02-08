@@ -326,7 +326,7 @@
         "color": "brown",
         "move_cost": 0,
         "flags": [
-            "BASHABLE", "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "TRANSPARENT", "REDUCE_SCENT" 
+            "BASHABLE", "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "TRANSPARENT", "REDUCE_SCENT"
         ],
         "bash": {
             "str_min": 12, "str_max": 120, "num_tests": 2,
@@ -945,7 +945,7 @@
                 { "item": "glass_shard", "amount": 3 },
                 { "item": "sheet", "amount": 2 },
                 { "item": "stick", "amount": 1},
-                { "item": "string_36", "amount": 1 }
+                { "item": "string_6", "amount": 6 }
             ]
         }
     },{
@@ -968,7 +968,7 @@
                 { "item": "glass_shard", "amount": 3 },
                 { "item": "sheet", "amount": 2 },
                 { "item": "stick", "amount": 1},
-                { "item": "string_36", "amount": 1 }
+                { "item": "string_6", "amount": 6 }
             ]
         }
     },{
@@ -999,7 +999,7 @@
                 { "item": "glass_shard", "amount": 3 },
                 { "item": "sheet", "amount": 2 },
                 { "item": "stick", "amount": 1},
-                { "item": "string_36", "amount": 1 }
+                { "item": "string_6", "amount": 6 }
             ]
         }
     },{

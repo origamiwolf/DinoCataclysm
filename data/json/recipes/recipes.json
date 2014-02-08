@@ -992,7 +992,6 @@
     ],
     [
       [ "string_6", 6 ],
-      [ "string_36", 1 ],
       [ "duct_tape", 50 ]
     ]
   ]
@@ -1059,7 +1058,7 @@
       [ "2x4", 1 ]
     ],
     [
-      [ "string_36", 2 ],
+      [ "string_6", 12 ],
       [ "thread", 200 ],
       [ "sinew", 200 ],
       [ "plant_fibre", 200 ]
@@ -1085,7 +1084,7 @@
       [ "2x4", 1 ]
     ],
     [
-      [ "string_36", 2 ],
+      [ "string_6", 12 ],
       [ "thread", 200 ],
       [ "sinew", 200 ],
       [ "plant_fibre", 200 ]
@@ -1131,7 +1130,7 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 8 ]
+      [ "string_6", 48 ]
     ],
     [
       [ "steel_chunk", 4 ]
@@ -1260,7 +1259,6 @@
       [ "shot_slug", 2 ]
     ],
     [
-      [ "string_36", 1 ],
       [ "string_6", 1 ]
     ]
   ]
@@ -1866,7 +1864,7 @@
     ],
     [
       [ "superglue", 1 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "can_food", 1 ],
@@ -10073,7 +10071,7 @@
   "components": [
     [
       [ "superglue", 1 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "scrap", 3 ],
@@ -11458,7 +11456,6 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 1 ],
       [ "string_6", 4 ]
     ],
     [
@@ -12825,7 +12822,6 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 1 ],
       [ "string_6", 4 ]
     ],
     [
@@ -12854,7 +12850,6 @@
   ],
   "components": [
     [
-      [ "string_36", 1 ],
       [ "string_6", 4 ]
     ],
     [
@@ -12884,8 +12879,7 @@
   ],
   "components": [
     [
-      [ "string_36", 4 ],
-      [ "string_6", 16 ]
+      [ "string_6", 24 ]
     ],
     [
       [ "steel_chunk", 4 ],
@@ -12904,7 +12898,6 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 1 ],
       [ "string_6", 4 ]
     ],
     [
@@ -12934,8 +12927,7 @@
   ],
   "components": [
     [
-      [ "string_36", 1 ],
-      [ "string_6", 4 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "bone", 12 ]
@@ -13107,7 +13099,6 @@
   ],
   "components": [
     [
-      [ "string_36", 1 ],
       [ "string_6", 2 ]
     ],
     [
@@ -13813,7 +13804,7 @@
       [ "rag", 4 ]
     ],
     [
-      [ "string_36", 2 ]
+      [ "string_6", 12 ]
     ]
   ]
 },{
@@ -13873,7 +13864,6 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 1 ],
       [ "string_6", 5 ]
     ],
     [
@@ -13912,7 +13902,6 @@
   "book_learn": [[ "textbook_tailor", 5 ] , [ "tailor_portfolio", 5 ]],
   "components": [
     [
-      [ "string_36", 2 ],
       [ "string_6", 12 ]
     ],
     [
@@ -14478,7 +14467,6 @@
       [ "rag", 6 ]
     ],
     [
-      [ "string_36", 1 ],
       [ "string_6", 6 ],
       [ "sinew", 20 ],
       [ "thread", 20 ],
@@ -14508,7 +14496,6 @@
       [ "leather", 6 ]
     ],
     [
-      [ "string_36", 1 ],
       [ "string_6", 6 ],
       [ "sinew", 20 ],
       [ "thread", 20 ],
@@ -14543,7 +14530,7 @@
       [ "sinew", 80 ],
       [ "thread", 80 ],
       [ "plant_fibre", 80 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ]
   ]
 },{
@@ -14658,7 +14645,7 @@
       [ "sinew", 40 ],
       [ "thread", 40 ],
       [ "plant_fibre", 40 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "leather", 6 ],
@@ -14688,7 +14675,7 @@
       [ "sinew", 40 ],
       [ "thread", 40 ],
       [ "plant_fibre", 40 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "leather", 14 ],
@@ -14718,7 +14705,7 @@
       [ "sinew", 40 ],
       [ "thread", 40 ],
       [ "plant_fibre", 40 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "leather", 24 ],
@@ -14837,8 +14824,7 @@
       [ "thread", 360 ],
       [ "sinew", 360 ],
       [ "plant_fibre", 360 ],
-      [ "string_6", 6 ],
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ]
   ]
 },{
@@ -14879,7 +14865,7 @@
       [ "snare_trigger", 1 ]
     ],
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ]
   ]
 },{
@@ -15500,20 +15486,6 @@
   ]
 },{
         "type" : "recipe",
-  "result": "string_36",
-  "category": "CC_OTHER",
-  "subcategory": "CSC_OTHER_MATERIALS",
-  "difficulty": 0,
-  "time": 5000,
-  "reversible": true,
-  "autolearn": true,
-  "components": [
-    [
-      [ "string_6", 6 ]
-    ]
-  ]
-},{
-        "type" : "recipe",
   "result": "rope_6",
   "category": "CC_OTHER",
   "subcategory": "CSC_OTHER_MATERIALS",
@@ -15524,7 +15496,7 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 6 ]
+      [ "string_6", 36 ]
     ]
   ]
 },{
@@ -16101,7 +16073,7 @@
       [ "spike", 1 ]
     ],
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ]
   ]
 },{
@@ -16119,7 +16091,7 @@
       [ "makeshift_machete", 1 ]
     ],
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ]
   ]
 },{
@@ -16152,7 +16124,7 @@
   "autolearn": true,
   "components": [
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "superglue", 1 ]
@@ -16235,8 +16207,7 @@
       [ "bolt_wood", 4 ]
     ],
     [
-      [ "string_6", 2 ],
-      [ "string_36", 1 ]
+      [ "string_6", 2 ]
     ]
   ]
 },{
@@ -16259,7 +16230,6 @@
       [ "shot_00", 2 ]
     ],
     [
-      [ "string_36", 1 ],
       [ "string_6", 2 ]
     ]
   ]
@@ -16290,7 +16260,7 @@
       [ "blade", 1 ]
     ],
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ]
   ]
 },{
@@ -16461,7 +16431,6 @@
     ],
     [
       [ "string_6", 6 ],
-      [ "string_36", 1 ],
       [ "duct_tape", 50 ],
       [ "medical_tape", 25 ]
     ],
@@ -16491,7 +16460,6 @@
     ],
     [
       [ "string_6", 12 ],
-      [ "string_36", 2 ],
       [ "duct_tape", 100 ],
       [ "medical_tape", 50 ]
     ],
@@ -17309,7 +17277,7 @@
   ],
   "components": [
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "duct_tape", 50 ]
@@ -17340,7 +17308,7 @@
   ],
   "components": [
     [
-      [ "string_36", 1 ]
+      [ "string_6", 6 ]
     ],
     [
       [ "metal_tank", 1 ]
@@ -17946,7 +17914,7 @@
   "reversible": false,
   "autolearn": true,
   "book_learn": [["recipe_melee", 6]],
-  "components": [ [ ["string_36", 2], ["string_6", 12] ],
+  "components": [ [ ["string_6", 12] ],
     [ ["scrap", 15] ] ]
 },{
         "type" : "recipe",
@@ -18042,7 +18010,7 @@
     ],
   "components": [
     [
-      [ "string_36", 4 ]
+      [ "string_6", 24 ]
     ],
     [
       [ "2x4", 2 ]
@@ -18066,7 +18034,7 @@
     ],
   "components": [
     [
-      [ "string_36", 2 ]
+      [ "string_6", 2 ]
     ],
     [
       [ "2x4", 1 ]
@@ -18147,7 +18115,7 @@
   ],
   "components": [
     [
-      [ "string_36", 4 ]
+      [ "string_6", 24 ]
     ],
     [
       [ "nail", 16 ]
@@ -22083,7 +22051,7 @@
       [ "rag", 4 ]
     ],
     [
-      [ "string_36", 1]
+      [ "string_6", 6]
     ]
   ]
 },{
