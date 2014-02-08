@@ -1213,7 +1213,7 @@ std::vector<itype_id> caravan_items(caravan_category cat)
         setvector(&ret,
                   "crossbow", "bolt_steel", "compbow", "arrow_cf", "marlin_9a",
                   "22_lr", "hk_mp5", "9mm", "taurus_38", "38_special", "deagle_44",
-                  "44magnum", "m1911", "hk_ump45", "45_acp", "fn_p90", "57mm",
+                  "44magnum", "m1911", "hk_ump45", "45_acp",
                   "remington_870", "shot_00", "shot_slug", "browning_blr", "3006",
                   "ak47", "762_m87", "m4a1", "556", "savage_111f", "hk_g3",
                   "762_51", "hk_g80", "12mm", "plasma_rifle", "plasma", NULL);
