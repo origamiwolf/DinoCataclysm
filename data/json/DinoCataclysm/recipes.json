@@ -1,0 +1,85 @@
+[
+    {
+        "type" : "COMESTIBLE",
+        "id" : "ant_egg_stirfry",
+        "name" : "ant egg stirfry",
+        "weight" : 316,
+        "color" : "yellow",
+        "addiction_type" : "none",
+        "spoils_in" : 240,
+        "use_action" : "NONE",
+        "stim" : 0,
+        "container" : "null",
+        "to_hit" : 0,
+        "comestible_type" : "FOOD",
+        "symbol" : "%",
+        "quench" : 0,
+        "heal" : 1,
+        "addiction_potential" : 0,
+        "nutrition" : 60,
+        "description" : "Ant egg stir fried with vegetables and a dash of seasoning.  Quite delicious, actually.",
+        "price" : 40,
+        "material" : "flesh",
+        "tool" : "null",
+        "volume" : 1,
+        "cutting" : 0,
+        "phase" : "solid",
+        "charges" : 1,
+        "bashing" : 0,
+        "flags" : ["EATEN_HOT"],
+        "fun" : 6
+    },{
+        "type" : "recipe",
+        "result": "ant_egg_stirfry",
+        "category": "CC_FOOD",
+        "subcategory": "CSC_FOOD_OTHER",
+        "skill_used": "cooking",
+        "difficulty": 1,
+        "time": 6000,
+        "reversible": false,
+        "autolearn": true,
+        "qualities" : [
+            {"id":"CUT","level":1,"amount":1}
+        ],
+        "tools": [
+            [
+                [ "hotplate", 2 ],
+                [ "char_smoker", 1 ],
+                [ "toolset", 1 ],
+                [ "fire", -1 ]
+            ],
+            [
+                [ "pot", -1 ],
+                [ "rock_pot", -1 ],
+                [ "pan", -1 ]
+            ]
+        ],
+        "components": [
+            [
+                [ "ant_egg", 1 ]
+            ],
+            [
+                [ "veggy", 2 ],
+                [ "veggy_wild", 2 ],
+                [ "veggy_vac", 2 ],
+                [ "rehydrated_veggy", 2 ],
+                [ "dry_veggy", 2 ],
+                [ "tomato", 2 ],
+                [ "broccoli", 2 ],
+                [ "zucchini", 2 ],
+                [ "potato_raw", 2 ],
+                [ "onion", 2 ],
+                [ "carrot", 2 ],
+                [ "irradiated_tomato", 2 ],
+                [ "irradiated_broccoli", 2 ]
+            ],
+            [
+                [ "curry_powder", 1],
+                [ "chilly-p", 1],
+                [ "salt", 1 ],
+                [ "seasoning_salt", 10 ],
+                [ "pepper", 10 ]
+            ]
+        ]
+    }
+]

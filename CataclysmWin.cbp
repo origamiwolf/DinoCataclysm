@@ -179,6 +179,7 @@
 		</Linker>
 		<Unit filename="data/json/DinoCataclysm/dinosaurs.json" />
 		<Unit filename="data/json/DinoCataclysm/fieldoffice.json" />
+		<Unit filename="data/json/DinoCataclysm/recipes.json" />
 		<Unit filename="data/json/bionics.json" />
 		<Unit filename="data/json/construction.json" />
 		<Unit filename="data/json/doll_speech.json" />

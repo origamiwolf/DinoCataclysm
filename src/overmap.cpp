@@ -3474,7 +3474,7 @@ void overmap::place_mongroups()
                         OMAPX, rng(2000, 12000)));
  zg.back().diffuse = true;
  zg.push_back( mongroup("GROUP_DINOSAUR", OMAPX / 2, OMAPY / 2, 0,
-                        OMAPY, rng(200, 1200)));
+                        OMAPY, rng(1000, 6000)));
  zg.back().diffuse = true;
 }
 
