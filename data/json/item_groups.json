@@ -1439,11 +1439,7 @@
       ["jack", 10],
       ["permanent_marker", 50],
       ["char_kiln", 1],
-      ["crucible", 1],
       ["tongs", 1],
-      ["chisel", 2],
-      ["swage", 1],
-      ["anvil", 2],
       ["apron_leather", 10],
       ["tool_belt", 30],
       ["knee_pads", 20],
@@ -1473,8 +1469,6 @@
       ["boltcutters", 5],
       ["ax", 8],
       ["tongs", 3],
-      ["chisel", 2],
-      ["swage", 1],
       ["tool_belt", 5]
     ]
   },{
@@ -1495,8 +1489,6 @@
       ["welder", 25],
       ["ax", 8],
       ["char_kiln", 1],
-      ["crucible", 2],
-      ["anvil", 4],
       ["apron_leather", 10],
       ["tool_belt", 30]
     ]
@@ -2800,7 +2792,6 @@
       ["gold_watch", 5],
       ["pocketwatch", 2],
       ["picklocks", 4],
-      ["chisel", 2],
       ["scissors", 10],
       ["screwdriver", 8],
       ["knife_steak", 4],
@@ -3598,7 +3589,6 @@
       ["textbook_tailor", 12],
       ["nodachi", 1],
       ["wakizashi", 5],
-      ["swage", 2],
       ["char_kiln", 2],
       ["armor_lightplate", 1],
       ["armor_samurai", 1],
@@ -3848,8 +3838,6 @@
       ["metal_tank", 10],
       ["metal_tank_small", 15],
       ["jack", 10],
-      ["anvil", 5],
-      ["chisel", 10],
       ["cu_pipe", 15],
       ["eyedrops", 5],
       ["apron_leather", 5]

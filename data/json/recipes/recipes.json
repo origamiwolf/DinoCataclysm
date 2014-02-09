@@ -15712,9 +15712,6 @@
       [ "goggles_welding", -1 ]
     ],
     [
-      [ "crucible", -1 ]
-    ],
-    [
       [ "welder", 20 ],
       [ "welder_crude", 30 ],
       [ "toolset", 1 ]
@@ -15811,9 +15808,6 @@
       [ "goggles_welding", -1 ]
     ],
     [
-      [ "crucible", -1 ]
-    ],
-    [
       [ "welder", 50 ],
       [ "welder_crude", 75 ],
       [ "toolset", 2 ]
@@ -15837,9 +15831,6 @@
   "tools": [
     [
       [ "goggles_welding", -1 ]
-    ],
-    [
-      [ "crucible", -1 ]
     ],
     [
       [ "welder", 50 ],
@@ -15936,9 +15927,6 @@
   "tools": [
     [
       [ "goggles_welding", -1 ]
-    ],
-    [
-      [ "crucible", -1 ]
     ],
     [
       [ "welder", 100 ],
@@ -17197,9 +17185,6 @@
   "tools": [
     [
       [ "goggles_welding", -1 ]
-    ],
-    [
-      [ "crucible", -1 ]
     ],
     [
       [ "welder", 20 ],

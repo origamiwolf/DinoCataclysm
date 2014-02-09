@@ -8274,6 +8274,24 @@ The sum of these values is the effective encumbrance value your character has fo
             break;
         }
 
+        case 'r':   // uses special characters for worn inventory
+            {
+                int invlet = 0;
+
+                for (int i = 0; i < worn.size(); i++) {
+                    if (invlet < 76) {
+                        if (has_item(inv_chars[52 + invlet])) {
+                            item change_to = i_at(inv_chars[52 + invlet]);
+                            change_to.invlet = worn[i].invlet;
+                        } else {
+                            worn[i].invlet = inv_chars[52 + invlet];
+                        }
+
+                        invlet++;
+                    };
+                };
+            };
+            break;
         case KEY_ESCAPE:
         case 'q':
             sorting = false;

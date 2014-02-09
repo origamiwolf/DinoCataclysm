@@ -1640,8 +1640,6 @@ void game::disassemble(int pos)
                         if ((req <= 0 && crafting_inv.has_amount (type, 1)) ||
                             // No welding, no goggles needed.
                             (req <= 0 && type == ("goggles_welding")) ||
-                            (req <= 0 && (type == ("crucible")) &&
-                             (!((cur_recipe->result) == ("anvil")))) ||
                             (req >  0 && crafting_inv.has_charges(type, req))) {
                             have_this_tool = true;
                             k = cur_recipe->tools[j].size();
