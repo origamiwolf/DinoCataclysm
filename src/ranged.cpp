@@ -33,7 +33,8 @@ double Creature::projectile_attack(const projectile &proj, int sourcex, int sour
     // (note that .00325 * 4 = .013; .00325 is used because deviation is a number
     //  of quarter-degrees)
     // It's also generous; missed_by will be rather short.
-    double missed_by = shot_dispersion * .00325 * range;
+//    double missed_by = shot_dispersion * .00325 * range;
+    double missed_by = shot_dispersion * .001 * range;
     // TODO: move to-hit roll back in here
 
     if (missed_by >= 1.) {
@@ -1075,7 +1076,7 @@ double player::get_weapon_dispersion(item *weapon) {
     double dispersion = 0.; // Measured in quarter-degrees.
     // Up to 0.75 degrees for each skill point < 8.
     if (weapon_skill_level < 8) {
-        dispersion += rng(0, 3 * (8 - weapon_skill_level));
+        dispersion += rng(0, 2 * (8 - weapon_skill_level));
     }
     // Up to 0.25 deg per each skill point < 9.
     if (skillLevel("gun") < 9) {

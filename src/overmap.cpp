@@ -3424,6 +3424,9 @@ void overmap::place_mongroups()
        swamp_count += 2;
      }
     }
+    if (swamp_count >= 5)
+     zg.push_back(mongroup("GROUP_DINOSAUR", x * 2, y * 2, 0, 3,
+                           rng(swamp_count * 4, swamp_count * 12)));
     if (swamp_count >= 25)
      zg.push_back(mongroup("GROUP_SWAMP", x * 2, y * 2, 0, 3,
                            rng(swamp_count * 8, swamp_count * 25)));
@@ -3442,6 +3445,9 @@ void overmap::place_mongroups()
        river_count++;
      }
     }
+    if (river_count >= 5)
+     zg.push_back(mongroup("GROUP_DINOSAUR", x * 2, y * 2, 0, 3,
+                           rng(river_count * 4, river_count * 12)));
     if (river_count >= 25)
      zg.push_back(mongroup("GROUP_RIVER", x * 2, y * 2, 0, 3,
                            rng(river_count * 8, river_count * 25)));
@@ -3474,7 +3480,16 @@ void overmap::place_mongroups()
                         OMAPX, rng(2000, 12000)));
  zg.back().diffuse = true;
  zg.push_back( mongroup("GROUP_DINOSAUR", OMAPX / 2, OMAPY / 2, 0,
-                        OMAPY, rng(1000, 6000)));
+                        OMAPY, rng(500, 3000)));
+ zg.back().diffuse = true;
+ zg.push_back( mongroup("GROUP_DINOSAUR", OMAPX / 2, (OMAPY * 3) / 2, 0,
+                        OMAPY, rng(500, 3000)));
+ zg.back().diffuse = true;
+ zg.push_back( mongroup("GROUP_DINOSAUR", (OMAPX * 3) / 2, OMAPY / 2, 0,
+                        OMAPX, rng(500, 3000)));
+ zg.back().diffuse = true;
+ zg.push_back( mongroup("GROUP_DINOSAUR", (OMAPX * 3) / 2, (OMAPY * 3) / 2, 0,
+                        OMAPX, rng(500, 3000)));
  zg.back().diffuse = true;
 }
 
