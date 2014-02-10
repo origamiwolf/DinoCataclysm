@@ -6287,7 +6287,7 @@ int iuse::contacts(player *p, item *it, bool)
 int iuse::bell(player *p, item *it, bool)
 {
     if( it->type->id == "cow_bell" ) {
-        g->sound(p->posx, p->posy, 6, _("Clank! Clank!"));
+        g->sound(p->posx, p->posy, 12, _("Clank! Clank!"));
         if ( ! p->has_disease("deaf") ) {
             const int cow_factor = 1 + ( p->mutation_category_level.find("MUTCAT_CATTLE") == p->mutation_category_level.end() ?
                 0 :
