@@ -1366,12 +1366,12 @@ bool overmap::generate_sub(int const z)
                 temple_points.push_back( point(i, j) );
             } else if (oter_above == "lab_core" ||
                        (z == -1 && oter_above == "lab_stairs")) {
-                lab_points.push_back(city(i, j, rng(1, 5 + z)));
+                lab_points.push_back(city(i, j, rng(1, 3 + z)));
             } else if (oter_above == "lab_stairs") {
                 ter(i, j, z) = "lab";
             } else if (oter_above == "ice_lab_core" ||
                        (z == -1 && oter_above == "ice_lab_stairs")) {
-                ice_lab_points.push_back(city(i, j, rng(1, 5 + z)));
+                ice_lab_points.push_back(city(i, j, rng(1, 3 + z)));
             } else if (oter_above == "ice_lab_stairs") {
                 ter(i, j, z) = "ice_lab";
             } else if (oter_above == "bunker" && z == -1) {

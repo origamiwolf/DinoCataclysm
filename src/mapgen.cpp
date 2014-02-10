@@ -7790,8 +7790,11 @@ s    |c....|c....|c....|\n",
                         spawn_item(i, j, "coffee_raw", 2);
                         spawn_item(i, j, "coffeemaker", 1);
                     }
-                } else if (this->furn(i, j) == f_sink && x_in_y(2, 5)) {
-                    spawn_item(i, j, "towel", 3);
+                } else if (this->furn(i, j) == f_sink) {
+                    if (x_in_y(2, 5))
+                        spawn_item(i, j, "towel", 3);
+                    if (x_in_y(2, 5))
+                        place_items("softdrugs", 50,  i,  j, i,  j, false, 0);
                 }
             }
         }
@@ -7862,8 +7865,11 @@ c...d|t.........t|....c|\n",
                         spawn_item(i, j, "coffee_raw", 2);
                         spawn_item(i, j, "coffeemaker", 1);
                     }
-                } else if (this->furn(i, j) == f_sink && x_in_y(2, 5)) {
-                    spawn_item(i, j, "towel", 3);
+                } else if (this->furn(i, j) == f_sink) {
+                    if (x_in_y(2, 5))
+                        spawn_item(i, j, "towel", 3);
+                    if (x_in_y(2, 5))
+                        place_items("softdrugs", 50,  i,  j, i,  j, false, 0);
                 }
             }
         }
@@ -7934,8 +7940,11 @@ h....|h....|h....|    s \n\
                         spawn_item(i, j, "coffee_raw", 2);
                         spawn_item(i, j, "coffeemaker", 1);
                     }
-                } else if (this->furn(i, j) == f_sink && x_in_y(2, 5)) {
-                    spawn_item(i, j, "towel", 3);
+                } else if (this->furn(i, j) == f_sink) {
+                    if (x_in_y(2, 5))
+                        spawn_item(i, j, "towel", 3);
+                    if (x_in_y(2, 5))
+                        place_items("softdrugs", 50,  i,  j, i,  j, false, 0);
                 }
             }
         }
