@@ -1417,6 +1417,16 @@ void game::complete_craft()
     // Set up the new item, and assign an inventory letter if available
     item newit(item_controller->find_template(making->result), turn, 0);
 
+    // how successful was it?
+
+    if (newit.has_craft_quality()) {
+        if (diff_sides + diff_roll < 0.05 * skill_roll) {
+            newit.item_tags.insert("CRAFT_MASTER");
+        } else if (diff_sides + diff_roll > 0.65 * skill_roll) {
+            newit.item_tags.insert("CRAFT_POOR");
+        }
+    }
+
     if (newit.is_armor() && newit.has_flag("VARSIZE")) {
         newit.item_tags.insert("FIT");
     }

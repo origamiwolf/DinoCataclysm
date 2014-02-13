@@ -718,6 +718,18 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
        dump->push_back(iteminfo("DESCRIPTION", type->description));
     }
 
+    if (has_flag("CRAFT_MASTER"))
+    {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
+        dump->push_back(iteminfo("DESCRIPTION", _("This item is finely-crafted.")));
+    }
+
+    if (has_flag("CRAFT_POOR"))
+    {
+        dump->push_back(iteminfo("DESCRIPTION", "--"));
+        dump->push_back(iteminfo("DESCRIPTION", _("The item is poorly-crafted.")));
+    }
+
     if (is_armor() && has_flag("FIT"))
     {
         dump->push_back(iteminfo("DESCRIPTION", "--"));
@@ -1030,6 +1042,8 @@ std::string item::tname( bool with_prefix )
     it_comest* food_type = NULL;
     std::string tagtext = "";
     std::string toolmodtext = "";
+    std::string craftqualtext = "";
+
     ret.str("");
     if (is_food())
     {
@@ -1060,6 +1074,14 @@ std::string item::tname( bool with_prefix )
         toolmodtext = _("atomic ");
     }
 
+    if (has_flag("CRAFT_MASTER")) {
+        craftqualtext = _("masterwork ");
+    }
+
+    if (has_flag("CRAFT_POOR")) {
+        craftqualtext = _("poorly-crafted ");
+    }
+
     if (owned > 0)
         ret << _(" (owned)");
 
@@ -1067,7 +1089,7 @@ std::string item::tname( bool with_prefix )
 
     ret.str("");
 
-    ret << damtext << vehtext << burntext << toolmodtext << maintext << tagtext;
+    ret << damtext << vehtext << burntext << craftqualtext << toolmodtext << maintext << tagtext;
 
     static const std::string const_str_item_note("item_note");
     if( item_vars.find(const_str_item_note) != item_vars.end() ) {
@@ -1843,6 +1865,17 @@ int item::is_funnel_container(int bigger_than) const
         return (int)ct->contains;
     }
     return 0;
+}
+
+bool item::has_craft_quality() const
+{
+    if( is_null() )
+        return false;
+
+//    if (is_armor())
+//        return true;
+
+    return false;
 }
 
 bool item::is_tool() const

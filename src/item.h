@@ -201,6 +201,7 @@ public:
  bool is_container() const;
  bool is_watertight_container() const;
  int is_funnel_container(int bigger_than) const;
+ bool has_craft_quality() const;
 
  bool is_tool() const;
  bool is_software() const;
