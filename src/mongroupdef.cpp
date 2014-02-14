@@ -428,6 +428,7 @@ void init_translation() {
     monStr2monId["mon_breather_hub"] = mon_breather_hub;
     monStr2monId["mon_breather"] = mon_breather;
     monStr2monId["mon_shadow_snake"] = mon_shadow_snake;
+    monStr2monId["mon_shoggoth"] = mon_shoggoth;
     monStr2monId["mon_eyebot"] = mon_eyebot;
     monStr2monId["mon_manhack"] = mon_manhack;
     monStr2monId["mon_skitterbot"] = mon_skitterbot;
