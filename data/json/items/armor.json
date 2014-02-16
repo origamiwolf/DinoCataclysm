@@ -5030,10 +5030,9 @@
         "enviromental_protection" : 0,
         "encumbrance" : 0,
         "bashing" : -5,
-        "flags" : ["VARSIZE", "WATER_FRIENDLY"],
         "coverage" : 40,
         "material_thickness" : 1,
-        "flags" : ["FANCY"]
+        "flags" : ["VARSIZE", "WATER_FRIENDLY", "FANCY"]
     },
     {
         "type" : "ARMOR",
@@ -5055,10 +5054,9 @@
         "enviromental_protection" : 0,
         "encumbrance" : 0,
         "bashing" : -5,
-        "flags" : ["VARSIZE", "WATERPROOF"],
         "coverage" : 40,
         "material_thickness" : 2,
-        "flags" : ["FANCY"]
+        "flags" : ["VARSIZE", "WATERPROOF", "FANCY"]
     },
     {
         "type" : "ARMOR",
@@ -5372,10 +5370,9 @@
         "enviromental_protection" : 1,
         "encumbrance" : 0,
         "bashing" : -5,
-        "flags" : ["VARSIZE"],
         "coverage" : 50,
         "material_thickness" : 2,
-        "flags": ["SUPER_FANCY"]
+        "flags": ["VARSIZE", "SUPER_FANCY"]
     },
     {
         "type" : "ARMOR",
@@ -7128,7 +7125,6 @@
         "description" : "A suit of armor forged from scraps of metal; provides decent protection, but the loose collection of plates jangles and clangs as you walk, attracting the attention of all nearby.",
         "price" : 700,
         "material" : ["steel", "null"],
-        "volume" : 62,
         "cutting" : 8,
         "warmth" : 20,
         "phase" : "solid",
@@ -7136,7 +7132,7 @@
         "encumbrance" : 4,
         "bashing" : 6,
         "flags" : ["VARSIZE"],
-        "volume": 10,
+        "volume": 62,
         "coverage" : 90,
         "material_thickness" : 3
     },
