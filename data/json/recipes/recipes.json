@@ -15477,13 +15477,27 @@
   "subcategory": "CSC_OTHER_MATERIALS",
   "difficulty": 0,
   "time": 5000,
-  "reversible": true,
+  "reversible": false,
   "autolearn": true,
   "components": [
     [
       [ "thread", 50 ],
       [ "sinew", 50 ],
       [ "plant_fibre", 50 ]
+    ]
+  ]
+},{
+        "type" : "recipe",
+  "result": "thread",
+  "category": "CC_OTHER",
+  "subcategory": "CSC_OTHER_MATERIALS",
+  "difficulty": 0,
+  "time": 5000,
+  "reversible": false,
+  "autolearn": true,
+  "components": [
+    [
+      [ "string_6", 1 ]
     ]
   ]
 },{
