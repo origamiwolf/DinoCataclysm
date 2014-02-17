@@ -225,7 +225,11 @@ Flags used to describe monsters and define their properties and abilities.
 - ```HUNTS_VERMIN``` Creature uses vermin as a food source.
 - ```SMALL_BITER``` Creature can cause a painful, non-damaging bite.
 - ```ABSORBS``` Consumes objects it moves over.
-
+- ```LARVA``` Creature is a larva. Currently used for gib and blood handling.
+- ```ARTHROPOD_BLOOD``` Forces monster to bleed hemolymph.
+- ```ACID_BLOOD``` Makes monster bleed acid. Fun stuff! Does not automatically dissolve in a pool of acid on death.
+- ```BILE_BLOOD``` Makes monster bleed bile.
+- ```REGEN_MORALE``` Will stop fleeing if at max hp, and regen anger and morale.
 
 ### Special attacks
 Some special attacks are also valid use actions for tools and weapons.
@@ -675,7 +679,7 @@ Melee flags are fully compatible with tool flags, and vice versa.
 - ```CHARGEDIM``` If illuminated, light intensity fades with charge, starting at 20% charge left.
 - ```FIRE``` Counts as a fire for crafting purposes.
 - ```WRAP``` Unused?
-- ```RECHARGE``` Gain charges when placed in a cargo area with a recharge station. 
+- ```RECHARGE``` Gain charges when placed in a cargo area with a recharge station.
 
 ### Use actions
 

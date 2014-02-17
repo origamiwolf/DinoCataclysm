@@ -272,6 +272,8 @@ void MonsterGenerator::init_flags() {
     flag_map["LARVA"] = MF_LARVA;
     flag_map["ARTHROPOD_BLOOD"] = MF_ARTHROPOD_BLOOD;
     flag_map["ACID_BLOOD"] = MF_ACID_BLOOD;
+    flag_map["BILE_BLOOD"] = MF_BILE_BLOOD;
+    flag_map["REGEN_MORALE"] = MF_REGENMORALE;
 }
 
 

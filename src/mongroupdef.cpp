@@ -56,7 +56,7 @@ MonsterGroupResult MonsterGroupManager::GetResultFromGroup(
         // wildlife spawns shouldn't be soooo frequent
         if ((GetMType(it->name)->in_category("WILDLIFE")))
         {
-            if (!one_in(5))
+            if (!one_in(3))
                 valid_entry = false;
         }
         //Insure that the time is not before the spawn first appears or after it stops appearing
