@@ -189,6 +189,7 @@ enum m_flag {
     MF_SMALL_BITER,         // Creature can cause a painful, non-damaging bite
     MF_LARVA,               // Creature is a larva. Currently used for gib and blood handling.
     MF_ARTHROPOD_BLOOD,     // Forces monster to bleed hemolymph.
+    MF_BILE_BLOOD,
     MF_ACID_BLOOD,          // Makes monster bleed acid. Fun stuff!
     MF_ABSORBS,             // Consumes objects it moves over.
     MF_MAX                  // Sets the length of the flags - obviously must be LAST
