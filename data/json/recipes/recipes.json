@@ -15575,7 +15575,6 @@
   ],
   "components": [
     [
-      [ "knife_combat", 1 ],
       [ "steel_chunk", 3 ],
       [ "scrap", 9 ]
     ]
