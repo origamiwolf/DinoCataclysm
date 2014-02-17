@@ -182,6 +182,7 @@ public:
     int jet_injector        (player *, item *, bool);
     int contacts            (player *, item *, bool);
     int bell                (player *, item *, bool);
+    int seed                (player *, item *, bool);
     int atomic_battery      (player *, item *, bool);
     int fishing_rod_basic   (player *, item *, bool);
 // MACGUFFINS

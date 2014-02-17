@@ -322,7 +322,8 @@ void Item_factory::init(){
     iuse_function_list["CONTACTS"] = &iuse::contacts;
     iuse_function_list["AIRHORN"] = &iuse::airhorn;
     iuse_function_list["HOTPLATE"] = &iuse::hotplate;
-     iuse_function_list["BELL"] = &iuse::bell;
+    iuse_function_list["BELL"] = &iuse::bell;
+    iuse_function_list["SEED"] = &iuse::seed;
     iuse_function_list["ATOMIC_BATTERY"] = &iuse::atomic_battery;
     iuse_function_list["FISHING_BASIC"]  = &iuse::fishing_rod_basic;
     // MACGUFFINS
