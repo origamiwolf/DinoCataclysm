@@ -185,6 +185,7 @@ public:
     int seed                (player *, item *, bool);
     int atomic_battery      (player *, item *, bool);
     int fishing_rod_basic   (player *, item *, bool);
+    int gun_repair          (player *, item *, bool);
 // MACGUFFINS
     int mcg_note            (player *, item *, bool);
 

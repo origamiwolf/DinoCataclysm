@@ -760,6 +760,7 @@
       ["grip", 12],
       ["pistol_grip", 12],
       ["adjustable_stock", 12],
+      ["recoil_stock", 12],
       ["pistol_stock", 6],
       ["clip", 8],
       ["spare_mag", 15],
@@ -784,6 +785,8 @@
       ["waterproof_gunmod", 4],
       ["cu_pipe", 10],
       ["diveknife", 6],
+      ["tuned_mechanism", 2],
+      ["match_trigger", 3],
       ["u_shotgun", 5]
     ]
   },{
@@ -2172,12 +2175,15 @@
       ["pistol_grip", 12],
       ["adjustable_stock", 12],
       ["pistol_stock", 12],
+      ["recoil_stock", 12],
       ["barrel_big", 10],
       ["barrel_small", 6],
       ["barrel_rifled", 5],
       ["barrel_ported", 5],
       ["conversion_battle", 1],
       ["conversion_sniper", 1],
+      ["tuned_mechanism", 2],
+      ["match_trigger", 3],
       ["clip", 8],
       ["spare_mag", 15],
       ["clip2", 4],
@@ -2854,6 +2860,8 @@
       ["savage_111f", 4],
       ["sks", 6],
       ["saiga_12", 5],
+      ["tuned_mechanism", 1],
+      ["match_trigger", 2],
       ["RPG", 1]
     ]
   },{
@@ -3445,6 +3453,8 @@
       ["m1911", 5],
       ["conversion_battle", 1],
       ["conversion_sniper", 1],
+      ["tuned_mechanism", 2],
+      ["match_trigger", 3],
       ["geiger_off", 8],
       ["UPS_off", 5],
       ["tazer", 3],
@@ -5521,6 +5531,8 @@
       ["halligan", 10],
       ["fire_ax", 5],
       ["antiparasitic", 2],
+      ["tuned_mechanism", 1],
+      ["match_trigger", 2],
       ["bot_laserturret", 1]
     ]
   },{
@@ -6004,6 +6016,8 @@
       ["switchblade", 4],
       ["gold_watch", 5],
       ["pocketwatch", 2],
+      ["tuned_mechanism", 2],
+      ["match_trigger", 3],
       ["skinny_tie", 5],
       ["tieclip", 2],
       ["collarpin", 2],

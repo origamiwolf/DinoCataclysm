@@ -19,7 +19,8 @@
         "range" : 0,
         "dispersion" : 0,
         "recoil" : 0,
-        "count" : 100
+        "count" : 100,
+        "effects" : ["NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "laser_capacitor",
@@ -40,7 +41,8 @@
         "range" : 24,
         "dispersion" : 0,
         "recoil" : 0,
-        "count" : 1
+        "count" : 1,
+        "effects" : ["NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "thread",
@@ -178,7 +180,7 @@
         "dispersion" : 0,
         "recoil" : 0,
         "count" : 5,
-        "effects" : ["COOKOFF"]
+        "effects" : ["COOKOFF", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "nail",
@@ -221,7 +223,8 @@
         "range" : 30,
         "dispersion" : 14,
         "recoil" : 0,
-        "count" : 10
+        "count" : 10,
+        "effects" : ["NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "dart",
@@ -242,7 +245,8 @@
         "range" : 30,
         "dispersion" : 5,
         "recoil" : 0,
-        "count" : 10
+        "count" : 10,
+        "effects" : ["RECOVER_3", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "bb",
@@ -263,7 +267,8 @@
         "range" : 12,
         "dispersion" : 11,
         "recoil" : 0,
-        "count" : 200
+        "count" : 200,
+        "effects" : ["NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "feather",
@@ -711,7 +716,7 @@
         "dispersion" : 13,
         "recoil" : 24,
         "count" : 80,
-        "effects" : ["COOKOFF"]
+        "effects" : ["COOKOFF", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "762_m87",
@@ -733,7 +738,7 @@
         "dispersion" : 11,
         "recoil" : 25,
         "count" : 80,
-        "effects" : ["COOKOFF"]
+        "effects" : ["COOKOFF", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "223",
@@ -777,7 +782,7 @@
         "dispersion" : 4,
         "recoil" : 32,
         "count" : 40,
-        "effects" : ["COOKOFF"]
+        "effects" : ["COOKOFF", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "556_incendiary",
@@ -800,7 +805,7 @@
         "recoil" : 32,
         "count" : 30,
         "stack_size": 40,
-        "effects" : ["COOKOFF", "INCENDIARY"]
+        "effects" : ["COOKOFF", "INCENDIARY", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "270",
@@ -892,7 +897,7 @@
         "recoil" : 34,
         "count" : 20,
         "stack_size" : 20,
-        "effects" : ["COOKOFF"]
+        "effects" : ["COOKOFF", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "762_51_incendiary",
@@ -915,7 +920,7 @@
         "recoil" : 32,
         "count" : 10,
         "stack_size" : 20,
-        "effects" : ["COOKOFF", "INCENDIARY"]
+        "effects" : ["COOKOFF", "INCENDIARY", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "laser_pack",
@@ -938,7 +943,8 @@
         "dispersion" : 0,
         "recoil" : 0,
         "stack_size" : 40,
-        "count" : 20
+        "count" : 20,
+        "effects" : ["NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_concussive",
@@ -961,7 +967,7 @@
         "recoil" : 15,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "EXPLOSIVE"]
+        "effects" : ["COOKOFF", "EXPLOSIVE", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_frag",
@@ -984,7 +990,7 @@
         "recoil" : 15,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "FRAG"]
+        "effects" : ["COOKOFF", "FRAG", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_incendiary",
@@ -1007,7 +1013,7 @@
         "recoil" : 15,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "NAPALM"]
+        "effects" : ["COOKOFF", "NAPALM", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_teargas",
@@ -1030,7 +1036,7 @@
         "recoil" : 15,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "TEARGAS"]
+        "effects" : ["COOKOFF", "TEARGAS", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_smoke",
@@ -1053,7 +1059,7 @@
         "recoil" : 15,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "SMOKE", "TRAIL"]
+        "effects" : ["COOKOFF", "SMOKE", "TRAIL", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_flare",
@@ -1076,7 +1082,7 @@
         "recoil" : 17,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["INCENDIARY", "SMOKE", "FLARE"]
+        "effects" : ["INCENDIARY", "SMOKE", "FLARE", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_flashbang",
@@ -1099,7 +1105,7 @@
         "recoil" : 15,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "FLASHBANG"]
+        "effects" : ["COOKOFF", "FLASHBANG", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_acidbomb",
@@ -1122,7 +1128,7 @@
         "recoil" : 15,
         "count" : 1,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "ACIDBOMB"]
+        "effects" : ["COOKOFF", "ACIDBOMB", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_shot",
@@ -1145,7 +1151,7 @@
         "recoil" : 35,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "SHOT"]
+        "effects" : ["COOKOFF", "SHOT", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "40mm_flechette",
@@ -1168,7 +1174,7 @@
         "recoil" : 35,
         "count" : 4,
         "stack_size" : 4,
-        "effects" : ["COOKOFF", "SHOT"]
+        "effects" : ["COOKOFF", "SHOT", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "66mm_HEAT",
@@ -1395,7 +1401,7 @@
         "dispersion" : 0,
         "recoil" : 0,
         "count" : 200,
-        "effects" : ["FLAME","STREAM"]
+        "effects" : ["FLAME", "STREAM", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "medical_tape",
@@ -1461,7 +1467,7 @@
         "dispersion" : 2,
         "recoil" : 15,
         "count" : 4,
-        "effects" : ["COOKOFF", "LARGE_BEANBAG"]
+        "effects" : ["COOKOFF", "LARGE_BEANBAG", "NEVER_MISFIRES"]
     },
     {
         "type" : "AMMO",
@@ -1484,7 +1490,7 @@
         "dispersion" : 5,
         "recoil" : 30,
         "count" : 1,
-        "effects" : ["COOKOFF", "EXPLOSIVE_BIG", "TRAIL"]
+        "effects" : ["COOKOFF", "EXPLOSIVE_BIG", "TRAIL", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "m235tpa",
@@ -1506,7 +1512,7 @@
         "dispersion" : 10,
         "recoil" : 10,
         "count" : 4,
-        "effects" : ["COOKOFF", "NAPALM_BIG", "TRAIL"]
+        "effects" : ["COOKOFF", "NAPALM_BIG", "TRAIL", "NEVER_MISFIRES"]
     },
     {
         "type" : "AMMO",
@@ -1575,7 +1581,7 @@
         "recoil" : 14,
         "count" : 4,
         "stack_size" : 20,
-        "effects" : ["INCENDIARY", "FLARE"]
+        "effects" : ["INCENDIARY", "FLARE", "NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "rebar_rail",
@@ -1596,7 +1602,8 @@
         "range" : 40,
         "dispersion" : 10,
         "recoil" : 20,
-        "count" : 3
+        "count" : 3,
+        "effects" : ["RECYCLED"]
     },
     {   "type" : "AMMO",
         "id" : "steel_rail",
@@ -1617,7 +1624,8 @@
         "range" : 50,
         "dispersion" : 0,
         "recoil" : 0,
-        "count" : 3
+        "count" : 3,
+        "effects" : ["NEVER_MISFIRES"]
     },
     {   "type" : "AMMO",
         "id" : "mininuke_mod",
@@ -1641,6 +1649,6 @@
         "recoil" : 0,
         "count" : 1,
         "stack_size" : 2,
-        "effects" : ["MININUKE_MOD"]
+        "effects" : ["MININUKE_MOD", "NEVER_MISFIRES"]
     }
 ]
