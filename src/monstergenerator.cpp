@@ -327,7 +327,7 @@ void MonsterGenerator::load_monster(JsonObject &jo)
         newmon->def_chance = jo.get_int("special_when_hit_freq", 0);
         newmon->luminance = jo.get_float("luminance", 0);
 
-        newmon->dies = get_death_function(jo, "death_function");
+        newmon->dies = get_death_functions(jo, "death_function");
         newmon->sp_attack = get_attack_function(jo, "special_attack");
         newmon->sp_defense = get_defense_function(jo, "special_when_hit");
 
