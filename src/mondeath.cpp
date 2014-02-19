@@ -469,9 +469,6 @@ void mdeath::smokeburst(monster *z) {
 
 // this function generates clothing for zombies
 void mdeath::zombie(monster *z) {
-    // normal death function first
-    mdeath::normal( z);
-
     // skip clothing generation if the zombie was rezzed rather than spawned
     if (z->no_extra_death_drops) {
         return;
@@ -607,10 +604,12 @@ void mdeath::zombie(monster *z) {
                                     g->turn, 0, 0, rng(1,4));
         }
     }
+
     if (one_in(8)) {
         item art(itypes["cash_card"], g->turn);
         g->m.add_item_or_charges(z->posx(), z->posy(), art);
     }
+
 }
 
 void mdeath::gameover(monster *z) {
