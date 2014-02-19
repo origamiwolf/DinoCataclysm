@@ -785,6 +785,7 @@
       ["waterproof_gunmod", 4],
       ["cu_pipe", 10],
       ["diveknife", 6],
+      ["small_repairkit", 12],
       ["tuned_mechanism", 2],
       ["match_trigger", 3],
       ["u_shotgun", 5]
@@ -1898,6 +1899,7 @@
       ["quikclot", 10],
       ["swim_fins", 20],
       ["diveknife", 12],
+      ["small_repairkit", 2],
       ["leathersandals", 15]
     ]
   },{
@@ -2206,6 +2208,8 @@
       ["cu_pipe", 10],
       ["waterproof_gunmod", 8],
       ["gun_crossbow", 4],
+      ["small_repairkit", 15],
+      ["large_repairkit", 1],
       ["improve_sights", 20]
     ]
   },{
@@ -2846,6 +2850,8 @@
       ["ak47", 7],
       ["saiga_sawn", 5],
       ["arx160", 1],
+      ["small_repairkit", 2],
+      ["large_repairkit", 1],
       ["hk_g3", 10]
     ]
   },{
@@ -2860,6 +2866,8 @@
       ["savage_111f", 4],
       ["sks", 6],
       ["saiga_12", 5],
+      ["small_repairkit", 5],
+      ["large_repairkit", 3],
       ["tuned_mechanism", 1],
       ["match_trigger", 2],
       ["RPG", 1]
@@ -4773,6 +4781,7 @@
       ["signal_flare", 25],
       ["survivormap", 1],
       ["gun_crossbow", 1],
+      ["small_repairkit", 8],
       ["charcoal", 5]
     ]
   },{
@@ -5387,6 +5396,7 @@
     "id" : "military",
     "items":[
       ["bipod" , 1],
+      ["small_repairkit", 10],
       ["water_clean", 90],
       ["knuckle_brass", 15],
       ["duffelbag", 15],
@@ -5772,6 +5782,7 @@
       ["dump_pouch", 10],
       ["electrohack", 3],
       ["processor", 15],
+      ["large_repairkit", 2],
       ["armor_chitin", 1],
       ["plut_cell", 10],
       ["laser_pack", 10],
@@ -6480,6 +6491,7 @@
       ["ashot", 4],
       ["pickaxe", 1],
       ["makeshift_machete", 4],
+      ["small_repairkit", 14],
       ["flamethrower_crude", 6],
       ["flamethrower_simple", 2]
     ]
