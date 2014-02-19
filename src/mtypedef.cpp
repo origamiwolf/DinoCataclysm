@@ -25,7 +25,7 @@ mtype::mtype () {
     sp_freq = 0;
 	def_chance =0;
     item_chance = 0;
-    dies = NULL;
+    dies.push_back(&mdeath::normal);
     sp_attack = NULL;
     sp_defense = NULL;
 	luminance = 0;

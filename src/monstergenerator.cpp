@@ -434,16 +434,20 @@ mtype *MonsterGenerator::get_valid_hallucination()
     return potentials[rng(0, potentials.size() - 1)];
 }
 
-MonDeathFunction MonsterGenerator::get_death_function(JsonObject& jo, std::string member)
+std::vector<void (mdeath::*)(monster*)> MonsterGenerator::get_death_functions(JsonObject& jo, std::string member)
 {
-    static MonDeathFunction default_death = death_map["NORMAL"];
+    std::vector<void (mdeath::*)(monster*)> deaths;
 
-    if (death_map.find(jo.get_string(member, "")) != death_map.end())
-    {
-        return death_map[jo.get_string(member)];
+    std::set<std::string> death_flags = jo.get_tags(member);
+
+    std::set<std::string>::iterator it = death_flags.begin();
+    for (; it != death_flags.end(); ++it) {
+        deaths.push_back(death_map[*it]);
     }
 
-    return default_death;
+    if (deaths.size() == 0)
+        deaths.push_back(death_map["NORMAL"]);
+    return deaths;
 }
 
 MonAttackFunction MonsterGenerator::get_attack_function(JsonObject& jo, std::string member)
