@@ -19,7 +19,8 @@
       "range" : 6,
       "dispersion" : 14,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_5"]
    },
    {
       "type" : "AMMO",
@@ -41,7 +42,8 @@
       "range" : 12,
       "dispersion" : 9,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_10"]
    },
    {
       "type" : "AMMO",
@@ -63,7 +65,8 @@
       "range" : 16,
       "dispersion" : 6,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_15"]
    },
    {
       "type" : "AMMO",
@@ -85,7 +88,8 @@
       "range" : 8,
       "dispersion" : 10,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_10"]
    },
    {
       "type" : "AMMO",
@@ -107,7 +111,8 @@
       "range" : 16,
       "dispersion" : 7,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_15"]
    },
    {
       "type" : "AMMO",
@@ -129,7 +134,8 @@
       "range" : 20,
       "dispersion" : 4,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_25"]
    },
    {
       "type" : "AMMO",
@@ -151,7 +157,8 @@
       "range" : 14,
       "dispersion" : 5,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_3"]
    },
    {
       "type" : "AMMO",
@@ -219,7 +226,8 @@
       "range" : 10,
       "dispersion" : 10,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_5"]
    },
    {
       "type" : "AMMO",
@@ -242,7 +250,8 @@
       "range" : 8,
       "dispersion" : 8,
       "recoil" : 0,
-      "count" : 10
+      "count" : 10,
+      "effects" : ["RECOVER_15"]
    },{
       "type" : "AMMO",
       "id" : "bolt_flaming",
@@ -560,7 +569,8 @@
       "range" : 6,
       "dispersion" : 10,
       "recoil" : 0,
-      "count" : 4
+      "count" : 4,
+      "effects" : ["RECOVER_5"]
    },
    {
       "type" : "AMMO",
@@ -582,7 +592,8 @@
       "range" : 6,
       "dispersion" : 8,
       "recoil" : 0,
-      "count" : 4
+      "count" : 4,
+      "effects" : ["RECOVER_15"]
    },
    {
       "type" : "AMMO",
@@ -604,6 +615,7 @@
       "range" : 10,
       "dispersion" : 6,
       "recoil" : 0,
-      "count" : 4
+      "count" : 4,
+      "effects" : ["RECOVER_3"]
    }
 ]
