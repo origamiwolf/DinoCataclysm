@@ -14,6 +14,7 @@ public:
   int wishmonster_selected;
   int iuse_knife_selected;
   int modify_item_selected;
+  int iexamine_atm_selected;
   int adv_inv_leftsort;
   int adv_inv_rightsort;
   int adv_inv_leftarea;
@@ -49,6 +50,7 @@ public:
       wishmonster_selected = 0;
       iuse_knife_selected = 0;
       modify_item_selected = 0;
+      iexamine_atm_selected = 0;
       adv_inv_leftsort = 1;
       adv_inv_rightsort = 1;
       adv_inv_leftarea = 5;
