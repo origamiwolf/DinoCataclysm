@@ -127,7 +127,7 @@
         "difficulty" : 1,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 3 ] ],
@@ -141,7 +141,7 @@
         "difficulty" : 1,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -155,7 +155,7 @@
         "difficulty" : 1,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 8 ] ],
@@ -169,7 +169,7 @@
         "difficulty" : 2,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -183,7 +183,7 @@
         "difficulty" : 2,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "log", 1 ] ],
@@ -199,7 +199,7 @@
         "time" : 8,
         "tools" : [
             [ "hammer", "hammer_sledge", "primitive_hammer",
-              "hatchet", "nailgun" ]
+              "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -213,7 +213,7 @@
         "difficulty" : 5,
         "time" : 30,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 12 ] ],
@@ -227,7 +227,7 @@
         "difficulty" : 2,
         "time" : 15,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 6 ] ],
@@ -242,7 +242,7 @@
         "time" : 5,
         "tools" : [
             [ "hammer", "hammer_sledge", "primitive_hammer",
-              "hatchet", "nailgun" ]
+              "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -257,7 +257,7 @@
         "time" : 5,
         "tools" : [
             [ "hammer", "hammer_sledge", "primitive_hammer",
-              "hatchet", "nailgun" ]
+              "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -272,7 +272,7 @@
         "time" : 10,
         "tools" : [
             [ "hammer", "hammer_sledge", "primitive_hammer",
-              "hatchet", "nailgun" ]
+              "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 8 ] ],
@@ -286,7 +286,7 @@
         "difficulty" : 5,
         "time" : 30,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge" ]
+            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 8 ] ],
@@ -300,7 +300,7 @@
         "difficulty" : 7,
         "time" : 30,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge" ]
+            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge", "toolset" ]
         ],
         "components" : [
             [ [ "spike", 4 ] ],
@@ -315,7 +315,7 @@
         "time" : 10,
         "tools" : [
             [ "hammer", "hammer_sledge", "primitive_hammer",
-              "hatchet", "nailgun" ]
+              "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "spike", 4 ] ],
@@ -330,7 +330,7 @@
         "time" : 10,
         "tools" : [
             [ "hammer", "hammer_sledge", "primitive_hammer",
-              "hatchet", "nailgun" ]
+              "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -345,7 +345,7 @@
         "difficulty" : 2,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 10 ] ],
@@ -359,7 +359,7 @@
         "difficulty" : 2,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 10 ] ],
@@ -373,7 +373,7 @@
         "difficulty" : 2,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 10 ] ],
@@ -455,7 +455,7 @@
         "difficulty" : 2,
         "time" : 10,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 15 ], [ "log", 2 ] ],
@@ -495,7 +495,7 @@
         "difficulty" : 2,
         "time" : 15,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 12 ] ],
@@ -509,7 +509,7 @@
         "difficulty" : 2,
         "time" : 15,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -523,7 +523,7 @@
         "difficulty" : 9,
         "time" : 15,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge" ],
+            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge", "toolset"],
             [ "hacksaw" ]
         ],
         "components" : [
@@ -538,9 +538,9 @@
         "difficulty" : 9,
         "time" : 15,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge" ],
+            [ "hammer", "primitive_hammer", "hatchet", "hammer_sledge", "toolset" ],
             [ "hacksaw" ],
-            [ "wrench" ]
+            [ "wrench", "toolset" ]
         ],
         "components" : [
             [ [ "steel_lump", 4 ], [ "steel_chunk", 12 ], [ "scrap", 36 ] ],
@@ -555,7 +555,7 @@
         "time" : 5,
         "tools" : [
             [ "hammer", "primitive_hammer", "rock", "hatchet",
-              "shovel", "e_tool", "primitive_shovel", "ax", "primitive_axe", "battleaxe" ]
+              "shovel", "e_tool", "primitive_shovel", "ax", "primitive_axe", "battleaxe", "toolset" ]
         ],
         "components" : [
             [ [ "pointy_stick", 2 ], [ "spear_wood", 2 ] ]
@@ -596,7 +596,7 @@
         "difficulty" : 3,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "rock" ]
+            [ "hammer", "primitive_hammer", "hatchet", "rock", "toolset" ]
         ],
         "components" : [
             [ [ "pipe", 6 ] ],
@@ -646,7 +646,7 @@
         "difficulty" : 3,
         "time" : 40,
         "tools" : [
-            ["hammer", "primitive_hammer", "hatchet", "nailgun"]
+            ["hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 8 ] ],
@@ -660,7 +660,7 @@
         "difficulty" : 3,
         "time" : 0,
         "tools" : [
-            ["hammer", "primitive_hammer", "hatchet"],
+            ["hammer", "primitive_hammer", "hatchet", "toolset" ],
             ["shovel", "e_tool", "primitive_shovel"]
         ],
         "components" : [
@@ -706,7 +706,7 @@
         "time" : 10,
         "tools" : [
             [ "saw" ],
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -721,7 +721,7 @@
         "time" : 20,
         "tools" : [
             [ "saw" ],
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 6 ] ],
@@ -736,7 +736,7 @@
         "time" : 20,
         "tools" : [
             [ "saw" ],
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 12 ] ],
@@ -751,7 +751,7 @@
         "time" : 20,
         "tools" : [
             [ "wrench", "toolset" ],
-            [ "hammer", "primitive_hammer", "hatchet" ]
+            [ "hammer", "primitive_hammer", "hatchet", "toolset" ]
         ],
         "components" : [
             [ [ "sheet_metal", 2 ] ],
@@ -766,7 +766,7 @@
         "time" : 20,
         "tools" : [
             [ "wrench", "toolset" ],
-            [ "hammer", "primitive_hammer", "hatchet" ]
+            [ "hammer", "primitive_hammer", "hatchet", "toolset" ]
         ],
         "components" : [
             [ [ "pipe", 12 ] ]
@@ -779,7 +779,7 @@
         "difficulty" : 0,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 3 ] ],
@@ -793,7 +793,7 @@
         "difficulty" : 0,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 6 ] ],
@@ -807,7 +807,7 @@
         "difficulty" : 0,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 6 ] ],
@@ -821,7 +821,7 @@
         "difficulty" : 0,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 4 ] ],
@@ -835,7 +835,7 @@
         "difficulty" : 0,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 10 ] ],
@@ -851,7 +851,7 @@
         "time" : 20,
         "tools" : [
             [ "saw" ],
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 10 ] ],
@@ -867,7 +867,7 @@
         "time" : 20,
         "tools" : [
             [ "saw" ],
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ]
+            [ "hammer", "primitive_hammer", "hatchet", "nailgun", "toolset" ]
         ],
         "components" : [
             [ [ "2x4", 10 ] ],
@@ -897,7 +897,7 @@
         "time" : 40,
         "tools" : [
             [ "hammer", "primitive_hammer",
-              "shovel", "e_tool", "primitive_shovel" ]
+              "shovel", "e_tool", "primitive_shovel", "toolset" ]
         ],
         "components" : [
             [ [ "rock", 40 ] ]
@@ -910,7 +910,7 @@
         "difficulty" : 0,
         "time" : 20,
         "tools" : [
-            [ "hammer", "primitive_hammer", "hatchet", "nailgun" ],
+            [ "hammer", "primitive_hammer", "hatchet", "toolset" ],
             [ "screwdriver", "toolset" ]
         ],
         "pre_flags" : "DECONSTRUCT",
