@@ -1,0 +1,7 @@
+{
+    "type": "ITEM_BLACKLIST",
+    "items": ["trunks", "wetsuit", "wetsuit_hood", "wetsuit_booties", "wetsuit_gloves", "wetsuit_spring",
+    "swim_fins", "bikini_top", "bikini_top_leather", "bikini_top_fur", "hot_pants", "hot_pants_leather",
+    "hot_pants_fur", "fishing_waders", "flotation_vest", "goggles_swim", "dive_bag", "diving_watch"]
+}
+

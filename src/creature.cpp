@@ -284,19 +284,19 @@ int Creature::deal_projectile_attack(Creature *source, double missed_by,
 
     if (goodhit <= .1) {
         g->add_msg_if_player(source, _("Headshot!"));
-        damage_mult *= rng_float(5, 8);
+        damage_mult *= rng_float(2.45, 3.35);
         bp_hit = bp_head; // headshot hits the head, of course
     } else if (goodhit <= .2) {
         g->add_msg_if_player(source, _("Critical!"));
-        damage_mult *= rng_float(2, 3);
+        damage_mult *= rng_float(1.75, 2.3);
     } else if (goodhit <= .4) {
         g->add_msg_if_player(source, _("Good hit!"));
-        damage_mult *= rng_float(1, 2);
+        damage_mult *= rng_float(1, 1.75);
     } else if (goodhit <= .6) {
         damage_mult *= rng_float(0.5, 1);
     } else if (goodhit <= .8) {
         g->add_msg_if_player(source, _("Grazing hit."));
-        damage_mult *= rng_float(0, 1);
+        damage_mult *= rng_float(0, 0.5);
     } else {
         damage_mult *= 0;
     }

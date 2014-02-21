@@ -16761,7 +16761,6 @@
   "components": [
     [
       [ "cerberus_laser", 3 ],
-      [ "laser_rifle", 3 ],
       [ "v29", 3 ]
     ],
     [

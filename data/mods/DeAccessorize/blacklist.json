@@ -1,0 +1,6 @@
+{
+    "type": "ITEM_BLACKLIST",
+    "items": ["ring", "hairpin", "fc_hairpin", "barrette", "diamond_ring", "gold_ear", "silver_ear", "copper_ear",
+    "necklace", "pearl_collar", "locket", "gold_bracelet", "silver_bracelet", "copper_bracelet", "skinny_tie", "brooch",
+    "small_relic"]
+}

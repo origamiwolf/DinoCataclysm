@@ -1,0 +1,8 @@
+    {
+        "type": "MOD_INFO",
+        "mod-type": "SUPPLEMENTAL",
+        "ident": "DeAccessorize",
+        "name": "De-accessorize",
+        "description": "No fancy or super-fancy items will be spawned.",
+        "path": ""
+    }
