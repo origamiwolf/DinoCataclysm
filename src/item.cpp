@@ -484,9 +484,9 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
     dump->push_back(iteminfo("AMMO", _("Type: "), ammo_name(ammo->type)));
   }
   dump->push_back(iteminfo("AMMO", _("Damage: "), "", ammo->damage));
-  dump->push_back(iteminfo("AMMO", _("Armor-pierce: "), "", ammo->pierce));
-  dump->push_back(iteminfo("AMMO", _("Range: "), "", ammo->range));
-  dump->push_back(iteminfo("AMMO", _("Dispersion: "), "", ammo->dispersion, true, "", true, true));
+  dump->push_back(iteminfo("AMMO", _("Armor-pierce: "), "", ammo->pierce, true, "", true, true));
+  dump->push_back(iteminfo("AMMO", _("Range: "), "", ammo->range, true, "", false, true));
+  dump->push_back(iteminfo("AMMO", _("   Dispersion: "), "", ammo->dispersion, true, "", true, true));
   dump->push_back(iteminfo("AMMO", _("Recoil: "), "", ammo->recoil, true, "", true, true));
   dump->push_back(iteminfo("AMMO", _("Count: "), "", ammo->count));
 
@@ -495,9 +495,9 @@ std::string item::info(bool showtext, std::vector<iteminfo> *dump, bool debug)
 
   dump->push_back(iteminfo("AMMO", _("Type: "), ammo_name(ammo->type)));
   dump->push_back(iteminfo("AMMO", _("Damage: "), "", ammo->damage));
-  dump->push_back(iteminfo("AMMO", _("Armor-pierce: "), "", ammo->pierce));
-  dump->push_back(iteminfo("AMMO", _("Range: "), "", ammo->range));
-  dump->push_back(iteminfo("AMMO", _("Dispersion: "), "", ammo->dispersion, true, "", true, true));
+  dump->push_back(iteminfo("AMMO", _("Armor-pierce: "), "", ammo->pierce, true, "", true, true));
+  dump->push_back(iteminfo("AMMO", _("Range: "), "", ammo->range, true, "", false, true));
+  dump->push_back(iteminfo("AMMO", _("   Dispersion: "), "", ammo->dispersion, true, "", false, true));
   dump->push_back(iteminfo("AMMO", _("Recoil: "), "", ammo->recoil, true, "", true, true));
   dump->push_back(iteminfo("AMMO", _("Count: "), "", contents[0].charges));
 
