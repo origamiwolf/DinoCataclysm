@@ -1,0 +1,8 @@
+    {
+        "type": "MOD_INFO",
+        "mod-type": "SUPPLEMENTAL",
+        "ident": "DoubleRange",
+        "name": "Double Range",
+        "description": "Gun ranges are doubled.",
+        "path": ""
+    }

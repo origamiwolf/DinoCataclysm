@@ -3,5 +3,8 @@
     "ident": "dev:default",
     "name": "default",
     "description": "contains all the mods recommended by the developers",
-    "dependencies": []
+    "dependencies": [ "DeAccessorize",
+"LandGear",
+"StandardClothing","DoubleRange"
+]
 }
