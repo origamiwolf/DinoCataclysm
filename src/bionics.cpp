@@ -522,9 +522,8 @@ void player::activate_bionic(int b)
         if (weapon.type->id == "bio_claws_weapon") {
             g->add_msg(_("You withdraw your claws."));
             weapon = ret_null;
-        } else if (weapon.has_flag ("NO_UNWIELD")) {
-            g->add_msg(_("Deactivate your %s first!"),
-                       weapon.tname().c_str());
+        } else if (weapon.type->id == "bio_blade_weapon") {
+            g->add_msg(_("Deactivate your monomolecular blade first!"));
             power_level += bionics[bio.id]->power_cost;
             return;
         } else if(weapon.type->id != "null") {
@@ -536,6 +535,25 @@ void player::activate_bionic(int b)
         } else {
             g->add_msg(_("Your claws extend!"));
             weapon = item(itypes["bio_claws_weapon"], 0);
+            weapon.invlet = '#';
+        }
+    } else if(bio.id == "bio_blade") {
+        if (weapon.type->id == "bio_blade_weapon") {
+            g->add_msg(_("You retract your blade."));
+            weapon = ret_null;
+        } else if (weapon.type->id == "bio_claws_weapon") {
+            g->add_msg(_("Deactivate your bionic claws first!"));
+            power_level += bionics[bio.id]->power_cost;
+            return;
+        } else if(weapon.type->id != "null") {
+            g->add_msg(_("Your blade extends, forcing you to drop your %s."),
+                       weapon.tname().c_str());
+            g->m.add_item_or_charges(posx, posy, weapon);
+            weapon = item(itypes["bio_blade_weapon"], 0);
+            weapon.invlet = '#';
+        } else {
+            g->add_msg(_("You extend your blade!"));
+            weapon = item(itypes["bio_blade_weapon"], 0);
             weapon.invlet = '#';
         }
     } else if(bio.id == "bio_blaster") {
