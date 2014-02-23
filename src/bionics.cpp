@@ -522,6 +522,11 @@ void player::activate_bionic(int b)
         if (weapon.type->id == "bio_claws_weapon") {
             g->add_msg(_("You withdraw your claws."));
             weapon = ret_null;
+        } else if (weapon.has_flag ("NO_UNWIELD")) {
+            g->add_msg(_("Deactivate your %s first!"),
+                       weapon.tname().c_str());
+            power_level += bionics[bio.id]->power_cost;
+            return;
         } else if(weapon.type->id != "null") {
             g->add_msg(_("Your claws extend, forcing you to drop your %s."),
                        weapon.tname().c_str());
