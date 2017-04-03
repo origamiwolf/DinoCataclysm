@@ -2330,9 +2330,13 @@ void player::mod_stat( const std::string &stat, float modifier )
     } else if( stat == "oxygen" ) {
         oxygen += modifier;
     } else if( stat == "stamina" ) {
-        stamina += modifier;
-        stamina = std::min( stamina, get_stamina_max() );
-        stamina = std::max( 0, stamina );
+        if (get_option<bool>( "STAMINA_TRACK" )) {
+            stamina += modifier;
+            stamina = std::min( stamina, get_stamina_max() );
+            stamina = std::max( 0, stamina );
+        } else {
+            stamina = get_stamina_max();
+        }
     } else {
         // Fall through to the creature method.
         Character::mod_stat( stat, modifier );
@@ -2639,9 +2643,11 @@ void player::disp_status( WINDOW *w, WINDOW *w2 )
         }
 
         if( sideStyle ) {
-            // Make sure this is left-aligned.
-            mvwprintz( w, speedoy, getmaxx( w ) - 9, c_white, "%s", _( "Stm " ) );
-            print_stamina_bar( w );
+            if (get_option<bool>( "STAMINA_TRACK" )) {
+                // Make sure this is left-aligned.
+                mvwprintz( w, speedoy, getmaxx( w ) - 9, c_white, "%s", _( "Stm " ) );
+                print_stamina_bar( w );
+            }
         }
     } else {  // Not in vehicle
         nc_color col_str = c_white, col_dex = c_white, col_int = c_white,
@@ -2712,8 +2718,10 @@ void player::disp_status( WINDOW *w, WINDOW *w2 )
         const auto str_run = pgettext( "movement-type", "R" );
         wprintz( w, c_white, " %s", move_mode == "walk" ? str_walk : str_run );
         if( sideStyle ) {
-            mvwprintz( w, spdy, wx + dx * 4 - 3, c_white, _( "Stm " ) );
-            print_stamina_bar( w );
+            if (get_option<bool>( "STAMINA_TRACK" )) {
+                mvwprintz( w, spdy, wx + dx * 4 - 3, c_white, _( "Stm " ) );
+                print_stamina_bar( w );
+            }
         }
     }
 }
@@ -3796,7 +3804,7 @@ dealt_damage_instance player::deal_damage( Creature* source, body_part bp,
                 add_effect( effect_bite, 1, bp, true );
             }
             add_msg_if_player( "Filth from your clothing has implanted deep in the wound." );
-        } 
+        }
     }
 
     on_hurt( source );
@@ -6614,7 +6622,7 @@ int player::invlet_to_position( const long linvlet ) const
 }
 
 bool player::can_interface_armor() const {
-    bool okay = std::any_of( my_bionics.begin(), my_bionics.end(), 
+    bool okay = std::any_of( my_bionics.begin(), my_bionics.end(),
         []( const bionic &b ) { return b.powered && b.info().armor_interface; } );
     return okay;
 }

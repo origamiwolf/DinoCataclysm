@@ -1552,7 +1552,9 @@ bool game::do_turn()
         refresh_display();
     }
 
-    u.update_bodytemp();
+    if (get_option<bool>( "WEATHER_EFFECTS")) {
+        u.update_bodytemp();
+    }
     u.update_body_wetness( *weather_precise );
     u.apply_wetness_morale( temperature );
     rustCheck();
@@ -5245,10 +5247,12 @@ void game::draw_HP()
         }
         mvwprintz(w_HP, powy, powx, color, "%-3d", u.power_level);
     }
-    if( !wide ) {
-        mvwprintz(w_HP, 14, hpx, c_white, "%s", _("STA"));
-        wmove(w_HP, 15, hpx);
-        u.print_stamina_bar(w_HP);
+    if (get_option<bool>( "STAMINA_TRACK" )) {
+        if( !wide ) {
+            mvwprintz(w_HP, 14, hpx, c_white, "%s", _("STA"));
+            wmove(w_HP, 15, hpx);
+            u.print_stamina_bar(w_HP);
+        }
     }
     wrefresh(w_HP);
 }
@@ -9995,7 +9999,7 @@ bool game::plfire_check( const targeting_data &args ) {
     bool okay = true;
     vehicle *veh = nullptr;
     item &weapon = *args.relevant;
-    
+
     if( u.has_effect( effect_relax_gas ) ) {
         if( one_in(5) ) {
             add_msg( m_good, _( "Your eyes steel, and you raise your weapon!" ) );
@@ -10005,10 +10009,10 @@ bool game::plfire_check( const targeting_data &args ) {
             return false;
         }
     }
-    
+
     if( weapon.is_gunmod() ) {
-        add_msg( m_info, 
-            _( "The %s must be attached to a gun, it can not be fired separately." ), 
+        add_msg( m_info,
+            _( "The %s must be attached to a gun, it can not be fired separately." ),
             weapon.tname().c_str() );
         return false;
     }
@@ -10025,7 +10029,7 @@ bool game::plfire_check( const targeting_data &args ) {
         add_msg( m_info, _( "You need a free arm to drive!" ) );
         return false;
     }
-    
+
     // skip the remaining checks if we are firing a melee weapon.
     if( gun.melee() ) {
         return true;
