@@ -716,7 +716,7 @@ monster_attitude monster::attitude( const Character *u ) const
             effective_anger -= 20;
         }
 
-        
+
         if( u->has_trait( terrifying ) ) {
             effective_morale -= 10;
         }
@@ -1700,11 +1700,6 @@ void monster::drop_items_on_death()
     const auto dropped = g->m.put_items_from_loc( type->death_drops, pos(), calendar::turn );
     if( !type->in_species( ZOMBIE ) && !type->in_species( FUNGUS ) ) {
         return;
-    }
-    for( const auto &it : dropped ) {
-        if( it->is_armor() ) {
-            it->item_tags.insert( "FILTHY" );
-        }
     }
 }
 

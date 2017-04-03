@@ -1591,10 +1591,6 @@ std::string item::info( bool showtext, std::vector<iteminfo> &info ) const
                 info.push_back( iteminfo( "DESCRIPTION",
                                           _( "* This item can be worn on <info>either side</info> of the body." ) ) );
             }
-            if( is_filthy() ) {
-                info.push_back( iteminfo( "DESCRIPTION",
-                                          _( "* This piece of clothing is <bad>filthy</bad>." ) ) );
-            }
             if( is_power_armor() ) {
                 info.push_back( iteminfo( "DESCRIPTION",
                                           _( "* This gear is a part of power armor." ) ) );
@@ -1919,8 +1915,6 @@ nc_color item::color_in_inventory() const
         ret = c_cyan;
     } else if(has_flag("LITCIG")) {
         ret = c_red;
-    } else if( is_filthy() ) {
-        ret = c_brown;
     } else if ( has_flag("LEAK_DAM") && has_flag("RADIOACTIVE") && damage() > 0 ) {
         ret = c_ltgreen;
     } else if (active && !is_food() && !is_food_container()) { // Active items show up as yellow
@@ -2263,10 +2257,6 @@ std::string item::tname( unsigned int quantity, bool with_prefix ) const
 
     if( has_flag( "FIT" ) ) {
         ret << _( " (fits)" );
-    }
-
-    if( is_filthy() ) {
-        ret << _( " (filthy)" );
     }
 
     if( is_tool() && has_flag( "USE_UPS" ) ){
@@ -5966,11 +5956,6 @@ bool item_category::operator==( const item_category &rhs ) const
 bool item_category::operator!=( const item_category &rhs ) const
 {
     return !( *this == rhs );
-}
-
-bool item::is_filthy() const
-{
-    return has_flag( "FILTHY" ) && ( get_world_option<bool>( "FILTHY_MORALE" ) || g->u.has_trait( "SQUEAMISH" ) );
 }
 
 bool item::on_drop( const tripoint &pos )

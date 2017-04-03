@@ -1182,7 +1182,7 @@ void player::complete_disassemble( int item_pos, const tripoint &loc,
     // Get the proper recipe - the one for disassembly, not assembly
     const auto dis_requirements = dis.disassembly_requirements();
     item &org_item = get_item_for_uncraft( *this, item_pos, loc, from_ground );
-    bool filthy = org_item.is_filthy();
+
     if( org_item.is_null() ) {
         add_msg( _( "The item has vanished." ) );
         activity.set_to_null();
@@ -1280,10 +1280,6 @@ void player::complete_disassemble( int item_pos, const tripoint &loc,
             // use newit, the default constructed.
             item act_item = newit;
 
-            if( filthy ) {
-                act_item.item_tags.insert( "FILTHY" );
-            }
-
             for( item::t_item_vector::iterator a = dis_item.components.begin(); a != dis_item.components.end();
                  ++a ) {
                 if( a->type == newit.type ) {
@@ -1315,7 +1311,7 @@ void player::complete_disassemble( int item_pos, const tripoint &loc,
         if( can_decomp_learn( dis ) ) {
             // @todo: make this depend on intelligence
             if( one_in( 4 ) ) {
-                learn_recipe( &dis );
+                learn_recipe( &recipe_dict[ dis.ident() ] );
                 add_msg( m_good, _( "You learned a recipe from disassembling it!" ) );
             } else {
                 add_msg( m_info, _( "You might be able to learn a recipe if you disassemble another." ) );

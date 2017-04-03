@@ -3781,32 +3781,6 @@ dealt_damage_instance player::deal_damage( Creature* source, body_part bp,
         }
     }
 
-    if( get_world_option<bool>( "FILTHY_WOUNDS" ) ) {
-        int sum_cover = 0;
-        for( const item &i : worn ) {
-            if( i.covers( bp ) && i.is_filthy() ) {
-                sum_cover += i.get_coverage();
-            }
-        }
-
-        // Chance of infection is damage (with cut and stab x4) * sum of coverage on affected body part, in percent.
-        // i.e. if the body part has a sum of 100 coverage from filthy clothing,
-        // each point of damage has a 1% change of causing infection.
-        const int cut_type_dam = dealt_dams.type_damage( DT_CUT ) + dealt_dams.type_damage( DT_STAB );
-        const int combined_dam = dealt_dams.type_damage( DT_BASH ) + ( cut_type_dam * 4 );
-        const int infection_chance = ( combined_dam * sum_cover ) / 100;
-        if( x_in_y( infection_chance, 100 ) ) {
-            if( has_effect( effect_bite, bp ) ) {
-                add_effect( effect_bite, 400, bp, true );
-            } else if( has_effect( effect_infected, bp ) ) {
-                add_effect( effect_infected, 250, bp, true );
-            } else {
-                add_effect( effect_bite, 1, bp, true );
-            }
-            add_msg_if_player( "Filth from your clothing has implanted deep in the wound." );
-        }
-    }
-
     on_hurt( source );
     return dealt_dams;
 }
@@ -7466,13 +7440,6 @@ bool player::can_wear( const item& it, bool alert ) const
     if( has_trait( "WOOLALLERGY" ) && ( it.made_of( material_id( "wool" ) ) || it.item_tags.count( "wooled" ) ) ) {
         if( alert ) {
             add_msg_if_player( m_info, _( "You can't wear that, it's made of wool!" ) );
-        }
-        return false;
-    }
-
-    if( it.is_filthy() && has_trait( "SQUEAMISH" ) ) {
-        if( alert ) {
-            add_msg_if_player( m_info, _( "You can't wear that, it's filthy!" ) );
         }
         return false;
     }

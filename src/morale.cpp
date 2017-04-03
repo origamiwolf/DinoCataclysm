@@ -547,15 +547,11 @@ void player_morale::set_worn( const item &it, bool worn )
 {
     const bool fancy = it.has_flag( "FANCY" );
     const bool super_fancy = it.has_flag( "SUPER_FANCY" );
-    const bool filthy_gear = it.has_flag( "FILTHY" );
     const int sign = ( worn ) ? 1 : -1;
 
     const auto update_body_part = [&]( body_part_data & bp_data ) {
         if( fancy || super_fancy ) {
             bp_data.fancy += sign;
-        }
-        if( filthy_gear ) {
-            bp_data.filthy += sign;
         }
         bp_data.covered += sign;
     };
@@ -589,9 +585,6 @@ void player_morale::set_worn( const item &it, bool worn )
     }
     if( fancy || super_fancy ) {
         update_stylish_bonus();
-    }
-    if( filthy_gear ) {
-        update_squeamish_penalty();
     }
     update_constrained_penalty();
 }
@@ -706,29 +699,26 @@ void player_morale::update_constrained_penalty()
 
 void player_morale::update_squeamish_penalty()
 {
-    if( !get_world_option<bool>( "FILTHY_MORALE" ) ) {
-        set_permanent( MORALE_PERM_FILTHY, 0 );
-        return;
-    }
-
-    int penalty = 0;
-    const auto bp_pen = [ this ]( body_part bp, int penalty ) -> int {
-        return (
-            body_parts[bp].filthy > 0 ||
-            body_parts[opposite_body_part( bp )].filthy > 0 ) ? penalty : 0;
-    };
-    penalty = 2 * std::min( int( no_body_part.filthy ), 3 ) +
-              bp_pen( bp_torso,  6 ) +
-              bp_pen( bp_head,   7 ) +
-              bp_pen( bp_eyes,   8 ) +
-              bp_pen( bp_mouth,  9 ) +
-              bp_pen( bp_leg_l,  5 ) +
-              bp_pen( bp_leg_r,  5 ) +
-              bp_pen( bp_arm_l,  5 ) +
-              bp_pen( bp_arm_r,  5 ) +
-              bp_pen( bp_foot_l, 3 ) +
-              bp_pen( bp_foot_r, 3 ) +
-              bp_pen( bp_hand_l, 3 ) +
-              bp_pen( bp_hand_r, 3 );
-    set_permanent( MORALE_PERM_FILTHY, -penalty );
+    // squeamish might be used for other cases, eg butchering
+    return;
+//    int penalty = 0;
+//    const auto bp_pen = [ this ]( body_part bp, int penalty ) -> int {
+//        return (
+//            body_parts[bp].filthy > 0 ||
+//            body_parts[opposite_body_part( bp )].filthy > 0 ) ? penalty : 0;
+//    };
+//    penalty = 2 * std::min( int( no_body_part.filthy ), 3 ) +
+//              bp_pen( bp_torso,  6 ) +
+//              bp_pen( bp_head,   7 ) +
+//              bp_pen( bp_eyes,   8 ) +
+//              bp_pen( bp_mouth,  9 ) +
+//              bp_pen( bp_leg_l,  5 ) +
+//              bp_pen( bp_leg_r,  5 ) +
+//              bp_pen( bp_arm_l,  5 ) +
+//              bp_pen( bp_arm_r,  5 ) +
+//              bp_pen( bp_foot_l, 3 ) +
+//              bp_pen( bp_foot_r, 3 ) +
+//              bp_pen( bp_hand_l, 3 ) +
+//              bp_pen( bp_hand_r, 3 );
+//    set_permanent( MORALE_PERM_FILTHY, -penalty );
 }
