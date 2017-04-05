@@ -2250,15 +2250,8 @@ tab_direction set_description(WINDOW *w, player *u, const bool allow_reroll, poi
                 redraw = true;
                 continue;
             } else if (u->name.empty()) {
-                mvwprintz(w_name, 0, namebar_pos, h_ltgray, _("______NO NAME ENTERED!!!______"));
+                u->pick_name();
                 wrefresh(w_name);
-                if (!query_yn(_("Are you SURE you're finished? Your name will be randomly generated."))) {
-                    redraw = true;
-                    continue;
-                } else {
-                    u->pick_name();
-                    return tab_direction::FORWARD;
-                }
             } else if (query_yn(_("Are you SURE you're finished?"))) {
                 return tab_direction::FORWARD;
             } else {
