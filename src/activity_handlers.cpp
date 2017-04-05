@@ -142,7 +142,7 @@ void activity_handlers::burrow_finish( player_activity *act, player *p )
         p->mod_fatigue( 10 );
     }
     g->m.destroy( pos, true );
-    
+
     act->set_to_null();
 }
 
@@ -210,6 +210,13 @@ void set_up_butchery( player_activity &act, player &u )
 
     const mtype *corpse = items[act.index].get_mtype();
     int time_to_cut = 0;
+
+    if (corpse->has_flag( MF_HUMAN )) {
+        add_msg( m_good, _( "You're not that beastly...yet" ) );
+        act.set_to_null();
+        return;
+    }
+
     switch( corpse->size ) {
         // Time (roughly) in turns to cut up the corpse
         case MS_TINY:
@@ -925,7 +932,7 @@ void activity_handlers::forage_finish( player_activity *act, player *p )
     const int max_exp = 2 * ( max_forage_skill - p->get_skill_level( skill_survival ) );
     // Award experience for foraging attempt regardless of success
     p->practice( skill_survival, rng(1, max_exp), max_forage_skill );
-    
+
     act->set_to_null();
 }
 
@@ -1439,7 +1446,7 @@ void activity_handlers::oxytorch_do_turn( player_activity *act, player *p )
     if( act->values[0] <= 0 ) {
         return;
     }
-    
+
     item &it = p->i_at( act->position );
     // act->values[0] is the number of charges yet to be consumed
     const long charges_used = std::min( long( act->values[0] ), it.ammo_required() );
@@ -1527,12 +1534,12 @@ repeat_type repeat_menu( const std::string &title, repeat_type last_selection )
     uimenu rmenu;
     rmenu.text = title;
     rmenu.return_invalid = true;
-    
+
     rmenu.addentry( REPEAT_ONCE, true, '1', _("Repeat once") );
     rmenu.addentry( REPEAT_FOREVER, true, '2', _("Repeat as long as you can") );
     rmenu.addentry( REPEAT_FULL, true, '3', _("Repeat until fully repaired, but don't reinforce") );
     rmenu.addentry( REPEAT_EVENT, true, '4', _("Repeat until success/failure/level up") );
-    
+
     rmenu.selected = last_selection;
 
     rmenu.query();
@@ -1799,7 +1806,7 @@ void activity_handlers::clear_rubble_finish( player_activity *act, player *p )
     const int bonus = act->index * act->index;
     p->mod_hunger ( 10 / bonus );
     p->mod_thirst ( 10 / bonus );
-    
+
     act->set_to_null();
 }
 
