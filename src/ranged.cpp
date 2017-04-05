@@ -140,6 +140,8 @@ projectile_attack_aim Creature::projectile_attack_roll( double dispersion, doubl
 {
     projectile_attack_aim aim;
 
+    dispersion *= get_world_option<float>( "DISPERSION_FACTOR" );
+
     // dispersion is a measure of the dispersion of shots due to the gun + shooter characteristics
     // i.e. it is independent of any particular shot
 

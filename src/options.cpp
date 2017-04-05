@@ -1366,7 +1366,7 @@ void options_manager::init()
 
     add("MONSTER_UPGRADE_FACTOR", "world_default", _("Monster evolution scaling factor"),
         _("A scaling factor that determines the time between monster upgrades. A higher number means slower evolution. Set to 0.00 to turn off monster upgrades."),
-        0.0, 100, 4.0, 0.01
+        0.0, 100, 99.0, 0.01
         );
 
     mOptionsSort["world_default"]++;
@@ -1482,7 +1482,7 @@ void options_manager::init()
 
     add("NO_VITAMINS", "world_default", _("Disables tracking vitamins in food items."),
         _("If true, disables vitamin tracking and vitamin disorders."),
-        false, COPT_ALWAYS_HIDE
+        true
         );
 
     mOptionsSort["world_default"]++;
@@ -1494,16 +1494,21 @@ void options_manager::init()
 
     mOptionsSort["world_default"]++;
 
-    add("WEATHER_EFFECTS", "world_default", _("Disables weather-related penalties for player."),
+    add("WEATHER_EFFECTS", "world_default", _("Enables weather-related penalties for player."),
         _("If true, player will be affected by temperature and wind chill"),
         false
         );
 
     mOptionsSort["world_default"]++;
 
-    add("STAMINA_TRACK", "world_default", _("Disables stamina tracking for player."),
+    add("STAMINA_TRACK", "world_default", _("Enables stamina tracking for player."),
         _("If true, player stamina will be tracked."),
         false
+        );
+
+    add("DISPERSION_FACTOR", "world_default", _("Gun dispersion factor"),
+        _("A scaling factor that determines the dispersion factor.  The higher the dispersion, the more shots will drift."),
+        0.1, 1.0, 1.0, 0.1
         );
 
     for (unsigned i = 0; i < vPages.size(); ++i) {
