@@ -260,7 +260,6 @@ void butchery_drops_hardcoded( const mtype *corpse, player *p, int age, const st
     int sinews = 0;
     int feathers = 0;
     int wool = 0;
-    bool stomach = false;
 
     int max_practice = 4;
     switch( corpse->size ) {
@@ -316,7 +315,6 @@ void butchery_drops_hardcoded( const mtype *corpse, player *p, int age, const st
     sinews +=   std::min( 0, roll_butchery() - 8 );
     feathers += std::min( 0, roll_butchery() - 1 );
     wool +=     std::min( 0, roll_butchery() );
-    stomach = roll_butchery() >= 0;
 
     int practice = std::max( 0, 4 + pieces + roll_butchery() );
 
@@ -348,27 +346,6 @@ void butchery_drops_hardcoded( const mtype *corpse, player *p, int age, const st
         } else if( corpse->made_of( material_id( "veggy" ) ) ) {
             g->m.spawn_item( p->pos(), "plant_fibre", sinews, 0, age );
             p->add_msg_if_player( m_good, _( "You harvest some plant fibers!" ) );
-        }
-    }
-
-    if( stomach ) {
-        const itype_id meat = corpse->get_meat_itype();
-        if( meat == "meat" ) {
-            if( corpse->size == MS_SMALL || corpse->size == MS_MEDIUM ) {
-                g->m.spawn_item( p->pos(), "stomach", 1, 0, age );
-                p->add_msg_if_player( m_good, _( "You harvest the stomach!" ) );
-            } else if( corpse->size == MS_LARGE || corpse->size == MS_HUGE ) {
-                g->m.spawn_item( p->pos(), "stomach_large", 1, 0, age );
-                p->add_msg_if_player( m_good, _( "You harvest the stomach!" ) );
-            }
-        } else if( meat == "human_flesh" ) {
-            if( corpse->size == MS_SMALL || corpse->size == MS_MEDIUM ) {
-                g->m.spawn_item( p->pos(), "hstomach", 1, 0, age );
-                p->add_msg_if_player( m_good, _( "You harvest the stomach!" ) );
-            } else if( corpse->size == MS_LARGE || corpse->size == MS_HUGE ) {
-                g->m.spawn_item( p->pos(), "hstomach_large", 1, 0, age );
-                p->add_msg_if_player( m_good, _( "You harvest the stomach!" ) );
-            }
         }
     }
 
@@ -505,14 +482,10 @@ void butchery_drops_hardcoded( const mtype *corpse, player *p, int age, const st
             chunk.set_mtype( corpse );
 
             // for now don't drop tainted or cannibal. parts overhaul of taint system to not require excessive item duplication
-            bool make_offal = !chunk.is_tainted() && !chunk.has_flag( "CANNIBALISM" ) &&
-                              !chunk.made_of ( material_id ( "veggy" ) );
-            item parts( make_offal ? "offal" : meat, age );
-            parts.set_mtype( corpse );
 
             g->m.add_item_or_charges( p->pos(), chunk );
             for( int i = 1; i <= pieces; ++i ) {
-                g->m.add_item_or_charges( p->pos(), one_in( 3 ) ? parts : chunk );
+                g->m.add_item_or_charges( p->pos(), chunk );
             }
         }
     }

@@ -49,10 +49,10 @@ int player::stomach_capacity() const
     }
 
     if( has_trait( "GOURMAND" ) || has_trait( "HIBERNATE" ) ) {
-        return -60;
+        return -120;
     }
 
-    return -20;
+    return -40;
 }
 
 // TODO: Move pizza scraping here.
