@@ -71,7 +71,7 @@
 #define STR_LIFT_FACTOR 50000 // 50kg/STR @todo revert to 10kg/STR
 
 /** Weight per level of LIFT/JACK tool quality */
-#define TOOL_LIFT_FACTOR 500000 // 500kg/level
+#define TOOL_LIFT_FACTOR 5000000 // 5000kg/level
 
 /** Cap JACK requirements to support arbritrarily large vehicles */
 #define JACK_LIMIT 8500000 // 8500kg (8.5 metric tonnes)
