@@ -526,10 +526,10 @@ void inventory::form_from_map( const tripoint &origin, int range, bool assign_in
             dehydrator.item_tags.insert("PSEUDO");
             add_item(dehydrator);
 
-            item press("press", 0);
-            press.charges = veh->fuel_left("battery", true);
-            press.item_tags.insert("PSEUDO");
-            add_item(press);
+//            item press("press", 0);
+//            press.charges = veh->fuel_left("battery", true);
+//            press.item_tags.insert("PSEUDO");
+//            add_item(press);
         }
         if (forgepart >= 0) {
             item forge("forge", 0);

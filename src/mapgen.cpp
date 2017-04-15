@@ -82,7 +82,7 @@ const mtype_id mon_yugg( "mon_yugg" );
 const mtype_id mon_zombie( "mon_zombie" );
 const mtype_id mon_zombie_bio_op( "mon_zombie_bio_op" );
 const mtype_id mon_zombie_brute( "mon_zombie_brute" );
-const mtype_id mon_zombie_child( "mon_zombie_child" );
+const mtype_id mon_zombie_child( "mon_zombie" );
 const mtype_id mon_zombie_cop( "mon_zombie_cop" );
 const mtype_id mon_zombie_dog( "mon_zombie_dog" );
 const mtype_id mon_zombie_electric( "mon_zombie_electric" );

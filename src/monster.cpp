@@ -55,7 +55,7 @@ const mtype_id mon_zombie( "mon_zombie" );
 const mtype_id mon_zombie_bio_op( "mon_zombie_bio_op" );
 const mtype_id mon_zombie_brute( "mon_zombie_brute" );
 const mtype_id mon_zombie_brute_shocker( "mon_zombie_brute_shocker" );
-const mtype_id mon_zombie_child( "mon_zombie_child" );
+const mtype_id mon_zombie_child( "mon_zombie" );
 const mtype_id mon_zombie_cop( "mon_zombie_cop" );
 const mtype_id mon_zombie_electric( "mon_zombie_electric" );
 const mtype_id mon_zombie_fat( "mon_zombie_fat" );

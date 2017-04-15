@@ -5101,9 +5101,10 @@ std::list<item> map::use_charges(const tripoint &origin, const int range,
         if (craftpart >= 0) { // we have a craftrig, now to see what to drain
             itype_id ftype = "null";
 
-            if (type == "press") {
-                ftype = "battery";
-            } else if (type == "vac_sealer") {
+//            if (type == "press") {
+//                ftype = "battery";
+            if (type == "vac_sealer") {
+//            } else if (type == "vac_sealer") {
                 ftype = "battery";
             } else if (type == "dehydrator") {
                 ftype = "battery";
