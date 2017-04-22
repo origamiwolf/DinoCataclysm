@@ -69,7 +69,7 @@ void mdeath::normal(monster *z)
     const int max_hp = std::max( z->get_hp_max(), 1 );
     const float overflow_damage = std::max( -z->get_hp(), 0 );
     const float corpse_damage = 2.5 * overflow_damage / max_hp;
-    const bool pulverized = corpse_damage > 5 && overflow_damage > z->get_hp_max();
+    const bool pulverized = corpse_damage > 3 && overflow_damage > 0.5 * z->get_hp_max();
 
     z->bleed(); // leave some blood if we have to
 
