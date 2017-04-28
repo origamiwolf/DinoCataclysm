@@ -1828,15 +1828,15 @@ static void cycle_action( item& weap, const tripoint &pos ) {
     }
 
     // some magazines also eject disintegrating linkages
-    const auto mag = weap.magazine_current();
-    if( mag && mag->type->magazine->linkage != "NULL" ) {
-        item linkage( mag->type->magazine->linkage, calendar::turn, 1 );
-        if( cargo.empty() ) {
-            g->m.add_item_or_charges( eject, linkage );
-        } else {
-            veh->add_item( *cargo.front(), linkage );
-        }
-    }
+//    const auto mag = weap.magazine_current();
+//    if( mag && mag->type->magazine->linkage != "NULL" ) {
+//        item linkage( mag->type->magazine->linkage, calendar::turn, 1 );
+//        if( cargo.empty() ) {
+//            g->m.add_item_or_charges( eject, linkage );
+//        } else {
+//            veh->add_item( *cargo.front(), linkage );
+//        }
+//    }
 }
 
 void make_gun_sound_effect(player &p, bool burst, item *weapon)
