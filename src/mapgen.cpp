@@ -3443,19 +3443,19 @@ ff.......|....|WWWWWWWW|\n\
                     spawn_item(SEEX - 1, SEEY    , "laser_rifle", dice (1, 0));
                     spawn_item(SEEX    , SEEY    , "ftk93");
                     spawn_item(SEEX - 1, SEEY    , "recipe_atomic_battery");
-                    spawn_item(SEEX    , SEEY  -1, "solar_panel_v3"); //quantum solar panel, 6 panels in one!
+                    spawn_item(SEEX    , SEEY  -1, "solar_panel_v2"); //quantum solar panel, 6 panels in one!
                 } else if (loot_variant > 67 && loot_variant < 89) {
                     spawn_item(SEEX - 1, SEEY - 1, "mininuke", dice(3, 6));
                     spawn_item(SEEX    , SEEY - 1, "mininuke", dice(3, 6));
                     spawn_item(SEEX - 1, SEEY    , "mininuke", dice(3, 6));
                     spawn_item(SEEX    , SEEY    , "mininuke", dice(3, 6));
                     spawn_item(SEEX    , SEEY    , "recipe_atomic_battery");
-                    spawn_item(SEEX    , SEEY    , "solar_panel_v3"); //quantum solar panel, 6 panels in one!
+                    spawn_item(SEEX    , SEEY    , "solar_panel_v2"); //quantum solar panel, 6 panels in one!
                 }  else { // loot_variant between 90 and 96.
-                    spawn_item(SEEX - 1, SEEY - 1, "rm13_armor");
+                    spawn_item(SEEX - 1, SEEY - 1, "ftk93");
                     spawn_item(SEEX    , SEEY - 1, "plut_cell");
                     spawn_item(SEEX - 1, SEEY    , "plut_cell");
-                    spawn_item(SEEX    , SEEY    , "recipe_caseless");
+                    spawn_item(SEEX    , SEEY    , "laser_rifle", dice (1, 0));
                 }
             } else { // 4% of the lab ends will be this weapons testing end.
                 madd_trap( this, SEEX - 4, SEEY - 3, tr_dissector);
@@ -3477,7 +3477,7 @@ ff.......|....|WWWWWWWW|\n\
                 line(this, t_reinforced_glass, SEEX + 2, SEEY - 2, SEEX + 2, SEEY + 1);
                 place_items("ammo_rare", 96, SEEX - 2, SEEY - 1, SEEX + 1, SEEY - 1, false, 0);
                 place_items("guns_rare", 96, SEEX - 2, SEEY, SEEX + 1, SEEY, false, 0);
-                spawn_item(SEEX + 1, SEEY    , "solar_panel_v3"); //quantum solar panel, 6 panels in one!
+                spawn_item(SEEX + 1, SEEY    , "solar_panel_v2"); //quantum solar panel, 6 panels in one!
             }
             break;
 
