@@ -252,7 +252,7 @@ item &inventory::add_item(item newit, bool keep_invlet, bool assign_invlet)
     if( !keep_invlet && g->u.assigned_invlet.count(newit.invlet) ) {
         newit.invlet = '\0';
     }
-    
+
     // Remove letters if not in the favourites cache
     if( !keep_invlet && assign_invlet && newit.invlet ) {
         auto invlet_list_iter = invlet_cache.find( newit.typeId() );
@@ -538,6 +538,14 @@ void inventory::form_from_map( const tripoint &origin, int range, bool assign_in
             dehydrator.charges = veh->fuel_left("battery", true);
             dehydrator.item_tags.insert("PSEUDO");
             add_item(dehydrator);
+
+            item sealer("can_sealer", 0);
+            sealer.item_tags.insert("PSEUDO");
+            add_item(sealer);
+
+            item extruder("pastaextruder", 0);
+            extruder.item_tags.insert("PSEUDO");
+            add_item(extruder);
 
 //            item press("press", 0);
 //            press.charges = veh->fuel_left("battery", true);
