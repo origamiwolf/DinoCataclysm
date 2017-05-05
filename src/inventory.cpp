@@ -547,6 +547,10 @@ void inventory::form_from_map( const tripoint &origin, int range, bool assign_in
             extruder.item_tags.insert("PSEUDO");
             add_item(extruder);
 
+            item quern("quern", 0);
+            extruder.item_tags.insert("PSEUDO");
+            add_item(quern);
+
 //            item press("press", 0);
 //            press.charges = veh->fuel_left("battery", true);
 //            press.item_tags.insert("PSEUDO");
