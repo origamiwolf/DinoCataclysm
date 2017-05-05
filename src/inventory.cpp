@@ -547,7 +547,7 @@ void inventory::form_from_map( const tripoint &origin, int range, bool assign_in
             extruder.item_tags.insert("PSEUDO");
             add_item(extruder);
 
-            item quern("quern", 0);
+            item quern("rock_quern", 0);
             extruder.item_tags.insert("PSEUDO");
             add_item(quern);
 
