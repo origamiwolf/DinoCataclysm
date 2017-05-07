@@ -3426,7 +3426,7 @@ int iuse::granade_act(player *, item *it, bool t, const tripoint &pos)
         int effect_roll = rng(1, 5);
         auto buff_stat = [&](int &current_stat, int modify_by) {
           auto modified_stat = current_stat + modify_by;
-          current_stat = std::max(current_stat, std::min(15, modified_stat));
+          current_stat = std::max(current_stat, std::min(30, modified_stat));
         };
         switch (effect_roll) {
             case 1:
