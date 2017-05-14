@@ -31,6 +31,7 @@ class field;
 class field_entry;
 enum field_id : int;
 struct pathfinding_settings;
+using trait_id = string_id<mutation_branch>;
 
 enum m_size : int {
     MS_TINY = 0,    // Squirrel
@@ -368,7 +369,7 @@ class Creature
         virtual void process_effects();
 
         /** Returns true if the player has the entered trait, returns false for non-humans */
-        virtual bool has_trait(const std::string &flag) const;
+        virtual bool has_trait( const trait_id &flag ) const;
 
         // not-quite-stats, maybe group these with stats later
         virtual void mod_pain(int npain);
